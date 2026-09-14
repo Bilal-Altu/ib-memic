@@ -309,7 +309,6 @@ address { font-style: normal; }
 }
 .nav__liste a:hover, .nav__liste a.is-active { color: var(--tusche); }
 .nav__liste a:hover::after, .nav__liste a.is-active::after { transform: scaleX(1); }
-.nav__nr { display: none; }
 
 .kopf__tel {
   display: inline-flex;
@@ -393,7 +392,6 @@ address { font-style: normal; }
     color: var(--tusche);
   }
   .nav__liste a::after { display: none; }
-  .nav__nr { display: inline; font-family: var(--mono); font-size: .75rem; color: var(--grau); letter-spacing: 0; }
   .nav__fuss { display: grid; gap: .8rem; margin-top: 2rem; }
   body.nav-open { overflow: hidden; }
 }
@@ -450,9 +448,9 @@ address { font-style: normal; }
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
   gap: clamp(2rem, 1rem + 4vw, 5.5rem);
-  align-items: end;
+  align-items: center;
 }
-.held__text { padding-bottom: clamp(0rem, 2vw, 2rem); }
+.held__text { min-width: 0; }
 .held h1 { display: grid; gap: clamp(1.1rem, .8rem + 1vw, 1.8rem); }
 .held__zeile {
   display: block;
@@ -557,6 +555,21 @@ address { font-style: normal; }
 .fakten__zahl sup { font-size: .45em; vertical-align: top; margin-left: .1em; color: var(--rot); letter-spacing: 0; }
 .fakten__text { display: block; margin-top: .55rem; font-size: .9rem; color: var(--grau); line-height: 1.4; max-width: 24ch; }
 
+/* Am großen Bildschirm passt der Start samt Faktenleiste in das erste
+   Bild. Die Zeichnung gibt dafür Höhe ab, nicht die Schrift. */
+@media (min-width: 961px) {
+  .held {
+    min-height: calc(100svh - var(--kopf-h));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1.25rem, 3vh, 3rem) 0 clamp(.5rem, 1.5vh, 1.25rem);
+  }
+  .held__plan .zeichnung { max-height: clamp(260px, calc(100svh - var(--kopf-h) - 440px), 620px); }
+  .fakten { margin-top: clamp(1.5rem, 4vh, 3.5rem); }
+  .fakten li { padding-top: 1.1rem; padding-bottom: .4rem; }
+}
+
 @media (max-width: 960px) {
   .held__in { grid-template-columns: 1fr; align-items: start; }
   .held__plan .zeichnung { max-height: 460px; }
@@ -619,7 +632,8 @@ address { font-style: normal; }
   border-bottom: 1px solid var(--linie);
   font-size: 1rem;
 }
-.aussage__liste li span:last-child { font-family: var(--mono); font-size: .78rem; color: var(--grau); text-align: right; }
+.aussage__liste li span:first-child { color: var(--grau); }
+.aussage__liste li span:last-child { font-weight: 500; letter-spacing: -.01em; color: var(--tusche); text-align: right; }
 
 @media (max-width: 820px) {
   .aussage__unten { grid-template-columns: 1fr; }
@@ -935,7 +949,7 @@ address { font-style: normal; }
   overflow: hidden;
   transition: max-height .5s var(--ease), opacity .4s var(--ease), margin-top .5s var(--ease);
 }
-.lastpfad-an .schritt.is-aktiv .schritt__text { max-height: 7em; margin-top: .4rem; opacity: 1; }
+.lastpfad-an .schritt.is-aktiv .schritt__text { max-height: 14em; margin-top: .4rem; opacity: 1; }
 .lastpfad-an .lastpfad .lp { opacity: 0; transition: opacity .6s var(--ease); }
 .lastpfad-an .lastpfad.ab-1 .lp-1,
 .lastpfad-an .lastpfad.ab-2 .lp-2,
