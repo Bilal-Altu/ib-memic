@@ -278,7 +278,7 @@ address { font-style: normal; }
 .marke-logo svg { width: 42px; height: auto; }
 .marke-logo__text { display: grid; line-height: 1.15; }
 .marke-logo__name { font-weight: 600; font-size: 1rem; letter-spacing: -.02em; }
-.marke-logo__zusatz { font-family: var(--mono); font-size: .68rem; color: var(--grau); letter-spacing: .02em; }
+.marke-logo__zusatz { font-size: .8rem; color: var(--grau); letter-spacing: -.005em; }
 
 .nav { margin-left: auto; }
 .nav__liste {
