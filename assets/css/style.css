@@ -352,6 +352,10 @@ address { font-style: normal; }
 }
 
 @media (max-width: 900px) {
+  /* Kein backdrop-filter am Handy: Er macht die Kopfleiste zum Bezugsrahmen
+     für position: fixed — das Menü wäre dann nur so hoch wie die Leiste
+     selbst und damit unsichtbar. */
+  .kopf { background: var(--papier); -webkit-backdrop-filter: none; backdrop-filter: none; }
   .burger { display: block; }
   .kopf .kopf__cta { display: none; }
   .nav {
