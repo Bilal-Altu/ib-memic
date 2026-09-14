@@ -964,60 +964,97 @@ address { font-style: normal; }
    [05] Arbeitsweise — breite Hallenansicht, vier Grundsätze
    --------------------------------------------------------- */
 .arbeitsweise__kopf { max-width: 900px; }
-/* Pläne: vier kleine Ausschnitte als Karten, das ganze Blatt erst im
-   Fenster. Die volle Planmappe war auf der Seite zu wuchtig. */
-.planreihe { margin-top: clamp(2.5rem, 2rem + 3vw, 4.5rem); }
-.planreihe__intro { max-width: 62ch; margin: 0 0 1.4rem; font-size: var(--lead); color: var(--grau); }
-.planreihe__liste {
+/* Arbeitsweise: links Text und Grundsätze, rechts ein Stapel aus den vier
+   echten Planblättern. Er liegt ruhig da und fächert beim Überfahren auf. */
+.arbeitsweise__raster {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(.75rem, .5rem + 1vw, 1.25rem);
-  list-style: none;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 1rem + 5vw, 6rem);
+  align-items: center;
 }
-.planreihe__liste li { min-width: 0; }
-.plankarte {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+.arbeitsweise__intro { max-width: 52ch; margin: 1.4rem 0 0; font-size: var(--lead); color: var(--grau); }
+.arbeitsweise .grundsaetze { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(2rem, 1.5rem + 2vw, 3rem); }
+
+.planstapel { margin: 0; }
+.planstapel__buehne { position: relative; aspect-ratio: 1.18; }
+.planblatt {
+  --dreh: 0deg;
+  --x: 0%;
+  --y: 0%;
+  position: absolute;
+  left: 9%;
+  top: 12%;
+  width: 82%;
+  aspect-ratio: 1.4142;
   padding: 0;
   overflow: hidden;
   border: 1px solid var(--linie-2);
-  background: var(--weiss);
-  color: inherit;
-  text-align: left;
-  cursor: zoom-in;
-  transition: border-color .25s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(19, 19, 19, .08), 0 18px 34px -22px rgba(19, 19, 19, .45);
+  cursor: pointer;
+  transform: translate(var(--x), var(--y)) rotate(var(--dreh));
+  transform-origin: 50% 100%;
+  translate: 0 0;
+  transition: transform .65s cubic-bezier(.2, .8, .2, 1), translate .35s var(--ease), box-shadow .35s var(--ease);
 }
-.plankarte:hover { border-color: var(--tusche); transform: translateY(-4px); box-shadow: 0 24px 40px -28px rgba(19, 19, 19, .5); }
-.plankarte__bild { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: #fff; border-bottom: 1px solid var(--linie); }
-.plankarte__bild picture, .plankarte__bild img { width: 100%; height: 100%; }
-.plankarte__bild img { object-fit: cover; transition: transform .6s var(--ease); }
-.plankarte:hover .plankarte__bild img { transform: scale(1.06); }
-.plankarte__text { display: grid; gap: .1rem; padding: .8rem 3.2rem .9rem 1rem; }
-.plankarte__nr { font-size: .72rem; font-weight: 600; letter-spacing: .06em; color: var(--rot); font-variant-numeric: tabular-nums; }
-.plankarte__titel { font-size: 1.05rem; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
-.plankarte__zusatz { font-size: .85rem; line-height: 1.3; color: var(--grau); }
-.plankarte__auf {
+.planblatt picture, .planblatt img { display: block; width: 100%; height: 100%; }
+.planblatt img { object-fit: cover; }
+/* Ruhelage: ein leicht verschobener Stapel, P-01 liegt oben */
+.planblatt:nth-child(1) { --dreh: -7deg; --x: -3%; --y: 3%; }
+.planblatt:nth-child(2) { --dreh: -3deg; --x: -1%; --y: 1.5%; }
+.planblatt:nth-child(3) { --dreh: 2.5deg; --x: 2%; --y: -.5%; }
+.planblatt:nth-child(4) { --dreh: -.5deg; }
+/* Aufgefächert — beim Überfahren und wenn ein Blatt den Tastaturfokus hat */
+/* Gemessen bei 1440 px: Mit ±15 % ragte das rechte Blatt über den Fensterrand
+   und das linke in die Textspalte — deshalb ±10 %. */
+.planstapel__buehne:hover .planblatt:nth-child(1), .planstapel__buehne:focus-within .planblatt:nth-child(1) { --dreh: -10deg; --x: -10%; --y: 3%; }
+.planstapel__buehne:hover .planblatt:nth-child(2), .planstapel__buehne:focus-within .planblatt:nth-child(2) { --dreh: -3.5deg; --x: -3.5%; --y: 0%; }
+.planstapel__buehne:hover .planblatt:nth-child(3), .planstapel__buehne:focus-within .planblatt:nth-child(3) { --dreh: 3.5deg; --x: 3.5%; --y: -1%; }
+.planstapel__buehne:hover .planblatt:nth-child(4), .planstapel__buehne:focus-within .planblatt:nth-child(4) { --dreh: 9deg; --x: 10%; --y: 2%; }
+.planblatt:hover, .planblatt:focus-visible { translate: 0 -5%; box-shadow: 0 2px 4px rgba(19, 19, 19, .1), 0 34px 50px -26px rgba(19, 19, 19, .6); }
+.planblatt:focus-visible { outline: 2px solid var(--rot); outline-offset: 3px; }
+.planblatt__etikett {
   position: absolute;
-  right: .85rem;
-  bottom: .95rem;
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid var(--linie-2);
-  border-radius: 50%;
-  transition: background-color .25s var(--ease), border-color .25s var(--ease), color .25s;
+  left: 0;
+  bottom: 0;
+  padding: .3rem .65rem;
+  background: var(--tusche);
+  color: var(--papier);
+  font-size: .72rem;
+  font-weight: 500;
+  white-space: nowrap;
 }
-.plankarte__auf svg { width: 11px; height: 11px; }
-.plankarte:hover .plankarte__auf { background: var(--tusche); border-color: var(--tusche); color: var(--papier); }
-.planreihe__hinweis { margin: .8rem 0 0; font-size: .8rem; color: var(--grau); }
+.planblatt__etikett b { margin-right: .3em; font-weight: 600; color: var(--rot-hell); }
+/* In Ruhelage würden sich die Etiketten der unteren Blätter überlappen:
+   Dort trägt nur das oberste eins, aufgefächert zeigen alle ihres. */
+.planblatt:not(:last-child) .planblatt__etikett { opacity: 0; transition: opacity .3s var(--ease); }
+.planstapel__buehne:hover .planblatt__etikett,
+.planstapel__buehne:focus-within .planblatt__etikett { opacity: 1; }
+@media (hover: none) {
+  .planblatt:not(:last-child) .planblatt__etikett { opacity: 1; }
+}
+.planstapel__text { display: grid; gap: .2rem; margin-top: 1.4rem; text-align: center; font-size: .92rem; color: var(--tusche-2); }
+.planstapel__hinweis { font-size: .8rem; color: var(--grau); }
+
+/* Ohne Maus gibt es kein Überfahren: dort liegt der Stapel gleich leicht aufgefächert */
+@media (hover: none) {
+  .planblatt:nth-child(1) { --dreh: -9deg; --x: -9%; --y: 4%; }
+  .planblatt:nth-child(2) { --dreh: -3deg; --x: -3%; --y: 1%; }
+  .planblatt:nth-child(3) { --dreh: 3deg; --x: 3%; --y: -1%; }
+  .planblatt:nth-child(4) { --dreh: 8deg; --x: 9%; --y: 2%; }
+}
+@media (max-width: 900px) {
+  .arbeitsweise__raster { grid-template-columns: 1fr; }
+  .planstapel { width: 100%; max-width: 560px; margin-inline: auto; }
+}
+@media (max-width: 520px) {
+  .arbeitsweise .grundsaetze { grid-template-columns: 1fr; }
+  .planblatt { left: 14%; width: 72%; }
+}
 
 .planfenster {
-  /* Breite aus der verfügbaren Höhe abgeleitet: So füllt das Blatt den
-     Rahmen genau, und die Lupe trifft die richtige Stelle. */
+  /* Breite aus der verfügbaren Höhe abgeleitet: So passt das ganze Blatt
+     immer auf den Bildschirm, ohne Rand oder Anschnitt. */
   width: min(1320px, 94vw, calc((92vh - 3.8rem) * 1.4142));
   max-width: none;
   max-height: 94vh;
@@ -1063,40 +1100,8 @@ address { font-style: normal; }
 .planfenster__rahmen img { display: block; width: 100%; height: auto; }
 body.fenster-offen { overflow: hidden; }
 
-.lupe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 260px;
-  border: 2px solid var(--tusche);
-  border-radius: 50%;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, .28), 0 0 0 6px rgba(255, 255, 255, .7);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s var(--ease);
-  will-change: transform;
-}
-.planfenster__rahmen.is-lupe { cursor: none; }
-.planfenster__rahmen.is-lupe .lupe { opacity: 1; }
 
-@media (max-width: 1000px) {
-  .planreihe__liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
 @media (max-width: 560px) {
-  /* Am Handy liegen die Karten nebeneinander zum Wischen */
-  .planreihe__liste {
-    grid-template-columns: repeat(4, 78%);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--pad-x);
-    margin-inline: calc(var(--pad-x) * -1);
-    padding: 0 var(--pad-x) .6rem;
-  }
-  .planreihe__liste li { scroll-snap-align: start; }
-  .plankarte:hover { transform: none; }
   .planfenster { width: 96vw; max-height: 92vh; }
   .planfenster__titel span { display: none; }
   .planfenster__rahmen { overflow: auto; max-height: calc(92vh - 3.8rem); }

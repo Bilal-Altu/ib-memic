@@ -33,7 +33,7 @@
 <!-- ?v= nach JEDER Änderung an style.css oder main.js hochzählen — hier, in
      impressum.html und datenschutz.html. ALL-INKL hält CSS/JS laut .htaccess
      einen Monat im Browser vor. -->
-<link rel="stylesheet" href="assets/css/style.css?v=2026-09-14-7" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026-09-14-8" />
 </head>
 <body>
 
@@ -607,87 +607,90 @@
 <section class="abschnitt arbeitsweise" aria-labelledby="arbeitsweise-titel">
   <div class="shell">
     <p class="marke">Arbeitsweise</p>
-    <div class="arbeitsweise__kopf">
-      <h2 class="titel" id="arbeitsweise-titel">Genau gerechnet. <span class="zweiton">Sauber gezeichnet. Ehrlich angeboten.</span></h2>
-    </div>
+    <div class="arbeitsweise__raster">
+      <div class="arbeitsweise__text">
+        <h2 class="titel" id="arbeitsweise-titel">Genau gerechnet. <span class="zweiton">Sauber gezeichnet. Ehrlich angeboten.</span></h2>
+        <p class="arbeitsweise__intro">Keine Beispielbilder: Daneben liegen echte Ausführungspläne aus dem Büro – Positionspläne, Schnitte und Details im Maßstab 1:50 für den Neubau eines Dreifamilienhauses, 2026.</p>
 
-    <div class="planreihe">
-      <p class="planreihe__intro">Keine Beispielbilder: Ausschnitte aus echten Ausführungsplänen des Büros für den Neubau eines Dreifamilienhauses, 2026. Ein Klick zeigt das ganze Blatt.</p>
-      <ul class="planreihe__liste">
-        <li>
-          <button type="button" class="plankarte" aria-haspopup="dialog" data-voll="assets/img/plan-p01" data-nr="P-01" data-titel="Dachkonstruktion – Grundriss, Querschnitt, Details · M 1:50" data-alt="Ausführungsplan P-01: Grundriss der Dachkonstruktion im Maßstab 1:50 mit Sparren, Pfetten und Holzstützen, dazu ein Querschnitt und zwei Anschlussdetails">
-            <span class="plankarte__bild">
-              <picture>
-                <source type="image/avif" srcset="assets/img/plan-p01-detail-480.avif 480w, assets/img/plan-p01-detail-960.avif 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px" />
-                <source type="image/webp" srcset="assets/img/plan-p01-detail-480.webp 480w, assets/img/plan-p01-detail-960.webp 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px" />
-                <img src="assets/img/plan-p01-detail-480.jpg" srcset="assets/img/plan-p01-detail-480.jpg 480w, assets/img/plan-p01-detail-960.jpg 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px"
-                     width="480" height="320" loading="lazy" decoding="async" alt="Ausschnitt aus Plan P-01: Querschnitt durch die Dachkonstruktion mit Sparren, Pfetten, Holzstütze und Bemaßung" />
-              </picture>
-            </span>
-            <span class="plankarte__text">
-              <span class="plankarte__nr">P-01</span>
-              <span class="plankarte__titel">Dachkonstruktion</span>
-              <span class="plankarte__zusatz">Querschnitt und Sparrenlage</span>
-            </span>
-            <span class="plankarte__auf" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        <ul class="grundsaetze">
+          <li class="grundsatz">
+            <span class="grundsatz__nr etikett">01</span>
+            <h3 class="grundsatz__titel">Präzise gerechnet</h3>
+            <p>Genaue Berechnungen statt pauschaler Reserven sparen Beton und Stahl – und damit bares Geld auf der Baustelle.</p>
+          </li>
+          <li class="grundsatz">
+            <span class="grundsatz__nr etikett">02</span>
+            <h3 class="grundsatz__titel">Sauber dokumentiert</h3>
+            <p>Pläne im Maßstab 1:50 und übersichtlich strukturierte Unterlagen, die Prüfer und Polier gleichermaßen sofort verstehen.</p>
+          </li>
+          <li class="grundsatz">
+            <span class="grundsatz__nr etikett">03</span>
+            <h3 class="grundsatz__titel">Klare Angebote</h3>
+            <p>Wettbewerbsfähige Preise ohne versteckte Kosten und ohne Zusatzkosten, die erst auf der Rechnung auftauchen.</p>
+          </li>
+          <li class="grundsatz">
+            <span class="grundsatz__nr etikett">04</span>
+            <h3 class="grundsatz__titel">Schnelle Antworten</h3>
+            <p>Kurze Wege und moderne Software: Rückfragen von der Baustelle bleiben nicht tagelang liegen.</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Planstapel: Die vier Blätter liegen wie Papier übereinander. Das
+           oberste steht im HTML zuletzt. Beim Überfahren fächern sie auf,
+           ein Klick öffnet das Blatt im Fenster. -->
+      <figure class="planstapel" aria-labelledby="planstapel-text">
+        <div class="planstapel__buehne">
+          <button type="button" class="planblatt" aria-haspopup="dialog" aria-label="Plan P-04 öffnen: Decke über dem Erdgeschoss"
+                  data-voll="assets/img/plan-p04" data-nr="P-04" data-titel="Decke über dem Erdgeschoss (Pos. 100) – Deckenplan, Details · M 1:50"
+                  data-alt="Ausführungsplan P-04: Deckenplan über dem Erdgeschoss, Position 100, im Maßstab 1:50 mit Garage, Sturz- und Wanddetails">
+            <picture>
+              <source type="image/avif" srcset="assets/img/plan-p04-720.avif 720w, assets/img/plan-p04-1400.avif 1400w" sizes="(max-width: 900px) 72vw, 520px" />
+              <source type="image/webp" srcset="assets/img/plan-p04-720.webp 720w, assets/img/plan-p04-1400.webp 1400w" sizes="(max-width: 900px) 72vw, 520px" />
+              <img src="assets/img/plan-p04-720.jpg" srcset="assets/img/plan-p04-720.jpg 720w, assets/img/plan-p04-1400.jpg 1400w" sizes="(max-width: 900px) 72vw, 520px"
+                   width="720" height="510" loading="lazy" decoding="async" alt="" />
+            </picture>
+            <span class="planblatt__etikett"><b>P-04</b> Decke über EG</span>
           </button>
-        </li>
-        <li>
-          <button type="button" class="plankarte" aria-haspopup="dialog" data-voll="assets/img/plan-p02" data-nr="P-02" data-titel="Decke über dem Dachgeschoss (Pos. 300) – Deckenplan, Schnitte · M 1:50" data-alt="Ausführungsplan P-02: Deckenplan über dem Dachgeschoss, Position 300, im Maßstab 1:50 mit Ringbalken sowie den Schnitten 1-1 und 2-2">
-            <span class="plankarte__bild">
-              <picture>
-                <source type="image/avif" srcset="assets/img/plan-p02-detail-480.avif 480w, assets/img/plan-p02-detail-960.avif 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px" />
-                <source type="image/webp" srcset="assets/img/plan-p02-detail-480.webp 480w, assets/img/plan-p02-detail-960.webp 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px" />
-                <img src="assets/img/plan-p02-detail-480.jpg" srcset="assets/img/plan-p02-detail-480.jpg 480w, assets/img/plan-p02-detail-960.jpg 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px"
-                     width="480" height="320" loading="lazy" decoding="async" alt="Ausschnitt aus Plan P-02: Schnitt 2-2 durch das Dachgeschoss mit Decke, Kniestock und Dachsparren" />
-              </picture>
-            </span>
-            <span class="plankarte__text">
-              <span class="plankarte__nr">P-02</span>
-              <span class="plankarte__titel">Decke über DG</span>
-              <span class="plankarte__zusatz">Schnitt durch das Dachgeschoss</span>
-            </span>
-            <span class="plankarte__auf" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <button type="button" class="planblatt" aria-haspopup="dialog" aria-label="Plan P-03 öffnen: Decke über dem Obergeschoss"
+                  data-voll="assets/img/plan-p03" data-nr="P-03" data-titel="Decke über dem Obergeschoss (Pos. 200) – Deckenplan, Details · M 1:50"
+                  data-alt="Ausführungsplan P-03: Deckenplan über dem Obergeschoss, Position 200, im Maßstab 1:50 mit Wand- und Sturzdetails, Mauerwerkstabellen und Balkonanschluss">
+            <picture>
+              <source type="image/avif" srcset="assets/img/plan-p03-720.avif 720w, assets/img/plan-p03-1400.avif 1400w" sizes="(max-width: 900px) 72vw, 520px" />
+              <source type="image/webp" srcset="assets/img/plan-p03-720.webp 720w, assets/img/plan-p03-1400.webp 1400w" sizes="(max-width: 900px) 72vw, 520px" />
+              <img src="assets/img/plan-p03-720.jpg" srcset="assets/img/plan-p03-720.jpg 720w, assets/img/plan-p03-1400.jpg 1400w" sizes="(max-width: 900px) 72vw, 520px"
+                   width="720" height="510" loading="lazy" decoding="async" alt="" />
+            </picture>
+            <span class="planblatt__etikett"><b>P-03</b> Decke über OG</span>
           </button>
-        </li>
-        <li>
-          <button type="button" class="plankarte" aria-haspopup="dialog" data-voll="assets/img/plan-p03" data-nr="P-03" data-titel="Decke über dem Obergeschoss (Pos. 200) – Deckenplan, Details · M 1:50" data-alt="Ausführungsplan P-03: Deckenplan über dem Obergeschoss, Position 200, im Maßstab 1:50 mit Wand- und Sturzdetails, Mauerwerkstabellen und Balkonanschluss">
-            <span class="plankarte__bild">
-              <picture>
-                <source type="image/avif" srcset="assets/img/plan-p03-detail-480.avif 480w, assets/img/plan-p03-detail-960.avif 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px" />
-                <source type="image/webp" srcset="assets/img/plan-p03-detail-480.webp 480w, assets/img/plan-p03-detail-960.webp 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px" />
-                <img src="assets/img/plan-p03-detail-480.jpg" srcset="assets/img/plan-p03-detail-480.jpg 480w, assets/img/plan-p03-detail-960.jpg 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px"
-                     width="480" height="320" loading="lazy" decoding="async" alt="Ausschnitt aus Plan P-03: Deckenplan über dem Obergeschoss mit Treppe, tragenden Innenwänden und Positionsnummern" />
-              </picture>
-            </span>
-            <span class="plankarte__text">
-              <span class="plankarte__nr">P-03</span>
-              <span class="plankarte__titel">Decke über OG</span>
-              <span class="plankarte__zusatz">Deckenplan mit Treppe</span>
-            </span>
-            <span class="plankarte__auf" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <button type="button" class="planblatt" aria-haspopup="dialog" aria-label="Plan P-02 öffnen: Decke über dem Dachgeschoss"
+                  data-voll="assets/img/plan-p02" data-nr="P-02" data-titel="Decke über dem Dachgeschoss (Pos. 300) – Deckenplan, Schnitte · M 1:50"
+                  data-alt="Ausführungsplan P-02: Deckenplan über dem Dachgeschoss, Position 300, im Maßstab 1:50 mit Ringbalken sowie den Schnitten 1-1 und 2-2">
+            <picture>
+              <source type="image/avif" srcset="assets/img/plan-p02-720.avif 720w, assets/img/plan-p02-1400.avif 1400w" sizes="(max-width: 900px) 72vw, 520px" />
+              <source type="image/webp" srcset="assets/img/plan-p02-720.webp 720w, assets/img/plan-p02-1400.webp 1400w" sizes="(max-width: 900px) 72vw, 520px" />
+              <img src="assets/img/plan-p02-720.jpg" srcset="assets/img/plan-p02-720.jpg 720w, assets/img/plan-p02-1400.jpg 1400w" sizes="(max-width: 900px) 72vw, 520px"
+                   width="720" height="510" loading="lazy" decoding="async" alt="" />
+            </picture>
+            <span class="planblatt__etikett"><b>P-02</b> Decke über DG</span>
           </button>
-        </li>
-        <li>
-          <button type="button" class="plankarte" aria-haspopup="dialog" data-voll="assets/img/plan-p04" data-nr="P-04" data-titel="Decke über dem Erdgeschoss (Pos. 100) – Deckenplan, Details · M 1:50" data-alt="Ausführungsplan P-04: Deckenplan über dem Erdgeschoss, Position 100, im Maßstab 1:50 mit Garage, Sturz- und Wanddetails">
-            <span class="plankarte__bild">
-              <picture>
-                <source type="image/avif" srcset="assets/img/plan-p04-detail-480.avif 480w, assets/img/plan-p04-detail-960.avif 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px" />
-                <source type="image/webp" srcset="assets/img/plan-p04-detail-480.webp 480w, assets/img/plan-p04-detail-960.webp 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px" />
-                <img src="assets/img/plan-p04-detail-480.jpg" srcset="assets/img/plan-p04-detail-480.jpg 480w, assets/img/plan-p04-detail-960.jpg 960w" sizes="(max-width: 560px) 78vw, (max-width: 1000px) 45vw, 310px"
-                     width="480" height="320" loading="lazy" decoding="async" alt="Ausschnitt aus Plan P-04: Detail des Balkonanschlusses mit Schöck Isokorb im Schnitt" />
-              </picture>
-            </span>
-            <span class="plankarte__text">
-              <span class="plankarte__nr">P-04</span>
-              <span class="plankarte__titel">Decke über EG</span>
-              <span class="plankarte__zusatz">Detail Balkonanschluss</span>
-            </span>
-            <span class="plankarte__auf" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <button type="button" class="planblatt" aria-haspopup="dialog" aria-label="Plan P-01 öffnen: Dachkonstruktion"
+                  data-voll="assets/img/plan-p01" data-nr="P-01" data-titel="Dachkonstruktion – Grundriss, Querschnitt, Details · M 1:50"
+                  data-alt="Ausführungsplan P-01: Grundriss der Dachkonstruktion im Maßstab 1:50 mit Sparren, Pfetten und Holzstützen, dazu ein Querschnitt und zwei Anschlussdetails">
+            <picture>
+              <source type="image/avif" srcset="assets/img/plan-p01-720.avif 720w, assets/img/plan-p01-1400.avif 1400w" sizes="(max-width: 900px) 72vw, 520px" />
+              <source type="image/webp" srcset="assets/img/plan-p01-720.webp 720w, assets/img/plan-p01-1400.webp 1400w" sizes="(max-width: 900px) 72vw, 520px" />
+              <img src="assets/img/plan-p01-720.jpg" srcset="assets/img/plan-p01-720.jpg 720w, assets/img/plan-p01-1400.jpg 1400w" sizes="(max-width: 900px) 72vw, 520px"
+                   width="720" height="510" loading="lazy" decoding="async" alt="" />
+            </picture>
+            <span class="planblatt__etikett"><b>P-01</b> Dachkonstruktion</span>
           </button>
-        </li>
-      </ul>
-      <p class="planreihe__hinweis">Angaben zum Bauherrn sind auf den Plänen unkenntlich gemacht.</p>
+        </div>
+        <figcaption class="planstapel__text" id="planstapel-text">
+          <span>Ausführungspläne P-01 bis P-04 · M 1:50</span>
+          <span class="planstapel__hinweis">Blatt anklicken zum Ansehen. Angaben zum Bauherrn sind unkenntlich gemacht.</span>
+        </figcaption>
+      </figure>
     </div>
 
     <!-- Ganzes Planblatt im Fenster. Das große Bild lädt erst beim Öffnen. -->
@@ -703,32 +706,8 @@
       </div>
       <div class="planfenster__rahmen">
         <img data-pf-bild alt="" width="1400" height="990" decoding="async" />
-        <span class="lupe" aria-hidden="true"></span>
       </div>
     </dialog>
-
-    <ul class="grundsaetze">
-      <li class="grundsatz">
-        <span class="grundsatz__nr etikett">01</span>
-        <h3 class="grundsatz__titel">Präzise gerechnet</h3>
-        <p>Genaue Berechnungen statt pauschaler Reserven sparen Beton und Stahl – und damit bares Geld auf der Baustelle.</p>
-      </li>
-      <li class="grundsatz">
-        <span class="grundsatz__nr etikett">02</span>
-        <h3 class="grundsatz__titel">Sauber dokumentiert</h3>
-        <p>Pläne im Maßstab 1:50 und übersichtlich strukturierte Unterlagen, die Prüfer und Polier gleichermaßen sofort verstehen.</p>
-      </li>
-      <li class="grundsatz">
-        <span class="grundsatz__nr etikett">03</span>
-        <h3 class="grundsatz__titel">Klare Angebote</h3>
-        <p>Wettbewerbsfähige Preise ohne versteckte Kosten und ohne Zusatzkosten, die erst auf der Rechnung auftauchen.</p>
-      </li>
-      <li class="grundsatz">
-        <span class="grundsatz__nr etikett">04</span>
-        <h3 class="grundsatz__titel">Schnelle Antworten</h3>
-        <p>Kurze Wege und moderne Software: Rückfragen von der Baustelle bleiben nicht tagelang liegen.</p>
-      </li>
-    </ul>
   </div>
 </section>
 
@@ -960,7 +939,7 @@
   <div class="fuss__wort" aria-hidden="true">Memic</div>
 </footer>
 
-<script src="assets/js/main.js?v=2026-09-14-7"></script>
+<script src="assets/js/main.js?v=2026-09-14-8"></script>
 
 <script type="application/ld+json">
 {
