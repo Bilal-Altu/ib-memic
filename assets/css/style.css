@@ -298,21 +298,52 @@ address { font-style: normal; }
 .nav__liste a:hover, .nav__liste a.is-active { color: var(--tusche); }
 .nav__liste a:hover::after, .nav__liste a.is-active::after { transform: scaleX(1); }
 
+/* Die Nummer als rote Pille, gebaut wie „Anfrage": Symbol im weißen Kreis
+   (Bilal, 14.09.2026 — Variante B aus drei Entwürfen, gegen Umriss und
+   Umriss mit rotem Kreis). */
 .kopf__tel {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
+  gap: .65rem;
+  min-height: 2.75rem;
+  padding: .35rem 1.25rem .35rem .4rem;
+  border-radius: 999px;
+  background: var(--rot);
+  color: #fff;
   font-family: var(--etikett);
   font-size: .95rem;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
   text-decoration: none;
   white-space: nowrap;
+  transition: background-color .25s var(--ease), color .25s var(--ease);
 }
-.kopf__tel svg { width: 15px; height: 15px; color: var(--rot); }
-.kopf__tel:hover { color: var(--rot); }
+.kopf__tel svg {
+  /* Ohne das drückt die enge Kopfleiste knapp über 1080 px den Kreis zum Oval. */
+  flex-shrink: 0;
+  box-sizing: content-box;
+  width: 15px;
+  height: 15px;
+  padding: .53rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--rot);
+  transition: background-color .25s, color .25s;
+}
+/* Beim Überfahren schwarz wie die roten Knöpfe im Formular. */
+.kopf__tel:hover { background: var(--tusche); color: var(--papier); }
+.kopf__tel:hover svg { background: var(--papier); color: var(--tusche); }
 .kopf .btn { min-height: 2.75rem; }
 .kopf .btn__pfeil { width: 2rem; height: 2rem; }
+/* Die rote Nummernpille ist 56 px breiter als die frühere Textnummer. Knapp
+   über 1080 px lief die Kopfleiste damit 6 px über den Rand, und das Menü
+   wurde gestaucht — dort rücken Logo, Menü, Nummer und Anfrage enger.
+   Allein das ließ bei 1081 px keinen Pixel Luft; Safari (iPads quer:
+   1133–1194 px) setzt Schrift etwas breiter, daher auch die Menüpunkte. */
+@media (min-width: 1081px) and (max-width: 1240px) {
+  .kopf__in { gap: 1rem; }
+  .nav__liste { gap: 1.1rem; }
+}
 
 .burger {
   display: none;
