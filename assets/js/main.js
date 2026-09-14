@@ -364,18 +364,28 @@
         document.body.classList.add("fenster-offen");
       });
     });
-    planfenster.addEventListener("close", function () {
+    // Die Seite darf nach dem Schließen nie gesperrt bleiben. Das „close"-
+    // Ereignis kommt erst verzögert — deshalb räumen Schließen-Knopf und
+    // Hintergrund sofort selbst auf; „close" deckt zusätzlich Escape ab.
+    var nachDemSchliessen = function () {
+      if (!document.body.classList.contains("fenster-offen")) return;
       document.body.classList.remove("fenster-offen");
       if (planKarten[pfIndex]) planKarten[pfIndex].focus();
-    });
+    };
+    var schliesseFenster = function () {
+      if (planfenster.open) planfenster.close();
+      nachDemSchliessen();
+    };
+    planfenster.addEventListener("close", nachDemSchliessen);
+    planfenster.addEventListener("cancel", nachDemSchliessen); // Escape, kommt sofort
     planfenster.querySelectorAll("[data-pf-schritt]").forEach(function (knopf) {
       knopf.addEventListener("click", function () {
         zeigePlan(pfIndex + Number(knopf.getAttribute("data-pf-schritt")));
       });
     });
-    planfenster.querySelector("[data-pf-zu]").addEventListener("click", function () { planfenster.close(); });
+    planfenster.querySelector("[data-pf-zu]").addEventListener("click", schliesseFenster);
     // Klick auf den abgedunkelten Hintergrund schließt ebenfalls
-    planfenster.addEventListener("click", function (e) { if (e.target === planfenster) planfenster.close(); });
+    planfenster.addEventListener("click", function (e) { if (e.target === planfenster) schliesseFenster(); });
     planfenster.addEventListener("keydown", function (e) {
       if (e.key === "ArrowRight") { e.preventDefault(); zeigePlan(pfIndex + 1); }
       if (e.key === "ArrowLeft") { e.preventDefault(); zeigePlan(pfIndex - 1); }
