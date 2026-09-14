@@ -13,7 +13,20 @@ wählt selbst das kleinste passende. Die Originale liegen **nicht** im Repo, son
 | `denis-memic-{320,632}` | Porträt des Inhabers | von der bisherigen Website ib-memic.de (632 × 635 px) | Herr Memic | – |
 | `logo-ibm-marke.svg`, `favicon.svg` | Bildmarke iBM | neu gezeichnet nach dem bisherigen Logo | eigene Arbeit | – |
 
-Alle technischen Zeichnungen stehen als SVG direkt in `index.html` und sind eigene Darstellungen.
+| `plan-p0{1..4}-{1400,2800}` | Ausführungspläne P-01 bis P-04 (Dachkonstruktion, Decken über DG/OG/EG), A2, M 1:50 | Pläne von **iBM – Ingenieurbüro Memic**, Projekt 31-DM/26 (Neubau eines Dreifamilienhauses, 2026), von Bilal als Bauherr zur Verfügung gestellt | Herr Memic (Planverfasser) – Freigabe bei der Vorstellung einholen | Abschnitt „Arbeitsweise“ |
+
+Alle übrigen technischen Zeichnungen stehen als SVG direkt in `index.html` und sind eigene Darstellungen.
+
+## Die Ausführungspläne
+
+Die PDFs liegen unter `C:\Users\bilal\Desktop\Aktuellste Hauspläne\`. Gerendert werden sie mit
+pdf.js in Edge (4200 × 2970 px), danach baut `C:\Users\bilal\Desktop\Memic\plaene-bauen.sh`
+die Web-Fassungen.
+
+**Im Schriftfeld wird das Feld BAUHERR/BAUORT weiß überdeckt.** Dort stehen Namen und
+Privatadressen (auch von Hakan Altuntas), die nicht auf eine öffentliche Website gehören. Die
+geschwärzten Vorlagen liegen in `Desktop\Memic\Plaene\`. Neue Pläne immer durch das Skript
+schicken, nie das ungeschwärzte PDF verlinken.
 
 ## Warum „Symbolbild“ dransteht
 

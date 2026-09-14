@@ -323,6 +323,64 @@
     }, 1500);
   }
 
+  /* ---------- Planmappe: Reiter und Lupe ----------
+     Die Reiter folgen dem üblichen Tab-Muster: Pfeiltasten wechseln das
+     Blatt. Die Lupe gibt es nur mit Maus — sie lädt die große Fassung erst
+     beim ersten Überfahren, wer nie hinzeigt, lädt sie nie. */
+  var mappe = document.querySelector("[data-mappe]");
+  if (mappe) {
+    var reiter = Array.prototype.slice.call(mappe.querySelectorAll('[role="tab"]'));
+    var blaetter = Array.prototype.slice.call(mappe.querySelectorAll('[role="tabpanel"]'));
+
+    var zeigeBlatt = function (index, fokus) {
+      reiter.forEach(function (r, i) {
+        var an = i === index;
+        r.setAttribute("aria-selected", an ? "true" : "false");
+        r.tabIndex = an ? 0 : -1;
+        if (blaetter[i]) blaetter[i].hidden = !an;
+      });
+      if (fokus) reiter[index].focus();
+    };
+
+    reiter.forEach(function (r, i) {
+      r.addEventListener("click", function () { zeigeBlatt(i, false); });
+      r.addEventListener("keydown", function (e) {
+        var ziel = null;
+        if (e.key === "ArrowRight") ziel = (i + 1) % reiter.length;
+        if (e.key === "ArrowLeft") ziel = (i - 1 + reiter.length) % reiter.length;
+        if (e.key === "Home") ziel = 0;
+        if (e.key === "End") ziel = reiter.length - 1;
+        if (ziel !== null) { e.preventDefault(); zeigeBlatt(ziel, true); }
+      });
+    });
+
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      var ZOOM = 2.4;
+      mappe.querySelectorAll("[data-lupe]").forEach(function (rahmen) {
+        var lupe = rahmen.querySelector(".lupe");
+        if (!lupe) return;
+        var geladen = false;
+        rahmen.addEventListener("pointerenter", function () {
+          if (!geladen) {
+            lupe.style.backgroundImage = 'url("' + rahmen.getAttribute("data-lupe") + '")';
+            geladen = true;
+          }
+          rahmen.classList.add("is-lupe");
+        });
+        rahmen.addEventListener("pointerleave", function () { rahmen.classList.remove("is-lupe"); });
+        rahmen.addEventListener("pointermove", function (e) {
+          var box = rahmen.getBoundingClientRect();
+          var x = e.clientX - box.left;
+          var y = e.clientY - box.top;
+          var d = lupe.offsetWidth;
+          lupe.style.transform = "translate(" + (x - d / 2) + "px," + (y - d / 2) + "px)";
+          lupe.style.backgroundSize = (box.width * ZOOM) + "px " + (box.height * ZOOM) + "px";
+          lupe.style.backgroundPosition = (d / 2 - x * ZOOM) + "px " + (d / 2 - y * ZOOM) + "px";
+        });
+      });
+    }
+  }
+
   /* ---------- Anfrageformular ----------
      Bewusst ohne Server: Aus den Eingaben wird eine fertige E-Mail gebaut,
      die das E-Mail-Programm des Besuchers öffnet. Pläne kann man dort
@@ -365,6 +423,11 @@
     return ok;
   }
 
+  function vorhabenArt() {
+    var gewaehlt = formular ? formular.querySelector('input[name="art"]:checked') : null;
+    return gewaehlt ? gewaehlt.value : "Allgemeine Anfrage";
+  }
+
   if (formular) {
     formular.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -372,9 +435,9 @@
       var zeilen = ["Name: " + wert("f-name"), "E-Mail: " + wert("f-mail")];
       if (wert("f-tel")) zeilen.push("Telefon: " + wert("f-tel"));
       if (wert("f-ort")) zeilen.push("Ort des Bauvorhabens: " + wert("f-ort"));
-      zeilen.push("Art: " + wert("f-art"), "", wert("f-text"));
+      zeilen.push("Art: " + vorhabenArt(), "", wert("f-text"));
       window.location.href = "mailto:" + MAIL +
-        "?subject=" + encodeURIComponent("Anfrage über die Website – " + wert("f-art")) +
+        "?subject=" + encodeURIComponent("Anfrage über die Website – " + vorhabenArt()) +
         "&body=" + encodeURIComponent(zeilen.join("\n"));
       melde("Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht. Bitte dort noch auf „Senden“ klicken.", "ok");
     });

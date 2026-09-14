@@ -98,7 +98,7 @@ robots.txt, sitemap.xml
 assets/
   css/style.css       das gesamte Design, Farben als Variablen in :root
   js/main.js          Menü, Zeichnen, Lastpfad, Formular
-  fonts/              Inter Tight + IBM Plex Mono, lokal (SIL Open Font License 1.1)
+  fonts/              Inter Tight, lokal (SIL Open Font License 1.1)
   img/                Fotos (AVIF/WebP/JPEG), Logo — Herkunft in MEDIEN.md
 ```
 
