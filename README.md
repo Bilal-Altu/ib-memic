@@ -38,7 +38,7 @@ schlaich bergermann partner und LERA (Zurückhaltung statt Werbesprache), TLC En
 | 02 | Leistungen | fünf Leistungen als aufklappbare Liste, daneben wechselnde Zeichnung |
 | 03 | Bauaufgaben | Wohnbau, Gewerbe & Industrie, Tiefbau, Bestand & Denkmal |
 | 04 | Ablauf – der Lastpfad | fünf Schritte; am großen Bildschirm baut sich die Zeichnung beim Scrollen auf |
-| 05 | Arbeitsweise | Hallenansicht, vier Grundsätze |
+| 05 | Arbeitsweise | vier Ausschnitte aus echten Ausführungsplänen (Klick öffnet das ganze Blatt mit Lupe), vier Grundsätze |
 | 06 | Profil | Porträt, Nachweisberechtigungen, Werdegang als Maßkette |
 | 07 | Fragen | sechs häufige Fragen (auch für Google als FAQ ausgezeichnet) |
 | 08 | Kontakt | Anfrageformular (öffnet E-Mail), Telefon, Adresse |

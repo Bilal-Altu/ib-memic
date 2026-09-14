@@ -21,7 +21,10 @@ Alle übrigen technischen Zeichnungen stehen als SVG direkt in `index.html` und 
 
 Die PDFs liegen unter `C:\Users\bilal\Desktop\Aktuellste Hauspläne\`. Gerendert werden sie mit
 pdf.js in Edge (4200 × 2970 px), danach baut `C:\Users\bilal\Desktop\Memic\plaene-bauen.sh`
-die Web-Fassungen.
+die ganzen Blätter (`plan-p0N-{1400,2800}`, nur im Fenster nach Klick) und
+`C:\Users\bilal\Desktop\Memic\plaene-ausschnitte.sh` die kleinen 3:2-Ausschnitte für die Karten
+(`plan-p0N-detail-{480,960}`: Dachquerschnitt, Schnitt 2-2, Deckenplan OG mit Treppe,
+Isokorb-Detail). Die Ausschnitt-Koordinaten stehen im Skript.
 
 **Im Schriftfeld wird das Feld BAUHERR/BAUORT weiß überdeckt.** Dort stehen Namen und
 Privatadressen (auch von Hakan Altuntas), die nicht auf eine öffentliche Website gehören. Die

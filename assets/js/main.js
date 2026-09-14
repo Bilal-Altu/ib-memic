@@ -323,62 +323,88 @@
     }, 1500);
   }
 
-  /* ---------- Planmappe: Reiter und Lupe ----------
-     Die Reiter folgen dem üblichen Tab-Muster: Pfeiltasten wechseln das
-     Blatt. Die Lupe gibt es nur mit Maus — sie lädt die große Fassung erst
-     beim ersten Überfahren, wer nie hinzeigt, lädt sie nie. */
-  var mappe = document.querySelector("[data-mappe]");
-  if (mappe) {
-    var reiter = Array.prototype.slice.call(mappe.querySelectorAll('[role="tab"]'));
-    var blaetter = Array.prototype.slice.call(mappe.querySelectorAll('[role="tabpanel"]'));
+  /* ---------- Pläne: Karte öffnet das ganze Blatt ----------
+     Das große Blatt wird erst beim Öffnen geladen. Im Fenster blättern die
+     Pfeile (auch die Pfeiltasten), Escape schließt. Die Lupe gibt es nur
+     mit Maus und lädt die 2800-px-Fassung erst beim ersten Überfahren. */
+  var planKarten = Array.prototype.slice.call(document.querySelectorAll(".plankarte[data-voll]"));
+  var planfenster = document.getElementById("planfenster");
 
-    var zeigeBlatt = function (index, fokus) {
-      reiter.forEach(function (r, i) {
-        var an = i === index;
-        r.setAttribute("aria-selected", an ? "true" : "false");
-        r.tabIndex = an ? 0 : -1;
-        if (blaetter[i]) blaetter[i].hidden = !an;
-      });
-      if (fokus) reiter[index].focus();
+  if (planKarten.length && planfenster && typeof planfenster.showModal === "function") {
+    var pfBild = planfenster.querySelector("[data-pf-bild]");
+    var pfNr = planfenster.querySelector("[data-pf-nr]");
+    var pfTitel = planfenster.querySelector("[data-pf-titel]");
+    var pfLink = planfenster.querySelector("[data-pf-link]");
+    var pfRahmen = planfenster.querySelector(".planfenster__rahmen");
+    var pfLupe = planfenster.querySelector(".lupe");
+    var pfIndex = 0;
+    var pfLupeBild = "";
+
+    var zeigePlan = function (index) {
+      pfIndex = (index + planKarten.length) % planKarten.length;
+      var karte = planKarten[pfIndex];
+      var basis = karte.getAttribute("data-voll");
+      pfBild.removeAttribute("srcset");
+      pfBild.sizes = "(max-width: 560px) 900px, 94vw";
+      pfBild.srcset = basis + "-1400.webp 1400w, " + basis + "-2800.webp 2800w";
+      pfBild.src = basis + "-1400.webp";
+      pfBild.alt = karte.getAttribute("data-alt");
+      pfNr.textContent = karte.getAttribute("data-nr");
+      pfTitel.textContent = karte.getAttribute("data-titel");
+      pfLink.href = basis + "-2800.jpg";
+      pfLupeBild = basis + "-2800.webp";
+      pfLupe.style.backgroundImage = "";
+      pfRahmen.classList.remove("is-lupe");
     };
 
-    reiter.forEach(function (r, i) {
-      r.addEventListener("click", function () { zeigeBlatt(i, false); });
-      r.addEventListener("keydown", function (e) {
-        var ziel = null;
-        if (e.key === "ArrowRight") ziel = (i + 1) % reiter.length;
-        if (e.key === "ArrowLeft") ziel = (i - 1 + reiter.length) % reiter.length;
-        if (e.key === "Home") ziel = 0;
-        if (e.key === "End") ziel = reiter.length - 1;
-        if (ziel !== null) { e.preventDefault(); zeigeBlatt(ziel, true); }
+    planKarten.forEach(function (karte, i) {
+      karte.addEventListener("click", function () {
+        zeigePlan(i);
+        planfenster.showModal();
+        document.body.classList.add("fenster-offen");
       });
+    });
+    planfenster.addEventListener("close", function () {
+      document.body.classList.remove("fenster-offen");
+      if (planKarten[pfIndex]) planKarten[pfIndex].focus();
+    });
+    planfenster.querySelectorAll("[data-pf-schritt]").forEach(function (knopf) {
+      knopf.addEventListener("click", function () {
+        zeigePlan(pfIndex + Number(knopf.getAttribute("data-pf-schritt")));
+      });
+    });
+    planfenster.querySelector("[data-pf-zu]").addEventListener("click", function () { planfenster.close(); });
+    // Klick auf den abgedunkelten Hintergrund schließt ebenfalls
+    planfenster.addEventListener("click", function (e) { if (e.target === planfenster) planfenster.close(); });
+    planfenster.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); zeigePlan(pfIndex + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); zeigePlan(pfIndex - 1); }
     });
 
     if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
       var ZOOM = 2.4;
-      mappe.querySelectorAll("[data-lupe]").forEach(function (rahmen) {
-        var lupe = rahmen.querySelector(".lupe");
-        if (!lupe) return;
-        var geladen = false;
-        rahmen.addEventListener("pointerenter", function () {
-          if (!geladen) {
-            lupe.style.backgroundImage = 'url("' + rahmen.getAttribute("data-lupe") + '")';
-            geladen = true;
-          }
-          rahmen.classList.add("is-lupe");
-        });
-        rahmen.addEventListener("pointerleave", function () { rahmen.classList.remove("is-lupe"); });
-        rahmen.addEventListener("pointermove", function (e) {
-          var box = rahmen.getBoundingClientRect();
-          var x = e.clientX - box.left;
-          var y = e.clientY - box.top;
-          var d = lupe.offsetWidth;
-          lupe.style.transform = "translate(" + (x - d / 2) + "px," + (y - d / 2) + "px)";
-          lupe.style.backgroundSize = (box.width * ZOOM) + "px " + (box.height * ZOOM) + "px";
-          lupe.style.backgroundPosition = (d / 2 - x * ZOOM) + "px " + (d / 2 - y * ZOOM) + "px";
-        });
+      pfRahmen.addEventListener("pointerenter", function () {
+        if (!pfLupe.style.backgroundImage) pfLupe.style.backgroundImage = "url(\"" + pfLupeBild + "\")";
+        pfRahmen.classList.add("is-lupe");
+      });
+      pfRahmen.addEventListener("pointerleave", function () { pfRahmen.classList.remove("is-lupe"); });
+      pfRahmen.addEventListener("pointermove", function (e) {
+        var box = pfRahmen.getBoundingClientRect();
+        var x = e.clientX - box.left;
+        var y = e.clientY - box.top;
+        var d = pfLupe.offsetWidth;
+        pfLupe.style.transform = "translate(" + (x - d / 2) + "px," + (y - d / 2) + "px)";
+        pfLupe.style.backgroundSize = (box.width * ZOOM) + "px " + (box.height * ZOOM) + "px";
+        pfLupe.style.backgroundPosition = (d / 2 - x * ZOOM) + "px " + (d / 2 - y * ZOOM) + "px";
       });
     }
+  } else {
+    // Sehr alte Browser ohne <dialog>: das große Blatt einfach in neuem Tab
+    planKarten.forEach(function (karte) {
+      karte.addEventListener("click", function () {
+        window.open(karte.getAttribute("data-voll") + "-2800.jpg", "_blank", "noopener");
+      });
+    });
   }
 
   /* ---------- Anfrageformular ----------

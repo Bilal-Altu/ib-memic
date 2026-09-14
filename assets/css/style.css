@@ -964,47 +964,105 @@ address { font-style: normal; }
    [05] Arbeitsweise — breite Hallenansicht, vier Grundsätze
    --------------------------------------------------------- */
 .arbeitsweise__kopf { max-width: 900px; }
-/* Planmappe: echte Ausführungspläne aus dem Büro, mit Lupe am Rechner
-   und Wischen am Handy. */
-.mappe { margin-top: clamp(2.5rem, 2rem + 3vw, 4.5rem); }
-.mappe__kopf {
+/* Pläne: vier kleine Ausschnitte als Karten, das ganze Blatt erst im
+   Fenster. Die volle Planmappe war auf der Seite zu wuchtig. */
+.planreihe { margin-top: clamp(2.5rem, 2rem + 3vw, 4.5rem); }
+.planreihe__intro { max-width: 62ch; margin: 0 0 1.4rem; font-size: var(--lead); color: var(--grau); }
+.planreihe__liste {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.5rem 3rem;
-  align-items: end;
-  margin-bottom: 1.25rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(.75rem, .5rem + 1vw, 1.25rem);
+  list-style: none;
 }
-.mappe__intro { max-width: 56ch; margin: 0; font-size: var(--lead); color: var(--grau); }
-.mappe__reiter { display: flex; flex-wrap: wrap; gap: .45rem; }
-.reiter {
-  display: grid;
-  gap: .1rem;
-  min-width: 8.8rem;
-  padding: .6rem 1rem .65rem;
-  border: 1px solid var(--linie-2);
-  border-radius: 6px;
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color .2s var(--ease), border-color .2s var(--ease);
-}
-.reiter__nr { font-size: .72rem; font-weight: 600; letter-spacing: .06em; color: var(--grau); font-variant-numeric: tabular-nums; }
-.reiter__name { font-size: .95rem; font-weight: 500; line-height: 1.2; color: var(--tusche); }
-.reiter:hover { border-color: var(--tusche); }
-.reiter[aria-selected="true"] { background: var(--tusche); border-color: var(--tusche); }
-.reiter[aria-selected="true"] .reiter__nr { color: var(--rot-hell); }
-.reiter[aria-selected="true"] .reiter__name { color: var(--papier); }
-
-.blatt { margin: 0; }
-.blatt[hidden] { display: none; }
-.blatt__rahmen {
+.planreihe__liste li { min-width: 0; }
+.plankarte {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
   overflow: hidden;
-  background: #fff;
   border: 1px solid var(--linie-2);
-  box-shadow: 0 40px 70px -50px rgba(19, 19, 19, .45);
+  background: var(--weiss);
+  color: inherit;
+  text-align: left;
+  cursor: zoom-in;
+  transition: border-color .25s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
 }
-.blatt__rahmen img { width: 100%; height: auto; }
+.plankarte:hover { border-color: var(--tusche); transform: translateY(-4px); box-shadow: 0 24px 40px -28px rgba(19, 19, 19, .5); }
+.plankarte__bild { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: #fff; border-bottom: 1px solid var(--linie); }
+.plankarte__bild picture, .plankarte__bild img { width: 100%; height: 100%; }
+.plankarte__bild img { object-fit: cover; transition: transform .6s var(--ease); }
+.plankarte:hover .plankarte__bild img { transform: scale(1.06); }
+.plankarte__text { display: grid; gap: .1rem; padding: .8rem 3.2rem .9rem 1rem; }
+.plankarte__nr { font-size: .72rem; font-weight: 600; letter-spacing: .06em; color: var(--rot); font-variant-numeric: tabular-nums; }
+.plankarte__titel { font-size: 1.05rem; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
+.plankarte__zusatz { font-size: .85rem; line-height: 1.3; color: var(--grau); }
+.plankarte__auf {
+  position: absolute;
+  right: .85rem;
+  bottom: .95rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--linie-2);
+  border-radius: 50%;
+  transition: background-color .25s var(--ease), border-color .25s var(--ease), color .25s;
+}
+.plankarte__auf svg { width: 11px; height: 11px; }
+.plankarte:hover .plankarte__auf { background: var(--tusche); border-color: var(--tusche); color: var(--papier); }
+.planreihe__hinweis { margin: .8rem 0 0; font-size: .8rem; color: var(--grau); }
+
+.planfenster {
+  /* Breite aus der verfügbaren Höhe abgeleitet: So füllt das Blatt den
+     Rahmen genau, und die Lupe trifft die richtige Stelle. */
+  width: min(1320px, 94vw, calc((92vh - 3.8rem) * 1.4142));
+  max-width: none;
+  max-height: 94vh;
+  padding: 0;
+  border: 0;
+  background: var(--papier);
+  color: var(--tusche);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, .5);
+  overflow: hidden;
+}
+.planfenster::backdrop { background: rgba(19, 19, 19, .78); }
+.planfenster[open] { animation: fenster-auf .3s var(--ease); }
+@keyframes fenster-auf { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+.planfenster__kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3.8rem;
+  padding: .5rem .6rem .5rem 1.2rem;
+  border-bottom: 1px solid var(--linie);
+}
+.planfenster__titel { margin: 0; min-width: 0; font-size: .98rem; line-height: 1.3; }
+.planfenster__titel b { margin-right: .35rem; font-weight: 600; color: var(--rot); }
+.planfenster__knoepfe { display: flex; align-items: center; gap: .35rem; flex-shrink: 0; }
+.planfenster__gross { margin-right: .5rem; font-size: .9rem; font-weight: 500; color: var(--rot-dunkel); text-decoration: none; white-space: nowrap; }
+.planfenster__gross:hover { text-decoration: underline; }
+.planfenster__knopf {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  border: 1px solid var(--linie-2);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color .2s var(--ease), color .2s, border-color .2s;
+}
+.planfenster__knopf svg { width: 14px; height: 14px; }
+.planfenster__knopf:hover { background: var(--tusche); border-color: var(--tusche); color: var(--papier); }
+.planfenster__rahmen { position: relative; overflow: hidden; background: #fff; }
+.planfenster__rahmen img { display: block; width: 100%; height: auto; }
+body.fenster-offen { overflow: hidden; }
+
 .lupe {
   position: absolute;
   top: 0;
@@ -1021,34 +1079,28 @@ address { font-style: normal; }
   transition: opacity .2s var(--ease);
   will-change: transform;
 }
-.blatt__rahmen.is-lupe { cursor: none; }
-.blatt__rahmen.is-lupe .lupe { opacity: 1; }
-.blatt__zeile {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: .5rem 1.5rem;
-  margin-top: .9rem;
-  font-size: .92rem;
-  color: var(--grau);
-}
-.blatt__zeile b { font-weight: 500; color: var(--tusche); }
-.blatt__zeile a { font-weight: 500; color: var(--rot-dunkel); text-decoration: none; white-space: nowrap; }
-.blatt__zeile a:hover { text-decoration: underline; }
-.mappe__hinweis { margin: .5rem 0 0; font-size: .8rem; color: var(--grau); }
-.mappe__wisch { display: none; }
+.planfenster__rahmen.is-lupe { cursor: none; }
+.planfenster__rahmen.is-lupe .lupe { opacity: 1; }
 
-@media (max-width: 900px) {
-  .mappe__kopf { grid-template-columns: 1fr; }
-  .reiter { flex: 1 1 calc(50% - .45rem); min-width: 0; }
+@media (max-width: 1000px) {
+  .planreihe__liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-/* Am Handy wäre das ganze Blatt winzig: Es wird breiter gezeigt und lässt
-   sich seitlich verschieben. */
-@media (max-width: 700px) {
-  .blatt__rahmen { overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
-  .blatt__rahmen picture { width: 1000px; max-width: none; }
-  .blatt__rahmen img { width: 1000px; max-width: none; }
-  .mappe__wisch { display: inline; }
+@media (max-width: 560px) {
+  /* Am Handy liegen die Karten nebeneinander zum Wischen */
+  .planreihe__liste {
+    grid-template-columns: repeat(4, 78%);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--pad-x);
+    margin-inline: calc(var(--pad-x) * -1);
+    padding: 0 var(--pad-x) .6rem;
+  }
+  .planreihe__liste li { scroll-snap-align: start; }
+  .plankarte:hover { transform: none; }
+  .planfenster { width: 96vw; max-height: 92vh; }
+  .planfenster__titel span { display: none; }
+  .planfenster__rahmen { overflow: auto; max-height: calc(92vh - 3.8rem); }
+  .planfenster__rahmen img { width: 900px; max-width: none; }
 }
 .grundsaetze {
   display: grid;
