@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 112" role="img" aria-label="iBM Ingenieurbüro Memic">
+  <!-- Bildmarke iBM, neu gezeichnet nach dem bisherigen Logo:
+       offener Rahmen wie eine Plan-Ecke, der i-Strich liegt auf der Rahmenkante.
+       Der i-Punkt ist der Rotstift. Reine Pfade, keine Schrift nötig. -->
+  <g fill="none" stroke="#131313" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="2">
+    <path d="M4 32V4H100V20"/>
+    <path d="M4 96V108H128V90"/>
+  </g>
+  <g fill="none" stroke="#131313" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="2">
+    <path d="M4 58V90"/>
+    <path d="M24.5 46.5H41.5a9.25 9.25 0 0 1 0 18.5H24.5M24.5 65H43.5a10.25 10.25 0 0 1 0 20.5H24.5M24.5 42V90"/>
+    <path d="M70.5 90V46.5L86.5 72 102.5 46.5V90"/>
+  </g>
+  <rect x="-0.5" y="40" width="9" height="9" fill="#c7361f"/>
+</svg>

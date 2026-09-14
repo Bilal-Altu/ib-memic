@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Statiker Mannheim – Tragwerksplanung | iBM Ingenieurbüro Memic</title>
+<meta name="description" content="Ingenieurbüro Memic in Mannheim: Statik und Tragwerksplanung für Wohnbau, Industriebau und Tiefbau, Brandschutz- und Wärmeschutznachweise, Gutachten. Nachweisberechtigt in Baden-Württemberg und Hessen." />
+<!-- TODO Bilal: Beim echten Launch auf "index, follow, max-image-preview:large"
+     zurückstellen (in allen drei Seiten). Solange das nur die Vorschau unter der
+     GitHub-Adresse ist, bleibt sie bewusst aus dem Google-Index: Im Impressum
+     fehlen noch Pflichtangaben, und Herr Memic hat der Veröffentlichung noch
+     nicht zugestimmt. -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="author" content="iBM – Ingenieurbüro Memic" />
+
+<!-- Zeigt schon auf die echte Domain, damit die Vorschau nie mit ihr konkurriert. -->
+<link rel="canonical" href="https://www.ib-memic.de/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="iBM – Ingenieurbüro Memic" />
+<meta property="og:title" content="Statik, die trägt. | iBM Ingenieurbüro Memic, Mannheim" />
+<meta property="og:description" content="Tragwerksplanung für Wohnbau, Industriebau und Tiefbau – aus Mannheim, für die Metropolregion Rhein-Neckar." />
+<!-- TODO Bilal: Nach dem Umzug og:url und og:image auf www.ib-memic.de umstellen.
+     Absolute Adresse ist Pflicht, sonst zeigt WhatsApp keine Vorschau. -->
+<meta property="og:url" content="https://bilal-altu.github.io/ib-memic/" />
+<meta property="og:image" content="https://bilal-altu.github.io/ib-memic/assets/img/og-bild.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#f2f1ed" />
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin />
+<!-- ?v= nach JEDER Änderung an style.css oder main.js hochzählen — hier, in
+     impressum.html und datenschutz.html. ALL-INKL hält CSS/JS laut .htaccess
+     einen Monat im Browser vor. -->
+<link rel="stylesheet" href="assets/css/style.css?v=2026-09-14-1" />
+</head>
+<body>
+
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+<!-- ============ KOPFLEISTE ============ -->
+<header class="kopf" id="kopf">
+  <div class="shell kopf__in">
+    <a class="marke-logo" href="#start" aria-label="iBM Ingenieurbüro Memic – zum Seitenanfang">
+      <svg viewBox="0 0 132 112" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="2">
+          <path d="M4 32V4H100V20"/><path d="M4 96V108H128V90"/>
+        </g>
+        <g fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="2">
+          <path d="M4 58V90"/>
+          <path d="M24.5 46.5H41.5a9.25 9.25 0 0 1 0 18.5H24.5M24.5 65H43.5a10.25 10.25 0 0 1 0 20.5H24.5M24.5 42V90"/>
+          <path d="M70.5 90V46.5L86.5 72 102.5 46.5V90"/>
+        </g>
+        <rect x="-.5" y="40" width="9" height="9" fill="#c7361f"/>
+      </svg>
+      <span class="marke-logo__text">
+        <span class="marke-logo__name">Ingenieurbüro Memic</span>
+        <span class="marke-logo__zusatz">Tragwerksplanung · Mannheim</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Hauptmenü">
+      <ul class="nav__liste">
+        <li><a href="#leistungen"><span class="nav__nr">02</span>Leistungen</a></li>
+        <li><a href="#bauaufgaben"><span class="nav__nr">03</span>Bauaufgaben</a></li>
+        <li><a href="#ablauf"><span class="nav__nr">04</span>Ablauf</a></li>
+        <li><a href="#profil"><span class="nav__nr">06</span>Profil</a></li>
+        <li><a href="#fragen"><span class="nav__nr">07</span>Fragen</a></li>
+        <li><a href="#kontakt"><span class="nav__nr">08</span>Kontakt</a></li>
+      </ul>
+      <div class="nav__fuss">
+        <a class="btn" href="#kontakt">Projekt anfragen <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+        <a class="btn btn--linie btn--ohne-pfeil" href="tel:+4962143748994">0621 43748994</a>
+      </div>
+    </nav>
+
+    <a class="kopf__tel" href="tel:+4962143748994">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      0621 43748994
+    </a>
+    <a class="btn kopf__cta" href="#kontakt">Anfrage <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="inhalt">
+
+<!-- ============ [00] HERO ============ -->
+<section class="held" id="start">
+  <div class="shell">
+    <div class="held__in">
+      <div class="held__text">
+        <p class="marke"><b>[00]</b> Ingenieurbüro für Tragwerksplanung</p>
+        <h1>
+          <span class="held__zeile">Statik, die <em class="rot">trägt.</em></span>
+          <span class="held__unter">Ihr Statiker in Mannheim <span class="zweiton">– für Wohnbau, Industriebau und Tiefbau.</span></span>
+        </h1>
+        <p class="held__lead">
+          Dipl.-Ing. Denis Memic plant und berechnet Tragwerke für Bauherren, Architekten und
+          Bauunternehmen: vom Wanddurchbruch im Altbau bis zur Produktionshalle. Präzise gerechnet,
+          sauber gezeichnet, ohne versteckte Kosten.
+        </p>
+        <div class="held__knoepfe">
+          <a class="btn" href="#kontakt">Projekt anfragen <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+          <a class="btn btn--linie" href="#leistungen">Leistungen ansehen <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v11M3 8l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+        </div>
+      </div>
+
+      <figure class="plan held__plan">
+        <div class="plan__kopf mono" aria-hidden="true"><span>Querschnitt · Achsen A–D</span><span>Blatt 00</span></div>
+        <div class="plan__bild">
+          <svg class="zeichnung" data-zeichnung viewBox="0 0 600 640" role="img" aria-labelledby="schnitt-titel">
+            <title id="schnitt-titel">Technische Zeichnung: Querschnitt durch ein viergeschossiges Gebäude mit Achsen, Decken, Stützen, Fundamenten und Bemaßung</title>
+            <!-- Achsen -->
+            <g class="f">
+              <path class="achse" d="M84 28V624M228 28V624M372 28V624M516 28V624"/>
+              <circle class="blase" cx="84" cy="15" r="11"/><circle class="blase" cx="228" cy="15" r="11"/>
+              <circle class="blase" cx="372" cy="15" r="11"/><circle class="blase" cx="516" cy="15" r="11"/>
+              <text x="84" y="19.5" text-anchor="middle">A</text><text x="228" y="19.5" text-anchor="middle">B</text>
+              <text x="372" y="19.5" text-anchor="middle">C</text><text x="516" y="19.5" text-anchor="middle">D</text>
+            </g>
+            <!-- Außenwände mit Attika -->
+            <rect class="s d2 schnitt" x="80" y="40" width="8" height="460"/>
+            <rect class="s d2 schnitt" x="512" y="40" width="8" height="460"/>
+            <!-- Decken -->
+            <rect class="s d2 schnitt" x="88" y="52" width="424" height="7"/>
+            <rect class="s d2 schnitt" x="88" y="164" width="424" height="7"/>
+            <rect class="s d2 schnitt" x="88" y="276" width="424" height="7"/>
+            <rect class="s d2 schnitt" x="88" y="388" width="424" height="7"/>
+            <rect class="s d2 schnitt" x="60" y="500" width="480" height="10"/>
+            <!-- Stützen -->
+            <path class="s d2" d="M223 59V164M233 59V164M367 59V164M377 59V164"/>
+            <path class="s d2" d="M223 171V276M233 171V276M367 171V276M377 171V276"/>
+            <path class="s d2" d="M223 283V388M233 283V388M367 283V388M377 283V388"/>
+            <path class="s d2" d="M223 395V500M233 395V500M367 395V500M377 395V500"/>
+            <!-- Fundamente + Sauberkeitsschicht -->
+            <rect class="s d2 schnitt" x="60" y="510" width="48" height="20"/>
+            <rect class="s d2 schnitt" x="208" y="510" width="40" height="20"/>
+            <rect class="s d2 schnitt" x="352" y="510" width="40" height="20"/>
+            <rect class="s d2 schnitt" x="492" y="510" width="48" height="20"/>
+            <path class="s d0" d="M56 534H112M204 534H252M348 534H396M488 534H544"/>
+            <!-- Fußbodenaufbau, Dachaufbau -->
+            <path class="s d0" d="M88 46H512M88 158H512M88 270H512M88 382H512M88 494H512"/>
+            <!-- Gelände mit Erdreich -->
+            <path class="s d1" d="M8 506H60M540 506H596"/>
+            <path class="f erde" d="M14 512l8 8M26 512l8 8M38 512l8 8M548 512l8 8M560 512l8 8M572 512l8 8M14 528l8 8M30 528l8 8M556 528l8 8M572 528l8 8"/>
+            <!-- Höhenkoten -->
+            <g class="f">
+              <path class="d1 s" d="M14 52H76M14 164H76M14 276H76M14 388H76M14 500H76" style="stroke-width:.6"/>
+              <path class="voll" d="M22 44h10l-5 8zM22 156h10l-5 8zM22 268h10l-5 8zM22 380h10l-5 8zM22 492h10l-5 8z"/>
+              <text x="36" y="48">+14,00</text><text x="36" y="160">+10,50</text>
+              <text x="36" y="272">+7,00</text><text x="36" y="384">+3,50</text><text x="36" y="496">±0,00</text>
+            </g>
+            <!-- Bemaßung rechts (Rotstift) -->
+            <path class="s rs" style="stroke-width:.8" d="M524 52H570M524 164H570M524 276H570M524 388H570M524 500H570M562 52V500"/>
+            <path class="s rs" style="stroke-width:1.4" d="M556 58l12-12M556 170l12-12M556 282l12-12M556 394l12-12M556 506l12-12"/>
+            <g class="f">
+              <text class="rt" transform="translate(582 108) rotate(-90)" text-anchor="middle">3,50</text>
+              <text class="rt" transform="translate(582 220) rotate(-90)" text-anchor="middle">3,50</text>
+              <text class="rt" transform="translate(582 332) rotate(-90)" text-anchor="middle">3,50</text>
+              <text class="rt" transform="translate(582 444) rotate(-90)" text-anchor="middle">3,50</text>
+            </g>
+            <!-- Bemaßung unten -->
+            <path class="s rs" style="stroke-width:.8" d="M84 584H516M84 614H516"/>
+            <path class="s rs" style="stroke-width:1.4" d="M78 590l12-12M222 590l12-12M366 590l12-12M510 590l12-12M78 620l12-12M510 620l12-12"/>
+            <g class="f">
+              <text class="rt" x="156" y="578" text-anchor="middle">4,50</text>
+              <text class="rt" x="300" y="578" text-anchor="middle">4,50</text>
+              <text class="rt" x="444" y="578" text-anchor="middle">4,50</text>
+              <text class="rt" x="300" y="608" text-anchor="middle">13,50</text>
+            </g>
+          </svg>
+        </div>
+        <dl class="schriftfeld">
+          <div><dt>Projekt</dt><dd>Ihr Bauvorhaben</dd></div>
+          <div><dt>Planinhalt</dt><dd>Querschnitt, schematisch</dd></div>
+          <div><dt>Maßstab</dt><dd class="mono">1:100</dd></div>
+          <div><dt>Nachweisberechtigt</dt><dd class="mono">BW St-0556 · HE St-3515A-IngKH</dd></div>
+          <div><dt>Büro</dt><dd>iBM · Mannheim</dd></div>
+          <div><dt>Stand</dt><dd class="mono">2026</dd></div>
+        </dl>
+      </figure>
+    </div>
+
+    <ul class="fakten" aria-label="Das Büro in Zahlen">
+      <li><span class="fakten__zahl">17<sup>+</sup></span><span class="fakten__text">Jahre Berufserfahrung als Statiker</span></li>
+      <li><span class="fakten__zahl">2</span><span class="fakten__text">Nachweisberechtigungen Standsicherheit: Baden-Württemberg und Hessen</span></li>
+      <li><span class="fakten__zahl">1:50</span><span class="fakten__text">Schal- und Bewehrungspläne, sauber ausgearbeitet</span></li>
+      <li><span class="fakten__zahl">1</span><span class="fakten__text">Ansprechpartner vom Angebot bis zur Abnahme</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ [01] AUSSAGE ============ -->
+<section class="abschnitt aussage" aria-labelledby="aussage-titel">
+  <div class="shell">
+    <p class="marke"><b>[01]</b> <span id="aussage-titel">Haltung</span></p>
+    <p class="aussage__text" data-woerter>
+      Gute Statik sieht man nicht. Man merkt sie daran, dass nichts reißt, nichts nachgibt
+      und auf der Baustelle <span class="rot">kein Kilo Stahl zu viel</span> liegt. Dafür rechnen
+      wir genau – und sprechen früh mit allen, die am Bau beteiligt sind.
+    </p>
+    <div class="aussage__unten">
+      <div>
+        <p class="aussage__klein">
+          Das Ingenieurbüro Memic ist inhabergeführt. Sie sprechen vom ersten Anruf bis zur
+          Bewehrungsabnahme mit dem Ingenieur, der Ihr Tragwerk auch berechnet. Das hält die Wege
+          kurz und die Angebote ehrlich: keine versteckten Kosten, keine Nachträge aus Bequemlichkeit.
+        </p>
+        <a class="btn btn--linie" href="#profil">Zum Profil <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v11M3 8l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+      </div>
+      <ul class="aussage__liste">
+        <li><span>Sitz</span><span>Mannheim</span></li>
+        <li><span>Einsatzgebiet</span><span>Metropolregion Rhein-Neckar</span></li>
+        <li><span>Nachweisberechtigt</span><span>Baden-Württemberg · Hessen</span></li>
+        <li><span>Statiker seit</span><span>2008</span></li>
+        <li><span>Büro gegründet</span><span>2025</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOTO-BAND ============ -->
+<!-- TODO Bilal: Symbolbild von Unsplash. Durch ein echtes Baustellenfoto aus
+     einem Projekt von Herrn Memic ersetzen und dann die Beschriftung
+     „Symbolbild" entfernen. Quelle: assets/img/MEDIEN.md -->
+<figure class="fotoband" data-parallaxe>
+  <picture>
+    <source type="image/avif" srcset="assets/img/foto-bewehrung-960.avif 960w, assets/img/foto-bewehrung-1600.avif 1600w, assets/img/foto-bewehrung-2560.avif 2560w" sizes="100vw" />
+    <source type="image/webp" srcset="assets/img/foto-bewehrung-960.webp 960w, assets/img/foto-bewehrung-1600.webp 1600w, assets/img/foto-bewehrung-2560.webp 2560w" sizes="100vw" />
+    <img src="assets/img/foto-bewehrung-1600.jpg" srcset="assets/img/foto-bewehrung-960.jpg 960w, assets/img/foto-bewehrung-1600.jpg 1600w, assets/img/foto-bewehrung-2560.jpg 2560w" sizes="100vw"
+         width="1600" height="800" loading="lazy" decoding="async"
+         alt="Bewehrungskorb eines Stahlbetonbalkens von unten gesehen, schwarz-weiß" />
+  </picture>
+  <figcaption class="fotoband__zeile">
+    <p class="fotoband__satz">Was später niemand mehr sieht, entscheidet über alles.</p>
+    <span class="symbolbild">Symbolbild</span>
+  </figcaption>
+</figure>
+
+<!-- ============ [02] LEISTUNGEN ============ -->
+<section class="abschnitt leistungen" id="leistungen" aria-labelledby="leistungen-titel">
+  <div class="shell">
+    <p class="marke"><b>[02]</b> Leistungen</p>
+    <div class="leistungen__in">
+      <div class="leistungen__kopf">
+        <h2 class="titel" id="leistungen-titel">Was wir <span class="zweiton">für Ihr Tragwerk tun</span></h2>
+        <p class="unter">Von der ersten Vorbemessung bis zur Abnahme auf der Baustelle – alles, was ein Tragwerk braucht, um genehmigt, gebaut und sicher genutzt zu werden.</p>
+
+        <figure class="plan leistungen__plan" aria-hidden="true">
+          <div class="plan__kopf mono"><span data-plan-titel>Durchlaufträger · Momentenlinie</span><span data-plan-nr>01</span></div>
+          <div class="plan__bild">
+            <!-- 01 Statik: Zweifeldträger mit Streckenlast und Momentenlinie -->
+            <svg class="zeichnung is-sichtbar" data-leistung-bild="1" data-zeichnung viewBox="0 0 420 260">
+              <path class="s d3" d="M30 120H390"/>
+              <path class="s d1" d="M30 120l-12 20h24zM210 120l-12 20h24zM390 120l-12 20h24z"/>
+              <path class="s d0" d="M14 146H46M194 146H226M374 146H406"/>
+              <path class="f s rs" style="stroke-width:1" d="M30 58H390"/>
+              <path class="f s rs" style="stroke-width:1" d="M50 58v52M90 58v52M130 58v52M170 58v52M250 58v52M290 58v52M330 58v52M370 58v52M210 58v52"/>
+              <path class="f rf" d="M46 104h8l-4 8zM86 104h8l-4 8zM126 104h8l-4 8zM166 104h8l-4 8zM206 104h8l-4 8zM246 104h8l-4 8zM286 104h8l-4 8zM326 104h8l-4 8zM366 104h8l-4 8z"/>
+              <text class="f rt" x="210" y="48" text-anchor="middle">q = 12,5 kN/m</text>
+              <path class="f s d0" d="M30 190H390"/>
+              <path class="f rflaeche" d="M30 190C80 232 150 232 186 196C196 186 202 172 210 158C218 172 224 186 234 196C270 232 340 232 390 190Z"/>
+              <text class="f" x="102" y="248" text-anchor="middle">M+</text>
+              <text class="f" x="210" y="150" text-anchor="middle">M−</text>
+              <text class="f" x="318" y="248" text-anchor="middle">M+</text>
+            </svg>
+            <!-- 02 Brandschutz: Stahlbetonbalken im Schnitt, dreiseitig beflammt -->
+            <svg class="zeichnung" data-leistung-bild="2" data-zeichnung viewBox="0 0 420 260">
+              <rect class="s d3 schnitt" x="150" y="40" width="120" height="170"/>
+              <path class="s d1" d="M60 40H150M270 40H360"/>
+              <circle class="s voll" cx="172" cy="188" r="6"/><circle class="s voll" cx="210" cy="188" r="6"/><circle class="s voll" cx="248" cy="188" r="6"/>
+              <circle class="s voll" cx="172" cy="62" r="4"/><circle class="s voll" cx="248" cy="62" r="4"/>
+              <rect class="f s d0" x="164" y="54" width="92" height="142"/>
+              <path class="f s rs" d="M110 90q10 12 0 24t0 24q10 12 0 24M310 90q10 12 0 24t0 24q10 12 0 24M170 232q12-10 24 0t24 0q12-10 24 0"/>
+              <path class="f s rs" style="stroke-width:.8" d="M284 188H320M284 210H320M312 188V210"/>
+              <text class="f rt" x="328" y="203">c ≥ u</text>
+              <text class="f" x="210" y="30" text-anchor="middle">R 90</text>
+            </svg>
+            <!-- 03 Bauphysik: Wandaufbau mit Temperaturverlauf -->
+            <svg class="zeichnung" data-leistung-bild="3" data-zeichnung viewBox="0 0 420 260">
+              <rect class="s d1 schnitt" x="120" y="30" width="16" height="200"/>
+              <rect class="s d3 schnitt" x="136" y="30" width="96" height="200"/>
+              <rect class="s d1" x="232" y="30" width="110" height="200"/>
+              <rect class="s d1 schnitt" x="342" y="30" width="10" height="200"/>
+              <path class="f s d0" d="M244 30q12 20 0 40t0 40 0 40 0 40 0 40M268 30q12 20 0 40t0 40 0 40 0 40 0 40M292 30q12 20 0 40t0 40 0 40 0 40 0 40M316 30q12 20 0 40t0 40 0 40 0 40 0 40"/>
+              <path class="f s rs d2" d="M40 70H120L232 92 342 206H400"/>
+              <text class="f rt" x="40" y="60">+20 °C</text>
+              <text class="f rt" x="352" y="224">−10 °C</text>
+              <text class="f" x="184" y="250" text-anchor="middle">innen</text>
+              <text class="f" x="300" y="250" text-anchor="middle">außen</text>
+            </svg>
+            <!-- 04 Gutachten: Bestandswand mit Riss und Messmarke -->
+            <svg class="zeichnung" data-leistung-bild="4" data-zeichnung viewBox="0 0 420 260">
+              <path class="s d2" d="M60 220V60H360V220"/>
+              <path class="s d1" d="M60 100H360M60 140H360M60 180H360M110 60V100M190 60V100M270 60V100M150 100V140M230 100V140M310 100V140M110 140V180M190 140V180M270 140V180M150 180V220M230 180V220M310 180V220"/>
+              <path class="s d0" d="M40 220H380"/>
+              <path class="f s rs d2" d="M196 60L204 84 198 100 214 126 208 140 226 166 220 180 236 206 232 220"/>
+              <circle class="f s rs" cx="214" cy="126" r="34"/>
+              <path class="f s rs" d="M238 150L276 188"/>
+              <text class="f rt" x="282" y="204">w = 0,4 mm</text>
+            </svg>
+            <!-- 05 Bauüberwachung: Bewehrungsplan in Draufsicht mit Prüfhaken -->
+            <svg class="zeichnung" data-leistung-bild="5" data-zeichnung viewBox="0 0 420 260">
+              <rect class="s d2" x="50" y="40" width="320" height="180"/>
+              <path class="f s d1" d="M70 40V220M100 40V220M130 40V220M160 40V220M190 40V220M220 40V220M250 40V220M280 40V220M310 40V220M340 40V220"/>
+              <path class="f s d1" d="M50 64H370M50 94H370M50 124H370M50 154H370M50 184H370"/>
+              <rect class="f" x="300" y="150" width="96" height="50" style="fill:var(--weiss);stroke:var(--rot);stroke-width:1.2"/>
+              <path class="f s rs d2" d="M314 176l8 8 16-18"/>
+              <text class="f rt" x="346" y="181">geprüft</text>
+              <text class="f" x="210" y="244" text-anchor="middle">Ø 10 / 15 cm</text>
+            </svg>
+          </div>
+        </figure>
+      </div>
+
+      <div class="liste" data-leistungen>
+        <details class="liste__punkt" name="leistung" open data-nr="1" data-titel="Durchlaufträger · Momentenlinie">
+          <summary><span class="liste__nr mono">(01)</span><span class="liste__name">Statik &amp; Tragwerksplanung<sup>4</sup></span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt">
+            <p>Das Herzstück: die statische Berechnung, mit der Ihr Bauvorhaben genehmigt und gebaut werden kann – für Neubau, Umbau und Bestand.</p>
+            <ul>
+              <li>Statische Berechnungen</li>
+              <li>Schal- und Bewehrungspläne im Maßstab 1:50</li>
+              <li>Konstruktionszeichnungen</li>
+              <li>Tragwerksplanung für Neubau, Umbau, Aufstockung und Nutzungsänderung</li>
+            </ul>
+          </div>
+        </details>
+        <details class="liste__punkt" name="leistung" data-nr="2" data-titel="Balkenquerschnitt · Beflammung">
+          <summary><span class="liste__nr mono">(02)</span><span class="liste__name">Konstruktiver Brandschutz<sup>2</sup></span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt">
+            <p>Wie lange ein tragendes Bauteil im Brandfall hält, wird nachgewiesen – nicht geschätzt.</p>
+            <ul>
+              <li>Nachweise des konstruktiven Brandschutzes nach Eurocode</li>
+              <li>Feuerwiderstand tragender Bauteile</li>
+            </ul>
+          </div>
+        </details>
+        <details class="liste__punkt" name="leistung" data-nr="3" data-titel="Wandaufbau · Temperaturverlauf">
+          <summary><span class="liste__nr mono">(03)</span><span class="liste__name">Bauphysik<sup>3</sup></span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt">
+            <p>Die Nachweise, die für Bauantrag, Förderung und Verkauf gebraucht werden – aus demselben Büro wie die Statik.</p>
+            <ul>
+              <li>Wärmeschutznachweise nach GEG und für KfW-Förderung</li>
+              <li>Energieausweise (dena-registriert)</li>
+              <li>Schallschutznachweise nach DIN 4109</li>
+            </ul>
+          </div>
+        </details>
+        <details class="liste__punkt" name="leistung" data-nr="4" data-titel="Bestandswand · Rissbild">
+          <summary><span class="liste__nr mono">(04)</span><span class="liste__name">Gutachten &amp; Bewertungen<sup>4</sup></span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt">
+            <p>Wenn ein Riss auftaucht, ein Gebäude anders genutzt werden soll oder vor dem Kauf Klarheit nötig ist.</p>
+            <ul>
+              <li>Gutachten zur Standsicherheit</li>
+              <li>Sanierungskonzepte</li>
+              <li>Tragwerksertüchtigung</li>
+              <li>Tragfähigkeitsanalysen</li>
+            </ul>
+          </div>
+        </details>
+        <details class="liste__punkt" name="leistung" data-nr="5" data-titel="Bewehrung · Abnahme">
+          <summary><span class="liste__nr mono">(05)</span><span class="liste__name">Bauüberwachung &amp; Abnahmen<sup>2</sup></span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt">
+            <p>Die beste Berechnung nützt nichts, wenn auf der Baustelle anders gebaut wird. Deshalb schauen wir selbst nach.</p>
+            <ul>
+              <li>Überwachung der Bauausführung</li>
+              <li>Abnahmen, zum Beispiel der Bewehrung vor dem Betonieren</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ [03] BAUAUFGABEN ============ -->
+<section class="abschnitt abschnitt--eng bauaufgaben" id="bauaufgaben" aria-labelledby="bauaufgaben-titel">
+  <div class="shell">
+    <p class="marke"><b>[03]</b> Bauaufgaben</p>
+    <div class="bauaufgaben__kopf">
+      <h2 class="titel" id="bauaufgaben-titel">Vom Einfamilienhaus <span class="zweiton">bis zur Spundwand</span></h2>
+      <p class="unter">Die Physik ist überall dieselbe, die Fragen sind es nicht. Vier Bereiche, in denen wir zu Hause sind.</p>
+    </div>
+
+    <div class="bauaufgaben__in">
+      <!-- TODO Bilal: Symbolbild von Unsplash, durch ein eigenes Projektfoto ersetzen. -->
+      <figure class="bauaufgaben__foto">
+        <picture>
+          <source type="image/avif" srcset="assets/img/foto-halle-800.avif 800w, assets/img/foto-halle-1200.avif 1200w, assets/img/foto-halle-1800.avif 1800w" sizes="(max-width: 900px) 100vw, 40vw" />
+          <source type="image/webp" srcset="assets/img/foto-halle-800.webp 800w, assets/img/foto-halle-1200.webp 1200w, assets/img/foto-halle-1800.webp 1800w" sizes="(max-width: 900px) 100vw, 40vw" />
+          <img src="assets/img/foto-halle-1200.jpg" srcset="assets/img/foto-halle-800.jpg 800w, assets/img/foto-halle-1200.jpg 1200w, assets/img/foto-halle-1800.jpg 1800w" sizes="(max-width: 900px) 100vw, 40vw"
+               width="1200" height="1274" loading="lazy" decoding="async"
+               alt="Stahltragwerk einer Halle mit Trägern, Stützen und Photovoltaik-Modulen auf dem Dach" />
+        </picture>
+        <figcaption><span class="symbolbild">Symbolbild</span></figcaption>
+      </figure>
+
+      <ul class="kacheln">
+        <li class="kachel">
+          <svg class="zeichnung kachel__bild" data-zeichnung viewBox="0 0 240 140" aria-hidden="true">
+            <path class="s d2" d="M40 128V64H200V128M28 128H212"/>
+            <path class="s d1 schnitt" d="M40 64H200V70H40Z"/>
+            <path class="s d1" d="M40 96H200M96 128V100M104 128V100"/>
+            <path class="f s rs d2" style="stroke-dasharray:6 4" d="M40 64V34L120 8 200 34V64"/>
+            <text class="f rt" x="210" y="40">neu</text>
+          </svg>
+          <span class="kachel__nr mono">03.1</span>
+          <h3 class="kachel__titel">Wohnbau</h3>
+          <ul class="kachel__liste">
+            <li>Ein- und Mehrfamilienhäuser</li>
+            <li>Neubau und Umbau</li>
+            <li>Aufstockungen</li>
+            <li>Wanddurchbrüche, Nutzungsänderungen</li>
+          </ul>
+        </li>
+        <li class="kachel">
+          <svg class="zeichnung kachel__bild" data-zeichnung viewBox="0 0 240 140" aria-hidden="true">
+            <path class="s d3" d="M24 128V50M216 128V50M12 128H228"/>
+            <path class="s d2" d="M24 50L120 22 216 50M24 60H216"/>
+            <path class="f s d1" d="M24 60L48 43M48 43V60M48 60L72 36M72 36V60M72 60L96 29M96 29V60M96 60L120 22M120 22V60M144 29V60M144 60L120 22M168 36V60M168 60L144 29M192 43V60M192 60L168 36M216 60L192 43"/>
+            <path class="f s rs" d="M40 12V20M80 4V14M120 0V10M160 4V14M200 12V20"/>
+            <text class="f rt" x="120" y="112" text-anchor="middle">PV + Schnee</text>
+          </svg>
+          <span class="kachel__nr mono">03.2</span>
+          <h3 class="kachel__titel">Gewerbe- &amp; Industriebau</h3>
+          <ul class="kachel__liste">
+            <li>Produktionshallen</li>
+            <li>Stahlkonstruktionen</li>
+            <li>Komplexe Anlagen</li>
+            <li>Lastprüfung für PV-Anlagen auf Dächern</li>
+          </ul>
+        </li>
+        <li class="kachel">
+          <svg class="zeichnung kachel__bild" data-zeichnung viewBox="0 0 240 140" aria-hidden="true">
+            <path class="s d1" d="M8 40H112"/>
+            <path class="s d3" d="M112 40V136"/>
+            <path class="s d1" d="M112 96H228"/>
+            <path class="f erde" d="M16 48l10 10M36 48l10 10M56 48l10 10M76 48l10 10M96 48l10 10M16 72l10 10M36 72l10 10M56 72l10 10M76 72l10 10M96 72l10 10M16 96l10 10M36 96l10 10M56 96l10 10M76 96l10 10M96 96l10 10M16 120l10 10M36 120l10 10M56 120l10 10M76 120l10 10M96 120l10 10M126 108l10 10M150 108l10 10M174 108l10 10M198 108l10 10"/>
+            <path class="f s rs d2" d="M112 60L40 92"/>
+            <path class="f rf" d="M114 52h8v16h-8z"/>
+            <path class="f s rs" d="M140 56h40M140 76h28M140 96h16"/>
+            <text class="f rt" x="186" y="60">Erddruck</text>
+          </svg>
+          <span class="kachel__nr mono">03.3</span>
+          <h3 class="kachel__titel">Tiefbau</h3>
+          <ul class="kachel__liste">
+            <li>Spundwände und Trägerbohlwände</li>
+            <li>Winkelstützwände, Schwerlastmauern</li>
+            <li>Unterfangungen und Böschungen</li>
+            <li>Tiefgründungen</li>
+          </ul>
+        </li>
+        <li class="kachel">
+          <svg class="zeichnung kachel__bild" data-zeichnung viewBox="0 0 240 140" aria-hidden="true">
+            <path class="s d2" d="M40 128V44L120 12 200 44V128M28 128H212"/>
+            <path class="s d1" d="M70 64h20v26H70zM150 64h20v26h-20zM70 100h20v20H70z"/>
+            <path class="s d0" d="M40 56H200M40 96H200"/>
+            <path class="f s rs d3" d="M104 96H176"/>
+            <path class="f s rs" d="M104 102H176M110 96v6M170 96v6"/>
+            <path class="f s rs" d="M100 110V128M180 110V128"/>
+            <text class="f rt" x="140" y="118" text-anchor="middle">HEB 160</text>
+          </svg>
+          <span class="kachel__nr mono">03.4</span>
+          <h3 class="kachel__titel">Bestand &amp; Denkmal</h3>
+          <ul class="kachel__liste">
+            <li>Sanierung und Ertüchtigung</li>
+            <li>Umbau im Bestand</li>
+            <li>Tragwerke unter Denkmalschutz</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ [04] ABLAUF — DER LASTPFAD ============
+     Am großen Bildschirm bleibt die Zeichnung stehen, während man scrollt,
+     und baut sich Schritt für Schritt auf. main.js setzt dafür die Klassen
+     ab-1 … ab-5. Ohne JavaScript, am Handy und bei „Bewegung reduzieren"
+     steht die fertige Zeichnung einfach neben der Liste. -->
+<section class="lastpfad" id="ablauf" aria-labelledby="ablauf-titel" data-lastpfad>
+  <div class="lastpfad__buehne">
+    <div class="shell lastpfad__in">
+      <div class="lastpfad__text">
+        <p class="marke"><b>[04]</b> Ablauf</p>
+        <h2 class="titel" id="ablauf-titel">Der Lastpfad <span class="zweiton">– in fünf Schritten zum sicheren Tragwerk</span></h2>
+        <ol class="schritte">
+          <li class="schritt" data-schritt="1">
+            <span class="schritt__nr mono">01</span>
+            <div>
+              <h3 class="schritt__titel">Anfrage &amp; Unterlagen</h3>
+              <p class="schritt__text">Sie schicken Pläne, Fotos oder eine kurze Beschreibung. Sie bekommen schnell eine erste Einschätzung und ein verbindliches Angebot.</p>
+            </div>
+          </li>
+          <li class="schritt" data-schritt="2">
+            <span class="schritt__nr mono">02</span>
+            <div>
+              <h3 class="schritt__titel">Tragwerkskonzept</h3>
+              <p class="schritt__text">Gemeinsam mit Architekt oder Bauherr legen wir fest, wie das Gebäude trägt: Raster, Material, Gründung. Hier entscheidet sich, wie viel Material später verbaut wird.</p>
+            </div>
+          </li>
+          <li class="schritt" data-schritt="3">
+            <span class="schritt__nr mono">03</span>
+            <div>
+              <h3 class="schritt__titel">Statische Berechnung</h3>
+              <p class="schritt__text">Jede Last wird verfolgt – vom Schnee auf dem Dach bis in den Baugrund. Das Ergebnis ist die prüffähige Statik für Ihren Bauantrag.</p>
+            </div>
+          </li>
+          <li class="schritt" data-schritt="4">
+            <span class="schritt__nr mono">04</span>
+            <div>
+              <h3 class="schritt__titel">Ausführungspläne</h3>
+              <p class="schritt__text">Schal- und Bewehrungspläne im Maßstab 1:50, übersichtlich aufgebaut – damit auf der Baustelle niemand raten muss.</p>
+            </div>
+          </li>
+          <li class="schritt" data-schritt="5">
+            <span class="schritt__nr mono">05</span>
+            <div>
+              <h3 class="schritt__titel">Bauüberwachung &amp; Abnahme</h3>
+              <p class="schritt__text">Vor dem Betonieren prüfen wir die Bewehrung vor Ort. Erst wenn alles stimmt, geht es weiter.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <figure class="plan lastpfad__plan">
+        <div class="plan__kopf mono" aria-hidden="true"><span>Lastabtrag · Querschnitt</span><span>Schritt <span data-lastpfad-nr>05</span>/05</span></div>
+        <div class="plan__bild">
+          <svg class="zeichnung" viewBox="0 0 560 600" role="img" aria-labelledby="lastpfad-titel">
+            <title id="lastpfad-titel">Querschnitt eines dreigeschossigen Gebäudes: Schnee-, Wind- und Nutzlasten werden über Decken, Wände und Stützen bis in die Fundamente abgeleitet</title>
+
+            <!-- Schritt 1: der Entwurf -->
+            <g class="lp lp-1">
+              <rect class="s d2 schnitt" x="96" y="112" width="8" height="368"/>
+              <rect class="s d2 schnitt" x="456" y="112" width="8" height="368"/>
+              <rect class="s d2 schnitt" x="104" y="120" width="352" height="8"/>
+              <rect class="s d2 schnitt" x="104" y="240" width="352" height="8"/>
+              <rect class="s d2 schnitt" x="104" y="360" width="352" height="8"/>
+              <rect class="s d2 schnitt" x="76" y="480" width="408" height="10"/>
+              <path class="s d2" d="M275 128V240M285 128V240M275 248V360M285 248V360M275 368V480M285 368V480"/>
+              <path class="s d0" d="M104 114H456M104 234H456M104 354H456M104 474H456"/>
+              <path class="s d1" d="M16 486H76M484 486H544"/>
+              <path class="erde" style="fill:none" d="M24 494l10 10M44 494l10 10M64 494l10 10M488 494l10 10M508 494l10 10M528 494l10 10M24 518l10 10M44 518l10 10M504 518l10 10M524 518l10 10"/>
+            </g>
+
+            <!-- Schritt 2: Tragstruktur, Raster, Gründung -->
+            <g class="lp lp-2">
+              <path class="achse" d="M100 36V580M280 36V580M460 36V580"/>
+              <circle class="blase" cx="100" cy="24" r="11"/><circle class="blase" cx="280" cy="24" r="11"/><circle class="blase" cx="460" cy="24" r="11"/>
+              <text x="100" y="28.5" text-anchor="middle">A</text><text x="280" y="28.5" text-anchor="middle">B</text><text x="460" y="28.5" text-anchor="middle">C</text>
+              <rect class="s d2 schnitt" x="76" y="490" width="48" height="24"/>
+              <rect class="s d2 schnitt" x="258" y="490" width="44" height="24"/>
+              <rect class="s d2 schnitt" x="436" y="490" width="48" height="24"/>
+              <path class="s d3" d="M100 120V480M460 120V480M280 128V480"/>
+            </g>
+
+            <!-- Schritt 3: Lasten und ihr Weg in den Baugrund -->
+            <g class="lp lp-3">
+              <path class="s rs" style="stroke-width:1" d="M104 76H456"/>
+              <path class="s rs" style="stroke-width:1" d="M136 76v34M184 76v34M232 76v34M328 76v34M376 76v34M424 76v34M280 76v34"/>
+              <path class="rf" d="M132 104h8l-4 8zM180 104h8l-4 8zM228 104h8l-4 8zM276 104h8l-4 8zM324 104h8l-4 8zM372 104h8l-4 8zM420 104h8l-4 8z"/>
+              <text class="rt" x="280" y="66" text-anchor="middle">Schnee s = 0,85 kN/m²</text>
+              <path class="s rs" style="stroke-width:1" d="M30 160h56M30 220h56M30 280h56M30 340h56M30 400h56"/>
+              <path class="rf" d="M84 156l8 4-8 4zM84 216l8 4-8 4zM84 276l8 4-8 4zM84 336l8 4-8 4zM84 396l8 4-8 4z"/>
+              <text class="rt" transform="translate(22 280) rotate(-90)" text-anchor="middle">Wind</text>
+              <path class="s rs" style="stroke-width:.8" d="M150 214v18M190 214v18M230 214v18M330 214v18M370 214v18M410 214v18M150 334v18M190 334v18M230 334v18M330 334v18M370 334v18M410 334v18"/>
+              <text class="rt" x="372" y="206" text-anchor="middle">Nutzlast</text>
+              <path class="s rs lp-fluss" style="stroke-width:3" d="M190 124H280V520M370 124H280M150 124H100V520M410 124H460V520"/>
+              <path class="rf" d="M270 544h20l-10-16zM90 544h20l-10-16zM450 544h20l-10-16z"/>
+              <text class="rt" x="280" y="562" text-anchor="middle">Auflagerkraft</text>
+              <path class="rflaeche" d="M104 252C160 300 230 300 270 262C276 256 280 252 280 252C280 252 284 256 290 262C330 300 400 300 456 252Z"/>
+            </g>
+
+            <!-- Schritt 4: Bewehrung und Bemaßung -->
+            <g class="lp lp-4">
+              <path class="s rs" style="stroke-width:1.4;stroke-dasharray:14 5" d="M106 365H454M106 245H454M106 125H454"/>
+              <path class="s rs" style="stroke-width:1" d="M277 372V476M283 372V476M274 390h12M274 410h12M274 430h12M274 450h12"/>
+              <path class="s rs" style="stroke-width:.8" d="M100 584H460M100 578v12M280 578v12M460 578v12"/>
+              <text class="rt" x="190" y="578" text-anchor="middle">4,50</text>
+              <text class="rt" x="370" y="578" text-anchor="middle">4,50</text>
+            </g>
+
+            <!-- Schritt 5: Abnahme -->
+            <g class="lp lp-5">
+              <g transform="rotate(-8 390 420)">
+                <rect x="318" y="392" width="150" height="58" rx="3" style="fill:var(--weiss);stroke:var(--rot);stroke-width:2.2"/>
+                <rect x="324" y="398" width="138" height="46" rx="2" style="fill:none;stroke:var(--rot);stroke-width:.8"/>
+                <path class="s rs" style="stroke-width:3" d="M336 420l8 8 16-18"/>
+                <text class="rt" x="370" y="418" style="font-size:13px;font-weight:500">GEPRÜFT</text>
+                <text class="rt" x="370" y="435" style="font-size:10px">Bewehrung abgenommen</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ [05] ARBEITSWEISE ============ -->
+<section class="abschnitt arbeitsweise" aria-labelledby="arbeitsweise-titel">
+  <div class="shell">
+    <p class="marke"><b>[05]</b> Arbeitsweise</p>
+    <div class="arbeitsweise__kopf">
+      <h2 class="titel" id="arbeitsweise-titel">Genau gerechnet. <span class="zweiton">Sauber gezeichnet. Ehrlich angeboten.</span></h2>
+    </div>
+
+    <div class="ansicht">
+      <svg class="zeichnung" data-zeichnung viewBox="0 0 1200 300" role="img" aria-labelledby="ansicht-titel">
+        <title id="ansicht-titel">Technische Zeichnung: Seitenansicht einer Stahlhalle mit Fachwerkbindern, Toren und Bemaßung</title>
+        <path class="s d1" d="M20 240H1180"/>
+        <path class="f erde" d="M30 248l10 10M70 248l10 10M110 248l10 10M150 248l10 10M190 248l10 10M230 248l10 10M270 248l10 10M310 248l10 10M350 248l10 10M390 248l10 10M430 248l10 10M470 248l10 10M510 248l10 10M550 248l10 10M590 248l10 10M630 248l10 10M670 248l10 10M710 248l10 10M750 248l10 10M790 248l10 10M830 248l10 10M870 248l10 10M910 248l10 10M950 248l10 10M990 248l10 10M1030 248l10 10M1070 248l10 10M1110 248l10 10M1150 248l10 10"/>
+        <path class="s d3" d="M100 240V96M280 240V96M460 240V96M640 240V96M820 240V96M1000 240V96M1100 240V96"/>
+        <path class="s d2" d="M100 96H1100M100 60H1100"/>
+        <path class="f s d1" d="M100 96L130 60L160 96L190 60L220 96L250 60L280 96L310 60L340 96L370 60L400 96L430 60L460 96L490 60L520 96L550 60L580 96L610 60L640 96L670 60L700 96L730 60L760 96L790 60L820 96L850 60L880 96L910 60L940 96L970 60L1000 96L1030 60L1060 96L1100 60"/>
+        <path class="s d1" d="M100 140H1100"/>
+        <path class="s d1" d="M300 240V150H440V240M660 240V150H800V240"/>
+        <path class="f s d0" d="M300 168H440M300 186H440M300 204H440M300 222H440M660 168H800M660 186H800M660 204H800M660 222H800"/>
+        <path class="s d1" d="M860 196h30v44h-30z"/>
+        <path class="f s d0" d="M120 110h140v20H120zM480 110h140v20H480zM840 110h140v20H840z"/>
+        <g class="f">
+          <path class="achse" d="M100 14V56M280 14V56M460 14V56M640 14V56M820 14V56M1000 14V56M1100 14V56"/>
+        </g>
+        <path class="f s rs" style="stroke-width:.8" d="M100 276H1100M100 268v16M280 268v16M460 268v16M640 268v16M820 268v16M1000 268v16M1100 268v16"/>
+        <g class="f">
+          <text class="rt" x="190" y="270" text-anchor="middle">7,50</text>
+          <text class="rt" x="370" y="270" text-anchor="middle">7,50</text>
+          <text class="rt" x="550" y="270" text-anchor="middle">7,50</text>
+          <text class="rt" x="730" y="270" text-anchor="middle">7,50</text>
+          <text class="rt" x="910" y="270" text-anchor="middle">7,50</text>
+          <text class="rt" x="1050" y="270" text-anchor="middle">4,00</text>
+          <text x="1110" y="64">OK Binder +8,20</text>
+          <text x="1110" y="100">UK Binder +6,70</text>
+          <text x="20" y="232">±0,00</text>
+        </g>
+      </svg>
+    </div>
+
+    <ul class="grundsaetze">
+      <li class="grundsatz">
+        <span class="grundsatz__nr mono">01</span>
+        <h3 class="grundsatz__titel">Präzise gerechnet</h3>
+        <p>Genaue Berechnungen statt pauschaler Reserven sparen Beton und Stahl – und damit bares Geld auf der Baustelle.</p>
+      </li>
+      <li class="grundsatz">
+        <span class="grundsatz__nr mono">02</span>
+        <h3 class="grundsatz__titel">Sauber dokumentiert</h3>
+        <p>Pläne im Maßstab 1:50 und übersichtlich strukturierte Unterlagen, die Prüfer und Polier gleichermaßen sofort verstehen.</p>
+      </li>
+      <li class="grundsatz">
+        <span class="grundsatz__nr mono">03</span>
+        <h3 class="grundsatz__titel">Klare Angebote</h3>
+        <p>Wettbewerbsfähige Preise ohne versteckte Kosten und ohne Zusatzkosten, die erst auf der Rechnung auftauchen.</p>
+      </li>
+      <li class="grundsatz">
+        <span class="grundsatz__nr mono">04</span>
+        <h3 class="grundsatz__titel">Schnelle Antworten</h3>
+        <p>Kurze Wege und moderne Software: Rückfragen von der Baustelle bleiben nicht tagelang liegen.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ [06] PROFIL ============ -->
+<section class="abschnitt profil" id="profil" aria-labelledby="profil-titel">
+  <div class="shell">
+    <p class="marke"><b>[06]</b> Profil</p>
+    <div class="profil__in">
+      <!-- TODO Bilal: Porträt stammt von der bisherigen Website (nur 632 px).
+           Herrn Memic um eine größere Fassung bitten. -->
+      <figure class="profil__bild">
+        <picture>
+          <source type="image/avif" srcset="assets/img/denis-memic-320.avif 320w, assets/img/denis-memic-632.avif 632w" sizes="(max-width: 820px) 70vw, 380px" />
+          <source type="image/webp" srcset="assets/img/denis-memic-320.webp 320w, assets/img/denis-memic-632.webp 632w" sizes="(max-width: 820px) 70vw, 380px" />
+          <img src="assets/img/denis-memic-632.jpg" srcset="assets/img/denis-memic-320.jpg 320w, assets/img/denis-memic-632.jpg 632w" sizes="(max-width: 820px) 70vw, 380px"
+               width="632" height="632" loading="lazy" decoding="async"
+               alt="Porträt von Dipl.-Ing. Denis Memic, schwarz-weiß" />
+        </picture>
+        <figcaption class="mono">Dipl.-Ing. Denis Memic · Inhaber</figcaption>
+      </figure>
+
+      <div class="profil__text">
+        <!-- TODO Bilal: Klären, in welchem Staat der Grad „Dipl.-Ing." verliehen
+             bzw. anerkannt wurde (Studium Universität Tuzla). Gehört als Angabe
+             ins Impressum. -->
+        <h2 class="titel" id="profil-titel">Denis Memic <span class="zweiton">Dipl.-Ing., Tragwerksplaner</span></h2>
+        <p class="profil__lead">
+          Denis Memic hat Bauingenieurwesen an der Universität Tuzla studiert und arbeitet seit 2008
+          als Statiker. 2015 kam er nach Deutschland, zuerst zur Halber GmbH in Braunschweig, danach
+          sieben Jahre zu Goldbeck Südwest in Hirschberg an der Bergstraße. 2025 hat er in Mannheim
+          sein eigenes Ingenieurbüro gegründet.
+        </p>
+
+        <dl class="datenblatt">
+          <div><dt>Nachweisberechtigt Standsicherheit · Baden-Württemberg</dt><dd class="mono">St-0556</dd></div>
+          <div><dt>Nachweisberechtigt Standsicherheit · Hessen</dt><dd class="mono">St-3515A-IngKH</dd></div>
+          <div><dt>Energieausweise</dt><dd class="mono">dena-registriert</dd></div>
+          <div><dt>Berufshaftpflicht</dt><dd class="mono">AIA AG · Düsseldorf</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="werdegang">
+      <h3 class="werdegang__titel mono">Werdegang</h3>
+      <ol class="werdegang__liste">
+        <li style="--dauer:4"><span class="werdegang__jahr mono">2004</span><strong>Studium Bauingenieurwesen</strong><span>Universität Tuzla</span></li>
+        <li style="--dauer:4"><span class="werdegang__jahr mono">2008</span><strong>Statiker</strong><span>Sirbegovic d.o.o., Gračanica</span></li>
+        <li style="--dauer:3"><span class="werdegang__jahr mono">2012</span><strong>Statiker</strong><span>Baupartner d.o.o., Gračanica</span></li>
+        <li style="--dauer:3"><span class="werdegang__jahr mono">2015</span><strong>Tragwerksplaner</strong><span>Halber GmbH, Braunschweig</span></li>
+        <li style="--dauer:7"><span class="werdegang__jahr mono">2018</span><strong>Tragwerksplaner</strong><span>Goldbeck Südwest GmbH, Hirschberg</span></li>
+        <li style="--dauer:3" class="werdegang__jetzt"><span class="werdegang__jahr mono">2025</span><strong>Gründung</strong><span>Ingenieurbüro Memic, Mannheim</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ [07] FRAGEN ============ -->
+<section class="abschnitt fragen" id="fragen" aria-labelledby="fragen-titel">
+  <div class="shell">
+    <p class="marke"><b>[07]</b> Häufige Fragen</p>
+    <div class="fragen__in">
+      <div class="fragen__kopf">
+        <h2 class="titel" id="fragen-titel">Gut zu wissen, <span class="zweiton">bevor Sie bauen</span></h2>
+        <p class="unter">Ihre Frage ist nicht dabei? Rufen Sie einfach an: <a href="tel:+4962143748994">0621 43748994</a>.</p>
+      </div>
+      <div class="liste liste--fragen">
+        <details class="liste__punkt" name="frage">
+          <summary><span class="liste__name">Wann brauche ich einen Statiker?</span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt"><p>Immer dann, wenn tragende Bauteile neu entstehen oder verändert werden: beim Neubau, bei einer Aufstockung, beim Durchbruch einer tragenden Wand, bei neuen Gauben oder zusätzlichen Lasten wie einer Photovoltaikanlage. Für den Bauantrag ist der Standsicherheitsnachweis in der Regel Pflicht.</p></div>
+        </details>
+        <details class="liste__punkt" name="frage">
+          <summary><span class="liste__name">Darf ich eine Wand einfach entfernen?</span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt"><p>Nur, wenn sie nicht tragend ist – und das sieht man einer Wand oft nicht an. Wir prüfen anhand der Pläne oder vor Ort, ob sie Lasten abträgt, und bemessen bei Bedarf einen Träger, der diese Lasten sicher übernimmt.</p></div>
+        </details>
+        <details class="liste__punkt" name="frage">
+          <summary><span class="liste__name">Welche Unterlagen brauchen Sie?</span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt"><p>Für ein erstes Angebot reichen meist Grundrisse und Schnitte, alternativ Fotos und eine kurze Beschreibung. Bei Bestandsgebäuden helfen alte Baupläne oder eine vorhandene Statik.</p></div>
+        </details>
+        <details class="liste__punkt" name="frage">
+          <summary><span class="liste__name">Was kostet eine Statik?</span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt"><p>Das hängt von Art und Größe des Vorhabens ab. Nach einem Blick auf Ihre Unterlagen erhalten Sie ein verbindliches Angebot – ohne versteckte Kosten.</p></div>
+        </details>
+        <details class="liste__punkt" name="frage">
+          <summary><span class="liste__name">Arbeiten Sie auch außerhalb von Mannheim?</span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt"><p>Ja. Das Büro liegt in Mannheim, gearbeitet wird in der Metropolregion Rhein-Neckar, etwa in Heidelberg, Schwetzingen, Weinheim oder Viernheim. Nachweisberechtigt für Standsicherheit ist Denis Memic in Baden-Württemberg und Hessen.</p></div>
+        </details>
+        <details class="liste__punkt" name="frage">
+          <summary><span class="liste__name">Erstellen Sie auch Energieausweise?</span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt"><p>Ja, dena-registriert. Dazu kommen Wärmeschutznachweise nach GEG, auch für KfW-Förderanträge, sowie Schallschutznachweise nach DIN 4109.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ [08] KONTAKT ============ -->
+<section class="kontakt dunkel" id="kontakt" aria-labelledby="kontakt-titel">
+  <!-- TODO Bilal: Symbolbild von Unsplash als Hintergrund, siehe MEDIEN.md -->
+  <picture class="kontakt__hintergrund" aria-hidden="true">
+    <source type="image/avif" srcset="assets/img/foto-fachwerk-1280.avif 1280w, assets/img/foto-fachwerk-2560.avif 2560w" sizes="100vw" />
+    <source type="image/webp" srcset="assets/img/foto-fachwerk-1280.webp 1280w, assets/img/foto-fachwerk-2560.webp 2560w" sizes="100vw" />
+    <img src="assets/img/foto-fachwerk-1280.jpg" srcset="assets/img/foto-fachwerk-1280.jpg 1280w, assets/img/foto-fachwerk-2560.jpg 2560w" sizes="100vw" width="1280" height="854" loading="lazy" decoding="async" alt="" />
+  </picture>
+  <div class="shell kontakt__in">
+    <div class="kontakt__kopf">
+      <p class="marke"><b>[08]</b> Kontakt</p>
+      <h2 class="kontakt__titel" id="kontakt-titel">Ihr Tragwerk beginnt <span class="zweiton">mit einer Nachricht.</span></h2>
+      <span class="symbolbild kontakt__symbol">Hintergrund: Symbolbild</span>
+    </div>
+
+    <div class="kontakt__raster">
+      <form class="formular" id="anfrage" novalidate>
+        <div class="feld feld--halb">
+          <label for="f-name">Name <span aria-hidden="true">*</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="feld feld--halb">
+          <label for="f-ort">Ort des Bauvorhabens</label>
+          <input id="f-ort" name="ort" type="text" autocomplete="address-level2" />
+        </div>
+        <div class="feld feld--halb">
+          <label for="f-mail">E-Mail <span aria-hidden="true">*</span></label>
+          <input id="f-mail" name="mail" type="email" autocomplete="email" inputmode="email" />
+        </div>
+        <div class="feld feld--halb">
+          <label for="f-tel">Telefon</label>
+          <input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" />
+        </div>
+        <div class="feld">
+          <label for="f-art">Worum geht es?</label>
+          <select id="f-art" name="art">
+            <option>Wohnbau – Neubau oder Umbau</option>
+            <option>Aufstockung oder Wanddurchbruch</option>
+            <option>Gewerbe- oder Industriebau</option>
+            <option>Tiefbau</option>
+            <option>Gutachten zum Bestand</option>
+            <option>Wärmeschutz, Schallschutz, Energieausweis</option>
+            <option>Etwas anderes</option>
+          </select>
+        </div>
+        <div class="feld">
+          <label for="f-text">Ihr Vorhaben <span aria-hidden="true">*</span></label>
+          <textarea id="f-text" name="text" rows="5" required placeholder="Was soll gebaut oder verändert werden? Gibt es schon Pläne?"></textarea>
+        </div>
+        <div class="feld feld--falle" aria-hidden="true">
+          <label for="f-web">Bitte leer lassen</label>
+          <input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="feld feld--haken">
+          <input id="f-dsgvo" name="dsgvo" type="checkbox" required />
+          <label for="f-dsgvo">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen. <span aria-hidden="true">*</span></label>
+        </div>
+        <div class="formular__fuss">
+          <button class="btn btn--hell" type="submit">Per E-Mail senden <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></button>
+          <p class="formular__hinweis">Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht. Pläne oder Fotos können Sie dort direkt anhängen.</p>
+        </div>
+        <p class="formular__meldung" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+
+      <address class="kontakt__daten">
+        <div class="kontakt__block">
+          <span class="mono">Telefon</span>
+          <a class="kontakt__gross" href="tel:+4962143748994">0621 43748994</a>
+          <a href="tel:+491749648772">Mobil 0174 9648772</a>
+        </div>
+        <div class="kontakt__block">
+          <span class="mono">E-Mail</span>
+          <a class="kontakt__gross" href="mailto:info@ib-memic.de">info@ib-memic.de</a>
+        </div>
+        <div class="kontakt__block">
+          <span class="mono">Büro</span>
+          <p>iBM – Ingenieurbüro Memic<br />Dürkheimer Str. 105<br />68309 Mannheim</p>
+          <a class="kontakt__karte" href="https://www.openstreetmap.org/search?query=D%C3%BCrkheimer%20Stra%C3%9Fe%20105%2C%2068309%20Mannheim" target="_blank" rel="noopener">Auf der Karte ansehen ↗</a>
+        </div>
+      </address>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FUSS ============ -->
+<footer class="fuss dunkel">
+  <div class="shell">
+    <div class="fuss__oben">
+      <div class="fuss__marke">
+        <svg viewBox="0 0 132 112" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="2">
+            <path d="M4 32V4H100V20"/><path d="M4 96V108H128V90"/>
+          </g>
+          <g fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="2">
+            <path d="M4 58V90"/>
+            <path d="M24.5 46.5H41.5a9.25 9.25 0 0 1 0 18.5H24.5M24.5 65H43.5a10.25 10.25 0 0 1 0 20.5H24.5M24.5 42V90"/>
+            <path d="M70.5 90V46.5L86.5 72 102.5 46.5V90"/>
+          </g>
+          <rect x="-.5" y="40" width="9" height="9" fill="#ef6a52"/>
+        </svg>
+        <p>Tragwerksplanung, Bauphysik und Gutachten aus Mannheim.</p>
+      </div>
+      <nav class="fuss__spalte" aria-label="Seitenabschnitte">
+        <span class="mono">Seite</span>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#bauaufgaben">Bauaufgaben</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#profil">Profil</a>
+        <a href="#fragen">Fragen</a>
+      </nav>
+      <div class="fuss__spalte">
+        <span class="mono">Kontakt</span>
+        <a href="tel:+4962143748994">0621 43748994</a>
+        <a href="mailto:info@ib-memic.de">info@ib-memic.de</a>
+        <span>Dürkheimer Str. 105, 68309 Mannheim</span>
+      </div>
+    </div>
+    <div class="fuss__unten">
+      <span>&copy; <span id="jahr">2026</span> iBM – Ingenieurbüro Memic</span>
+      <nav aria-label="Rechtliches">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </nav>
+    </div>
+  </div>
+  <div class="fuss__wort" aria-hidden="true">Memic</div>
+</footer>
+
+<script src="assets/js/main.js?v=2026-09-14-1"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.ib-memic.de/#buero",
+  "name": "iBM – Ingenieurbüro Memic",
+  "description": "Ingenieurbüro für Tragwerksplanung in Mannheim: Statik für Wohnbau, Gewerbe- und Industriebau und Tiefbau, konstruktiver Brandschutz, Bauphysik und Gutachten.",
+  "url": "https://www.ib-memic.de/",
+  "telephone": "+49 621 43748994",
+  "email": "info@ib-memic.de",
+  "logo": "https://bilal-altu.github.io/ib-memic/assets/img/logo-ibm-marke.svg",
+  "image": "https://bilal-altu.github.io/ib-memic/assets/img/og-bild.jpg",
+  "foundingDate": "2025",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Dürkheimer Str. 105",
+    "postalCode": "68309",
+    "addressLocality": "Mannheim",
+    "addressRegion": "Baden-Württemberg",
+    "addressCountry": "DE"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Mannheim" },
+    { "@type": "City", "name": "Heidelberg" },
+    { "@type": "City", "name": "Schwetzingen" },
+    { "@type": "City", "name": "Weinheim" },
+    { "@type": "City", "name": "Viernheim" },
+    { "@type": "AdministrativeArea", "name": "Metropolregion Rhein-Neckar" }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Denis Memic",
+    "honorificPrefix": "Dipl.-Ing.",
+    "jobTitle": "Tragwerksplaner"
+  },
+  "knowsAbout": ["Tragwerksplanung", "Statik", "Konstruktiver Brandschutz", "Wärmeschutznachweis", "Schallschutznachweis", "Energieausweis", "Standsicherheitsgutachten"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Leistungen",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Statik und Tragwerksplanung", "description": "Statische Berechnungen, Schal- und Bewehrungspläne im Maßstab 1:50, Konstruktionszeichnungen." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Konstruktiver Brandschutz", "description": "Nachweise des konstruktiven Brandschutzes nach Eurocode." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bauphysik", "description": "Wärmeschutznachweise nach GEG und für KfW, Energieausweise, Schallschutznachweise nach DIN 4109." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gutachten", "description": "Standsicherheit, Sanierungskonzepte, Tragwerksertüchtigung, Tragfähigkeitsanalysen." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bauüberwachung und Abnahmen", "description": "Überwachung der Bauausführung und Abnahmen, etwa der Bewehrung." } }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Wann brauche ich einen Statiker?", "acceptedAnswer": { "@type": "Answer", "text": "Immer dann, wenn tragende Bauteile neu entstehen oder verändert werden: beim Neubau, bei einer Aufstockung, beim Durchbruch einer tragenden Wand, bei neuen Gauben oder zusätzlichen Lasten wie einer Photovoltaikanlage. Für den Bauantrag ist der Standsicherheitsnachweis in der Regel Pflicht." } },
+    { "@type": "Question", "name": "Darf ich eine Wand einfach entfernen?", "acceptedAnswer": { "@type": "Answer", "text": "Nur, wenn sie nicht tragend ist – und das sieht man einer Wand oft nicht an. Wir prüfen anhand der Pläne oder vor Ort, ob sie Lasten abträgt, und bemessen bei Bedarf einen Träger, der diese Lasten sicher übernimmt." } },
+    { "@type": "Question", "name": "Welche Unterlagen brauchen Sie?", "acceptedAnswer": { "@type": "Answer", "text": "Für ein erstes Angebot reichen meist Grundrisse und Schnitte, alternativ Fotos und eine kurze Beschreibung. Bei Bestandsgebäuden helfen alte Baupläne oder eine vorhandene Statik." } },
+    { "@type": "Question", "name": "Was kostet eine Statik?", "acceptedAnswer": { "@type": "Answer", "text": "Das hängt von Art und Größe des Vorhabens ab. Nach einem Blick auf Ihre Unterlagen erhalten Sie ein verbindliches Angebot – ohne versteckte Kosten." } },
+    { "@type": "Question", "name": "Arbeiten Sie auch außerhalb von Mannheim?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Das Büro liegt in Mannheim, gearbeitet wird in der Metropolregion Rhein-Neckar, etwa in Heidelberg, Schwetzingen, Weinheim oder Viernheim. Nachweisberechtigt für Standsicherheit ist Denis Memic in Baden-Württemberg und Hessen." } },
+    { "@type": "Question", "name": "Erstellen Sie auch Energieausweise?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, dena-registriert. Dazu kommen Wärmeschutznachweise nach GEG, auch für KfW-Förderanträge, sowie Schallschutznachweise nach DIN 4109." } }
+  ]
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO Bilal: Adressen zeigen bereits auf die echte Domain. Erst nach dem
+     Umzug zu ALL-INKL in der Google Search Console einreichen. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.ib-memic.de/</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ib-memic.de/impressum.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ib-memic.de/datenschutz.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+</urlset>

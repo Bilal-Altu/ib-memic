@@ -1,0 +1,8 @@
+# Originale und Rohmaterial gehören nicht ins Repo
+assets/img/original/
+.claude/
+
+# Systemdateien
+.DS_Store
+Thumbs.db
+desktop.ini

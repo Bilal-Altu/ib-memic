@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# TODO Bilal: Gilt erst auf der echten Domain. Die GitHub-Vorschau steht
+# zusätzlich per <meta name="robots"> auf noindex.
+Sitemap: https://www.ib-memic.de/sitemap.xml

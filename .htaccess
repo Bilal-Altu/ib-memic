@@ -1,0 +1,67 @@
+# =========================================================
+# iBM – Ingenieurbüro Memic — Serverkonfiguration für ALL-INKL (Apache)
+#
+# Diese Datei wird von GitHub Pages ignoriert und wirkt erst,
+# sobald die Seite per FTP auf dem Webspace liegt.
+# =========================================================
+
+# Verzeichnisse ohne index.html sollen keine Dateiliste ausgeben.
+Options -Indexes
+AddDefaultCharset UTF-8
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Eine einzige Regel für HTTPS und www zusammen: Zwei getrennte Regeln
+  # würden http://ib-memic.de erst auf https://ib-memic.de schicken — und
+  # dort warnt der Browser, solange das Zertifikat nur auf www lautet.
+  RewriteCond %{HTTP_HOST} ib-memic\.de$ [NC]
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.ib-memic.de%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ---------------------------------------------------------
+# Komprimierung. Bilder und woff2 sind bereits komprimiert
+# und werden bewusst ausgelassen. SVG dagegen ist Text und
+# schrumpft stark — die Zeichnungen stehen direkt im HTML.
+# ---------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+</IfModule>
+
+# ---------------------------------------------------------
+# Wie lange der Browser Dateien behalten darf.
+# HTML absichtlich 0 Sekunden, damit Textänderungen sofort
+# ankommen. CSS und JS einen Monat — das geht nur gut, weil die
+# HTML-Seiten sie mit ?v=... einbinden. Nach jeder Änderung an
+# style.css oder main.js die Zahl in allen drei HTML-Seiten
+# hochzählen.
+# ---------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 month"
+  ExpiresByType application/javascript    "access plus 1 month"
+  ExpiresByType image/avif                "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
