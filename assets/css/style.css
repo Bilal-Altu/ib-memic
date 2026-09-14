@@ -1100,6 +1100,28 @@ address { font-style: normal; }
 .planfenster__rahmen img { display: block; width: 100%; height: auto; }
 body.fenster-offen { overflow: hidden; }
 
+/* Lupe nur im geöffneten Planblatt, nur mit Maus. Sie trifft die richtige
+   Stelle, weil das Blatt den Rahmen genau ausfüllt (Breite oben aus der
+   Höhe abgeleitet). */
+.lupe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 260px;
+  border: 2px solid var(--tusche);
+  border-radius: 50%;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .28), 0 0 0 6px rgba(255, 255, 255, .7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s var(--ease);
+  will-change: transform;
+}
+.planfenster__rahmen.is-lupe { cursor: none; }
+.planfenster__rahmen.is-lupe .lupe { opacity: 1; }
+
 
 @media (max-width: 560px) {
   .planfenster { width: 96vw; max-height: 92vh; }

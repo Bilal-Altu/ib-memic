@@ -325,7 +325,9 @@
 
   /* ---------- Pläne: Karte öffnet das ganze Blatt ----------
      Das große Blatt wird erst beim Öffnen geladen. Im Fenster blättern die
-     Pfeile (auch die Pfeiltasten), Escape schließt. */
+     Pfeile (auch die Pfeiltasten), Escape schließt. Die Lupe gibt es nur im
+     Fenster und nur mit Maus; sie lädt die 2800-px-Fassung erst beim ersten
+     Überfahren. Auf dem Stapel selbst ist bewusst keine Lupe. */
   // Im Stapel liegt P-01 oben und steht deshalb im HTML zuletzt — zum
   // Blättern nach Plannummer sortieren.
   var planKarten = Array.prototype.slice.call(document.querySelectorAll(".planblatt[data-voll]"))
@@ -337,7 +339,10 @@
     var pfNr = planfenster.querySelector("[data-pf-nr]");
     var pfTitel = planfenster.querySelector("[data-pf-titel]");
     var pfLink = planfenster.querySelector("[data-pf-link]");
+    var pfRahmen = planfenster.querySelector(".planfenster__rahmen");
+    var pfLupe = planfenster.querySelector(".lupe");
     var pfIndex = 0;
+    var pfLupeBild = "";
 
     var zeigePlan = function (index) {
       pfIndex = (index + planKarten.length) % planKarten.length;
@@ -351,6 +356,9 @@
       pfNr.textContent = karte.getAttribute("data-nr");
       pfTitel.textContent = karte.getAttribute("data-titel");
       pfLink.href = basis + "-2800.jpg";
+      pfLupeBild = basis + "-2800.webp";
+      if (pfLupe) pfLupe.style.backgroundImage = "";
+      if (pfRahmen) pfRahmen.classList.remove("is-lupe");
     };
 
     planKarten.forEach(function (karte, i) {
@@ -386,6 +394,24 @@
       if (e.key === "ArrowRight") { e.preventDefault(); zeigePlan(pfIndex + 1); }
       if (e.key === "ArrowLeft") { e.preventDefault(); zeigePlan(pfIndex - 1); }
     });
+
+    if (pfRahmen && pfLupe && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      var ZOOM = 2.4;
+      pfRahmen.addEventListener("pointerenter", function () {
+        if (!pfLupe.style.backgroundImage) pfLupe.style.backgroundImage = "url(\"" + pfLupeBild + "\")";
+        pfRahmen.classList.add("is-lupe");
+      });
+      pfRahmen.addEventListener("pointerleave", function () { pfRahmen.classList.remove("is-lupe"); });
+      pfRahmen.addEventListener("pointermove", function (e) {
+        var box = pfRahmen.getBoundingClientRect();
+        var x = e.clientX - box.left;
+        var y = e.clientY - box.top;
+        var d = pfLupe.offsetWidth;
+        pfLupe.style.transform = "translate(" + (x - d / 2) + "px," + (y - d / 2) + "px)";
+        pfLupe.style.backgroundSize = (box.width * ZOOM) + "px " + (box.height * ZOOM) + "px";
+        pfLupe.style.backgroundPosition = (d / 2 - x * ZOOM) + "px " + (d / 2 - y * ZOOM) + "px";
+      });
+    }
   } else {
     // Sehr alte Browser ohne <dialog>: das große Blatt einfach in neuem Tab
     planKarten.forEach(function (karte) {
