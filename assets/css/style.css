@@ -951,7 +951,9 @@ address { font-style: normal; }
 .lastpfad .lp-fluss { stroke-dasharray: 12 10; animation: fluss 1.1s linear infinite; }
 @keyframes fluss { to { stroke-dashoffset: -22; } }
 
-.lastpfad-an .lastpfad { height: 520vh; padding: 0; }
+/* 520vh war Bilal zu viel Scrollweg (17.09.2026): Jetzt reichen zwei bis drei
+   Mausrad-Raster pro Schritt, bei 900 px Fensterhöhe rund 280 px. */
+.lastpfad-an .lastpfad { height: 250vh; padding: 0; }
 .lastpfad-an .lastpfad__buehne {
   position: sticky;
   top: var(--kopf-h);
