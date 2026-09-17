@@ -88,7 +88,7 @@ Die Domain liegt derzeit bei Squarespace.
 5. `og:url`, `og:image` und die zwei Bildadressen im JSON-LD in `index.html` auf
    `https://www.ib-memic.de/` umstellen.
 6. Abschnitt „Server-Logdateien“ in `datenschutz.html` auf ALL-INKL umschreiben.
-7. **Zuletzt** in allen vier Seiten `noindex, nofollow` auf `index, follow` stellen.
+7. **Zuletzt** in allen Seiten (index, ueber-uns, impressum, datenschutz) `noindex, nofollow` auf `index, follow` stellen.
 8. Google Search Console: Domain bestätigen, `sitemap.xml` einreichen.
 
 ## Für den technischen Blick
@@ -98,6 +98,7 @@ index.html            Startseite, alle Abschnitte, Zeichnungen als Inline-SVG
 ueber-uns.html        Unterseite „Über uns“ mit dem ausführlichen Fließtext
 impressum.html
 datenschutz.html
+404.html              Fehlerseite (greift über ErrorDocument in der .htaccess)
 favicon.svg
 .htaccess             Serverregeln für ALL-INKL
 robots.txt, sitemap.xml

@@ -19,14 +19,16 @@
 }
 /* Nur für Sonderzeichen wie das č in Gračanica — lädt der Browser
    erst, wenn so ein Zeichen tatsächlich auf der Seite steht. */
+/* Aus der vollen latin-ext-Datei (88 KB) auf die Zeichen verkleinert, die hier
+   wirklich vorkommen: die bosnisch-kroatischen Buchstaben in Namen wie Gračanica.
+   Neu bauen mit  Desktop/Memic/schrift-subset.mjs  (npm-Paket subset-font). */
 @font-face {
   font-family: "Inter Tight";
-  src: url("../fonts/inter-tight-latin-ext.woff2") format("woff2");
+  src: url("../fonts/inter-tight-ext-teil.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
-    U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0106-0107, U+010C-010D, U+0110-0111, U+0160-0161, U+017D-017E;
 }
 
 :root {
@@ -50,7 +52,8 @@
   --linie-dunkel: #3a3935;
 
   /* Rotstift */
-  --rot: #c7361f;         /* 5,1:1 auf --papier, trägt auch kleine Schrift */
+  --rot: #c7361f;         /* 4,7:1 auf --papier — für Grafik und große Schrift */
+  --rot-text: #bb3019;    /* 4,7:1 auch auf dem grauen --papier-2, für kleine rote Schrift */
   --rot-dunkel: #a82a15;
   --rot-hell: #ef6a52;    /* für Schrift auf --beton: 5,3:1 */
   --rot-zart: rgba(199, 54, 31, .12);
@@ -280,6 +283,7 @@ address { font-style: normal; }
   display: inline-block;
   padding: .5rem 0;
   font-size: .95rem;
+  white-space: nowrap;   /* „Das Büro" sonst zweizeilig, sobald es eng wird */
   text-decoration: none;
   color: var(--tusche-2);
 }
@@ -340,9 +344,16 @@ address { font-style: normal; }
    wurde gestaucht — dort rücken Logo, Menü, Nummer und Anfrage enger.
    Allein das ließ bei 1081 px keinen Pixel Luft; Safari (iPads quer:
    1133–1194 px) setzt Schrift etwas breiter, daher auch die Menüpunkte. */
+/* Sieben Menüpunkte passen zwischen 901 und 1240 px nur mit engeren Abständen
+   in eine Zeile — darunter übernimmt das Burger-Menü, darüber ist Platz genug.
+   Das Menü darf nie umbrechen, sonst wächst die Kopfleiste auf zwei Zeilen. */
+.nav__liste { flex-wrap: nowrap; }
+@media (min-width: 901px) and (max-width: 1240px) {
+  .nav__liste { gap: .85rem; }
+  .nav__liste a { font-size: .9rem; }
+}
 @media (min-width: 1081px) and (max-width: 1240px) {
   .kopf__in { gap: 1rem; }
-  .nav__liste { gap: 1.1rem; }
 }
 
 .burger {
@@ -947,7 +958,7 @@ address { font-style: normal; }
   border-bottom: 1px solid var(--linie-2);
   transition: opacity .4s var(--ease);
 }
-.schritt__nr { padding-top: .3rem; color: var(--rot); }
+.schritt__nr { padding-top: .3rem; color: var(--rot-text); }
 .schritt__titel { font-size: clamp(1.15rem, 1rem + .6vw, 1.5rem); letter-spacing: -.03em; line-height: 1.2; }
 .schritt__text { margin: .4rem 0 0; color: var(--grau); max-width: 48ch; font-size: .96rem; }
 .lastpfad__plan { background-color: var(--weiss); }
@@ -970,7 +981,7 @@ address { font-style: normal; }
 .lastpfad-an .schritt { opacity: .4; }
 .lastpfad-an .schritt .schritt__nr { color: var(--grau); }
 .lastpfad-an .schritt.is-aktiv { opacity: 1; }
-.lastpfad-an .schritt.is-aktiv .schritt__nr { color: var(--rot); }
+.lastpfad-an .schritt.is-aktiv .schritt__nr { color: var(--rot-text); }
 .lastpfad-an .schritt__text {
   max-height: 0;
   margin-top: 0;
@@ -1715,3 +1726,19 @@ body.fenster-offen { overflow: hidden; }
   .langtext__raster { grid-template-columns: 1fr; }
   .langtext__inhalt { position: static; }
 }
+
+/* ---------------------------------------------------------
+   404 — eigene Fehlerseite
+   --------------------------------------------------------- */
+.fehlerseite { padding: clamp(3rem, 2rem + 6vw, 7rem) 0 clamp(4rem, 3rem + 6vw, 8rem); }
+.fehlerseite__plan { display: block; width: 100%; max-width: 420px; margin: 0 0 clamp(2rem, 1rem + 3vw, 3rem); color: var(--tusche); }
+.fehlerseite h1 { margin: .4rem 0 0; font-size: clamp(2rem, 1.4rem + 3vw, 3.4rem); letter-spacing: -.045em; line-height: 1.05; }
+.fehlerseite__lead { margin: 1.2rem 0 0; max-width: 54ch; font-size: var(--lead); color: var(--tusche-2); }
+.fehlerseite__wege { list-style: none; margin: clamp(2rem, 1.5rem + 2vw, 3rem) 0 0; padding: 0; border-top: 1px solid var(--linie); max-width: 54ch; }
+.fehlerseite__wege li { position: relative; padding: 12px 0 12px 24px; border-bottom: 1px solid var(--linie); line-height: 24px; color: var(--grau); }
+.fehlerseite__wege li::before { content: ""; position: absolute; left: 0; top: 23px; width: 10px; height: 2px; background: var(--rot); }
+.fehlerseite__wege a { color: var(--tusche); text-decoration: none; border-bottom: 1px solid var(--linie-2); }
+.fehlerseite__wege a:hover { color: var(--rot-text); border-color: currentColor; }
+.fehlerseite__hilfe { margin: clamp(1.6rem, 1rem + 2vw, 2.4rem) 0 0; color: var(--grau); }
+.fehlerseite__hilfe a { color: var(--tusche); text-decoration: none; border-bottom: 1px solid var(--linie-2); }
+.fehlerseite__hilfe a:hover { color: var(--rot-text); }

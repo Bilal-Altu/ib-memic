@@ -10,6 +10,9 @@ Options -Indexes
 AddDefaultCharset UTF-8
 DirectoryIndex index.html
 
+# Eigene Fehlerseite statt der Apache-Standardmeldung.
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
