@@ -10,7 +10,7 @@ wählt selbst das kleinste passende. Die Originale liegen **nicht** im Repo, son
 | `foto-bewehrung-{960,1600,2560}` | Bewehrungskorb von unten, s/w, auf 2:1 beschnitten | Unsplash, **JANG RACHEL** (@rachelhee), Foto-ID `ug3PIey6fI4` | Unsplash-Lizenz | „Symbolbild“ im Foto-Band |
 | `foto-halle-{800,1200,1800}` | Stahltragwerk mit PV-Modulen, fast entsättigt | Unsplash, **Hasnan Monir** (@monirhasnan), Foto-ID `7UqBA8aBf2E` | Unsplash-Lizenz | „Symbolbild“ bei den Bauaufgaben |
 | `foto-fachwerk-{1280,2560}` | Fachwerkträger, s/w | Unsplash, **Anton Maksimov** (@juvnsky), Foto-ID `ieFQLMfamIo` | Unsplash-Lizenz | „Hintergrund: Symbolbild“ im Kontakt |
-| `denis-memic-{320,632}` | Porträt des Inhabers | von der bisherigen Website ib-memic.de (632 × 635 px) | Herr Memic | – |
+| `denis-memic-{320,632}` | Porträt des Inhabers | von der bisherigen Website ib-memic.de (632 × 635 px), Original in `Desktop\Memic\Stock\memic-portrait-original.png` | Herr Memic | Wird mit 316 px angezeigt, also genau halbe Dateigröße = scharf auf 2×-Bildschirmen |
 | `logo-ibm-marke.svg`, `favicon.svg` | Bildmarke iBM | neu gezeichnet nach dem bisherigen Logo | eigene Arbeit | – |
 
 | `plan-p0{1..4}-{1400,2800}` | Ausführungspläne P-01 bis P-04 (Dachkonstruktion, Decken über DG/OG/EG), A2, M 1:50 | Pläne von **iBM – Ingenieurbüro Memic**, Projekt 31-DM/26 (Neubau eines Dreifamilienhauses, 2026), von Bilal als Bauherr zur Verfügung gestellt | Herr Memic (Planverfasser) – Freigabe bei der Vorstellung einholen | Abschnitt „Arbeitsweise“ |
@@ -48,3 +48,10 @@ ist vermutlich KI-generiert. Nur das Porträt stammt erkennbar von Herrn Memic s
 2. In `fotos-bauen.sh` die Quelldatei austauschen und das Skript laufen lassen.
 3. In `index.html` den `alt`-Text anpassen und die Beschriftung „Symbolbild“ entfernen.
 4. Im Impressum den Bildnachweis anpassen.
+
+**Porträt in höherer Auflösung:** Die Squarespace-Seite ib-memic.de ist seit dem 17.09.2026
+abgelaufen ("Website Expired"), das Bild ist dort also nicht mehr in besserer Auflösung zu holen;
+im Internet Archive gibt es keine Sicherung. Eine schärfere Fassung kann nur von Herrn Memic
+selbst kommen — am besten die Originaldatei aus Kamera oder Handy, nicht über WhatsApp geschickt
+(WhatsApp rechnet Bilder herunter). Ab 960 px Kantenlänge lohnt der Tausch. Skript dafür:
+`Desktop/Memic/portraet-bauen.sh`.
