@@ -64,7 +64,6 @@ Diese Punkte sind offen. Sie stehen zusätzlich als `TODO Bilal:` im Quelltext.
 | Was | Wo | Warum |
 |---|---|---|
 | **Zustimmung von Herrn Memic** | – | Die Seite nutzt seinen Namen, sein Porträt und seinen Lebenslauf. |
-| **Staat der Verleihung „Dipl.-Ing.“** | `impressum.html` | Pflichtangabe bei reglementierten Berufen; Studium in Tuzla, also vermutlich Bosnien und Herzegowina — Herr Memic hat bisher nur die Berufsbezeichnung bestätigt. |
 | **Nachweisberechtigung Rheinland-Pfalz?** | `index.html` (Fragen, JSON-LD) | Ludwigshafen fehlt deshalb bewusst im Einsatzgebiet. |
 | **Größeres Porträt** | `assets/img/` | Das jetzige hat nur 632 px. |
 | **Eigene Projektfotos** | `assets/img/` | Ersetzen die drei Symbolbilder, siehe [MEDIEN.md](assets/img/MEDIEN.md). |
@@ -72,7 +71,8 @@ Diese Punkte sind offen. Sie stehen zusätzlich als `TODO Bilal:` im Quelltext.
 
 
 Am 17.09.2026 von Herrn Memic bestätigt und eingetragen: Rechtsform Einzelunternehmen,
-USt-IdNr. DE412567259, Mitgliedschaft in den Ingenieurkammern Baden-Württemberg und Hessen.
+USt-IdNr. DE412567259, Mitgliedschaft in den Ingenieurkammern Baden-Württemberg und Hessen,
+Diplom in Bosnien und Herzegowina (Universität Tuzla) erworben und in Deutschland anerkannt.
 
 ## Umzug auf ib-memic.de (ALL-INKL)
 
