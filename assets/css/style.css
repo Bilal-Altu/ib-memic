@@ -344,6 +344,17 @@ address { font-style: normal; }
   .kopf__in { gap: 1rem; }
   .nav__liste { gap: 1.1rem; }
 }
+/* Mit dem Menüpunkt „Referenzen" lief die Kopfleiste über: bei 1081 px um 50 px,
+   bei 901 px um 54 px (gemessen 17.09.2026). Bis 1200 px (iPads quer in Safari
+   eingeschlossen) entfällt deshalb „Fragen" — der Abschnitt liegt direkt über dem
+   Kontakt und ist beim Scrollen nicht zu verfehlen. Unter 1081 px rückt die
+   Kopfleiste zusätzlich enger zusammen. */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .nav__liste li:has(> a[href="#fragen"]) { display: none; }
+}
+@media (min-width: 901px) and (max-width: 1080px) {
+  .kopf__in { gap: 1rem; }
+}
 
 .burger {
   display: none;
@@ -588,7 +599,9 @@ address { font-style: normal; }
     justify-content: center;
     padding: clamp(1.25rem, 3vh, 3rem) 0 clamp(.5rem, 1.5vh, 1.25rem);
   }
-  .held__plan .zeichnung { max-height: clamp(260px, calc(100svh - var(--kopf-h) - 440px), 620px); }
+  /* Seit die Kennzahlen-Leiste weg ist (doppelte sich mit Werdegang und
+     Profil), darf die Zeichnung wieder mehr Höhe nehmen. */
+  .held__plan .zeichnung { max-height: clamp(260px, calc(100svh - var(--kopf-h) - 290px), 620px); }
   .fakten { margin-top: clamp(1.5rem, 4vh, 3.5rem); }
   .fakten li { padding-top: 1.1rem; padding-bottom: .4rem; }
 }
@@ -642,8 +655,9 @@ address { font-style: normal; }
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(2rem, 1rem + 4vw, 6rem);
   margin-top: clamp(3rem, 2rem + 4vw, 6rem);
-  align-items: end;
+  align-items: start;
 }
+.aussage__unten p { max-width: 50ch; margin: 0 0 1em; color: var(--grau); }
 .aussage__klein { max-width: 44ch; color: var(--grau); margin: 0; }
 .aussage__unten .btn { justify-self: start; margin-top: 1.5rem; }
 .aussage__liste { list-style: none; border-top: 1px solid var(--linie-2); }
@@ -880,6 +894,7 @@ address { font-style: normal; }
 .kachel__bild { max-width: 240px; margin-bottom: 1.4rem; }
 .kachel__nr { position: absolute; top: 1rem; right: 1.1rem; font-size: .7rem; color: var(--grau); }
 .kachel__titel { font-size: var(--h3); letter-spacing: -.035em; margin-bottom: .9rem; }
+.kachel__text { margin: 0 0 1.1rem; font-size: .93rem; line-height: 1.5; color: var(--grau); }
 .kachel__liste { list-style: none; margin-top: auto; }
 .kachel__liste li {
   padding: .38rem 0;
@@ -1001,10 +1016,54 @@ address { font-style: normal; }
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(2.5rem, 1rem + 5vw, 6rem);
+  align-items: start;
+}
+.arbeitsweise .grundsaetze { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; }
+
+/* Referenzen: Jede Referenz ist ein <article class="referenz">. Solange es nur
+   eine gibt, steht sie groß mit Bild links und Text rechts; ab der zweiten
+   ordnen sich alle automatisch als Raster. */
+.referenzen__kopf {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem clamp(2rem, 1rem + 4vw, 6rem);
+  align-items: end;
+  margin-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.referenzen__kopf .unter { margin: 0; }
+.referenzen__liste {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: clamp(2rem, 1rem + 2vw, 3rem) clamp(1.25rem, .8rem + 1.5vw, 2rem);
+}
+.referenz { display: flex; flex-direction: column; min-width: 0; }
+.referenz__bild { aspect-ratio: 3 / 2; overflow: hidden; background: var(--weiss); border: 1px solid var(--linie-2); }
+.referenz__bild picture, .referenz__bild img { width: 100%; height: 100%; }
+.referenz__bild img { object-fit: cover; }
+.referenz__meta { margin: 1.1rem 0 .45rem; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--rot); }
+.referenz__titel { margin-bottom: .75rem; font-size: var(--h3); letter-spacing: -.035em; line-height: 1.1; }
+.referenz__text > p:not(.referenz__meta) { max-width: 52ch; margin: 0 0 1.1rem; color: var(--grau); }
+.referenz__leistungen { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; }
+.referenz__leistungen li {
+  padding: .3rem .75rem;
+  border: 1px solid var(--linie-2);
+  border-radius: 999px;
+  font-size: .84rem;
+  color: var(--tusche-2);
+}
+.referenz:only-child {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
   align-items: center;
 }
-.arbeitsweise__intro { max-width: 52ch; margin: 1.4rem 0 0; font-size: var(--lead); color: var(--grau); }
-.arbeitsweise .grundsaetze { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(2rem, 1.5rem + 2vw, 3rem); }
+.referenz:only-child .referenz__meta { margin-top: 0; }
+/* Die Pläne-Referenz trägt statt eines Fotos den Planstapel */
+.referenz--plaene .referenz__bild { aspect-ratio: auto; overflow: visible; background: transparent; border: 0; }
+@media (max-width: 900px) {
+  .referenzen__kopf, .referenz:only-child { grid-template-columns: 1fr; }
+}
 
 .planstapel { margin: 0; }
 .planstapel__buehne { position: relative; aspect-ratio: 1.18; }
@@ -1210,7 +1269,7 @@ body.fenster-offen { overflow: hidden; }
 .werdegang__titel { margin-bottom: 1.2rem; font-size: .75rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--grau); }
 .werdegang__liste {
   display: grid;
-  grid-template-columns: 4fr 4fr 3fr 3fr 7fr 3.2fr;
+  grid-template-columns: 4fr 4fr 4fr 3fr 3fr 7fr 3.2fr;
   list-style: none;
 }
 .werdegang__liste li {
@@ -1257,7 +1316,8 @@ body.fenster-offen { overflow: hidden; }
 .werdegang__liste li:nth-child(3)::before { transition-delay: .5s; }
 .werdegang__liste li:nth-child(4)::before { transition-delay: .75s; }
 .werdegang__liste li:nth-child(5)::before { transition-delay: 1s; }
-.werdegang__liste li:nth-child(6)::before { transition-delay: 1.35s; }
+.werdegang__liste li:nth-child(6)::before { transition-delay: 1.25s; }
+.werdegang__liste li:nth-child(7)::before { transition-delay: 1.55s; }
 
 @media (max-width: 980px) {
   .werdegang__liste { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.8rem; }
@@ -1453,7 +1513,9 @@ body.fenster-offen { overflow: hidden; }
 .fuss { position: relative; overflow: hidden; padding-top: clamp(3.5rem, 2.5rem + 3vw, 5.5rem); border-top: 1px solid var(--linie-dunkel); }
 .fuss__oben {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  /* Nur Marke und Seitenmenü: Die Kontaktdaten stehen direkt darüber im
+     Kontaktblock und würden sich hier wiederholen. */
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 2.5rem;
 }
 .fuss__marke svg { width: 58px; height: auto; color: var(--auf-beton); }
