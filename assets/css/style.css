@@ -790,20 +790,23 @@ address { font-style: normal; }
 }
 .liste__inhalt p { margin: 0; color: var(--grau); }
 .liste__inhalt ul { list-style: none; border-top: 1px solid var(--linie); }
+/* Ganze Pixel: sonst landen die Striche auf unterschiedlichen Halbpixeln und
+   sehen mal kräftig, mal blass aus. Zeilenhöhe und Innenabstand in px halten
+   jede Zeile genau 40 px hoch. */
 .liste__inhalt li {
   position: relative;
-  padding: .55rem 0 .55rem 1.3rem;
+  padding: 9px 0 9px 21px;
   border-bottom: 1px solid var(--linie);
   font-size: .96rem;
-  line-height: 1.4;
+  line-height: 22px;
 }
 .liste__inhalt li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 1.1rem;
-  width: 8px;
-  height: 1.5px;
+  top: 19px;
+  width: 10px;
+  height: 2px;
   background: var(--rot);
 }
 @keyframes aufklappen {
@@ -1674,21 +1677,22 @@ body.fenster-offen { overflow: hidden; }
 .langtext__text h2 + h3 { margin-top: 1.4rem; }
 .langtext__text p { margin: 0 0 1.1em; font-size: 1.08rem; line-height: 1.7; color: var(--tusche-2); }
 .langtext__text ul { list-style: none; border-top: 1px solid var(--linie); }
+/* Siehe .liste__inhalt: ganze Pixel, damit alle Striche gleich aussehen. */
 .langtext__text li {
   position: relative;
-  padding: .75rem 0 .75rem 1.5rem;
+  padding: 12px 0 12px 24px;
   border-bottom: 1px solid var(--linie);
   font-size: 1.05rem;
-  line-height: 1.45;
+  line-height: 24px;
   color: var(--tusche-2);
 }
 .langtext__text li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 1.35rem;
-  width: 9px;
-  height: 1.5px;
+  top: 23px;
+  width: 10px;
+  height: 2px;
   background: var(--rot);
 }
 .langtext__abschluss {
