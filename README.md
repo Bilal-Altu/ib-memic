@@ -32,14 +32,13 @@ schlaich bergermann partner und LERA (Zurückhaltung statt Werbesprache), TLC En
 
 | Nr. | Abschnitt | Inhalt |
 |---|---|---|
-| 00 | Start | „Statik, die trägt.“, Querschnitt als Planblatt mit Schriftfeld |
-| 01 | Über uns | großer Satz, der sich beim Lesen dunkel färbt; darunter Memics Texte von der alten Seite |
+| 00 | Start | „Statik, die trägt.“, Querschnitt als Planblatt mit Schriftfeld, vier Fakten |
+| 01 | Haltung | großer Satz, der sich beim Lesen dunkel färbt; Eckdaten |
 | – | Foto-Band | Bewehrung, Symbolbild |
 | 02 | Leistungen | fünf Leistungen als aufklappbare Liste, daneben wechselnde Zeichnung |
 | 03 | Bauaufgaben | Wohnbau, Gewerbe & Industrie, Tiefbau, Bestand & Denkmal |
 | 04 | Ablauf – der Lastpfad | fünf Schritte; am großen Bildschirm baut sich die Zeichnung beim Scrollen auf |
-| 05 | Arbeitsweise | „Die Vorteile unserer Arbeit“ in vier Punkten |
-| – | Referenzen | Projekte des Büros; zuerst das Dreifamilienhaus als Stapel echter Ausführungspläne (fächert beim Überfahren auf, Klick öffnet das Blatt im Fenster mit Lupe) |
+| 05 | Arbeitsweise | vier Grundsätze, daneben ein Stapel aus vier echten Ausführungsplänen (fächert beim Überfahren auf, Klick öffnet das Blatt im Fenster mit Lupe) |
 | 06 | Profil | Porträt, Nachweisberechtigungen, Werdegang als Maßkette |
 | 07 | Fragen | sechs häufige Fragen (auch für Google als FAQ ausgezeichnet) |
 | 08 | Kontakt | Anfrageformular (öffnet E-Mail), Telefon, Adresse |
@@ -48,8 +47,8 @@ Dazu **Impressum** und **Datenschutzerklärung** als eigene Seiten.
 
 ## Was bewusst nicht auf der Seite steht
 
-- **Referenzen aus der Angestelltenzeit.** Projekte bei früheren Arbeitgebern (z. B. Goldbeck)
-  sind keine Referenzen von iBM. Unter „Referenzen“ stehen nur Projekte des eigenen Büros.
+- **Referenzen.** Es gibt noch keine veröffentlichbaren Projekte des Büros. Projekte aus der
+  Zeit als Angestellter (z. B. bei Goldbeck) sind keine Referenzen von iBM.
 - **Bewertungen.** Es gibt keine echten; erfundene sind abmahnfähig (§ 5b UWG).
 - **„Nachweisberechtigungen für ganz Deutschland“** (stand auf der alten Seite). Belegt sind nur
   Baden-Württemberg und Hessen.
@@ -113,15 +112,3 @@ hochzählen — ALL-INKL lässt CSS und JS einen Monat im Browser liegen.
 
 **Ohne JavaScript** und bei „Bewegung reduzieren“ ist alles vollständig sichtbar: Die
 Zeichnungen stehen fertig da, der Lastpfad ist ein normaler Abschnitt.
-
-### Eine Referenz ergänzen
-
-1. Foto oder Planausschnitt nach `Desktop\Memic\Stock\` legen und wie die übrigen Bilder in
-   AVIF, WebP und JPEG bauen, Breiten 800 und 1400, Seitenverhältnis 3:2 — Dateinamen
-   `assets/img/ref-NAME-800.*` und `ref-NAME-1400.*` (siehe `assets/img/MEDIEN.md`).
-2. In `index.html` im Abschnitt „Referenzen“ die auskommentierte **VORLAGE** kopieren, die
-   Kommentarzeichen entfernen, Bildnamen, Bereich · Jahr · Ort, Titel, Text und Leistungen eintragen.
-3. Fertig — ab zwei Referenzen stellt sich die Liste automatisch als Raster dar.
-
-Nur echte Projekte des Büros zeigen und nur mit Einverständnis des Bauherrn. Name und Adresse
-des Bauherrn gehören nicht auf die Seite.
