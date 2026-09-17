@@ -1626,3 +1626,85 @@ body.fenster-offen { overflow: hidden; }
   .lastpfad-an .lastpfad { height: auto; }
   .lastpfad-an .lastpfad__buehne { position: static; height: auto; }
 }
+
+/* ---------------------------------------------------------
+   Unterseite „Über uns": ruhiger Fließtext mit Inhaltsleiste
+   links, die beim Scrollen stehen bleibt. Die Startseite bleibt
+   kurz; ausführliche Texte stehen hier.
+   --------------------------------------------------------- */
+.seitenkopf__lead { max-width: 60ch; margin: 1.4rem 0 0; font-size: var(--lead); color: var(--grau); }
+.langtext { padding: clamp(2.5rem, 2rem + 3vw, 5rem) 0 var(--sec-y); }
+.langtext__raster {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: clamp(2rem, 1rem + 5vw, 6rem);
+  align-items: start;
+}
+.langtext__inhalt {
+  position: sticky;
+  top: calc(var(--kopf-h) + 2rem);
+  display: grid;
+  border-top: 1px solid var(--linie-2);
+}
+.langtext__inhalt-titel {
+  padding: .8rem 0 .4rem;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--grau);
+}
+.langtext__inhalt a {
+  padding: .65rem 0;
+  border-bottom: 1px solid var(--linie);
+  font-size: .95rem;
+  color: var(--tusche-2);
+  text-decoration: none;
+  transition: color .2s var(--ease);
+}
+.langtext__inhalt a:hover { color: var(--rot); }
+.langtext__text { max-width: 68ch; }
+.langtext__text section + section {
+  margin-top: clamp(3rem, 2rem + 3vw, 5rem);
+  padding-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+  border-top: 1px solid var(--linie-2);
+}
+.langtext__text h2 { margin-bottom: 1.2rem; font-size: clamp(1.7rem, 1.2rem + 1.8vw, 2.6rem); letter-spacing: -.04em; line-height: 1.05; }
+.langtext__text h3 { margin: 2.2rem 0 .6rem; font-size: 1.25rem; letter-spacing: -.025em; line-height: 1.2; }
+.langtext__text h2 + h3 { margin-top: 1.4rem; }
+.langtext__text p { margin: 0 0 1.1em; font-size: 1.08rem; line-height: 1.7; color: var(--tusche-2); }
+.langtext__text ul { list-style: none; border-top: 1px solid var(--linie); }
+.langtext__text li {
+  position: relative;
+  padding: .75rem 0 .75rem 1.5rem;
+  border-bottom: 1px solid var(--linie);
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--tusche-2);
+}
+.langtext__text li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.35rem;
+  width: 9px;
+  height: 1.5px;
+  background: var(--rot);
+}
+.langtext__abschluss {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: clamp(3rem, 2rem + 3vw, 5rem);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  background: var(--beton);
+  color: var(--auf-beton);
+}
+.langtext__abschluss p { margin: 0; font-size: clamp(1.35rem, 1rem + 1.2vw, 1.9rem); letter-spacing: -.035em; line-height: 1.15; color: var(--auf-beton); }
+.langtext__knoepfe { display: flex; flex-wrap: wrap; gap: .6rem; }
+@media (max-width: 900px) {
+  .langtext__raster { grid-template-columns: 1fr; }
+  .langtext__inhalt { position: static; }
+}
