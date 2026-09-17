@@ -996,17 +996,70 @@ address { font-style: normal; }
 /* ---------------------------------------------------------
    [05] Arbeitsweise — breite Hallenansicht, vier Grundsätze
    --------------------------------------------------------- */
-.arbeitsweise__kopf { max-width: 900px; }
-/* Arbeitsweise: links Text und Grundsätze, rechts ein Stapel aus den vier
-   echten Planblättern. Er liegt ruhig da und fächert beim Überfahren auf. */
-.arbeitsweise__raster {
+/* Referenzen (vorher „Arbeitsweise"): links Text und Projektliste, rechts der
+   Planstapel des gewählten Projekts. Er liegt ruhig da und fächert beim
+   Überfahren auf. Weitere Projekte kommen als neuer Listeneintrag plus Stapel
+   dazu; die Bereichsfilter baut main.js selbst. */
+.referenzen__raster {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(2.5rem, 1rem + 5vw, 6rem);
   align-items: center;
 }
-.arbeitsweise__intro { max-width: 52ch; margin: 1.4rem 0 0; font-size: var(--lead); color: var(--grau); }
-.arbeitsweise .grundsaetze { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(2rem, 1.5rem + 2vw, 3rem); }
+.referenzen__intro { max-width: 52ch; margin: 1.4rem 0 0; font-size: var(--lead); color: var(--grau); }
+
+.projekte__filter { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.25rem); }
+.projekte__filter[hidden] { display: none; }
+.projekte__filter button {
+  min-height: 2.5rem;
+  padding: .4rem 1.05rem;
+  border: 1px solid var(--linie-2);
+  border-radius: 999px;
+  background: transparent;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease), color .2s;
+}
+.projekte__filter button:hover { border-color: var(--tusche); }
+.projekte__filter button[aria-pressed="true"] { background: var(--tusche); border-color: var(--tusche); color: var(--papier); }
+
+.projekte { margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.25rem); list-style: none; border-top: 1px solid var(--linie-2); }
+.projekt[hidden] { display: none; }
+.projekt__knopf {
+  position: relative;
+  display: grid;
+  gap: .3rem;
+  width: 100%;
+  padding: 1.1rem 0 1.2rem;
+  border: 0;
+  border-bottom: 1px solid var(--linie-2);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+/* Das gewählte Projekt bekommt oben einen roten Strich wie eine Markierung im Plan */
+.projekt__knopf::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 2px;
+  background: var(--rot);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s var(--ease);
+}
+.projekt__knopf[aria-pressed="true"]::before { transform: scaleX(1); }
+.projekt__kopf { display: flex; align-items: center; gap: .8rem; }
+.projekt__nr { color: var(--grau); }
+.projekt__bereich { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--grau); }
+.projekt__titel { font-size: 1.3rem; font-weight: 500; letter-spacing: -.03em; line-height: 1.15; color: var(--tusche-2); transition: color .25s var(--ease); }
+.projekt__text { font-size: .95rem; line-height: 1.45; color: var(--grau); }
+.projekt__knopf:hover .projekt__titel, .projekt__knopf[aria-pressed="true"] .projekt__titel { color: var(--tusche); }
+.projekt__knopf[aria-pressed="true"] .projekt__nr, .projekt__knopf[aria-pressed="true"] .projekt__bereich { color: var(--rot); }
+.referenzen__plaene .planstapel[hidden] { display: none; }
 
 .planstapel { margin: 0; }
 .planstapel__buehne { position: relative; aspect-ratio: 1.18; }
@@ -1033,17 +1086,21 @@ address { font-style: normal; }
 .planblatt picture, .planblatt img { display: block; width: 100%; height: 100%; }
 .planblatt img { object-fit: cover; }
 /* Ruhelage: ein leicht verschobener Stapel, P-01 liegt oben */
-.planblatt:nth-child(1) { --dreh: -7deg; --x: -3%; --y: 3%; }
-.planblatt:nth-child(2) { --dreh: -3deg; --x: -1%; --y: 1.5%; }
-.planblatt:nth-child(3) { --dreh: 2.5deg; --x: 2%; --y: -.5%; }
-.planblatt:nth-child(4) { --dreh: -.5deg; }
+/* Gezählt vom obersten Blatt (im HTML zuletzt) nach unten — so liegt auch ein
+   Stapel mit zwei, drei oder sechs Blättern richtig. */
+.planblatt:nth-last-child(n+5) { --dreh: -9deg; --x: -4%; --y: 4%; }
+.planblatt:nth-last-child(4) { --dreh: -7deg; --x: -3%; --y: 3%; }
+.planblatt:nth-last-child(3) { --dreh: -3deg; --x: -1%; --y: 1.5%; }
+.planblatt:nth-last-child(2) { --dreh: 2.5deg; --x: 2%; --y: -.5%; }
+.planblatt:nth-last-child(1) { --dreh: -.5deg; }
 /* Aufgefächert — beim Überfahren und wenn ein Blatt den Tastaturfokus hat */
 /* Gemessen bei 1440 px: Mit ±15 % ragte das rechte Blatt über den Fensterrand
    und das linke in die Textspalte — deshalb ±10 %. */
-.planstapel__buehne:hover .planblatt:nth-child(1), .planstapel__buehne:focus-within .planblatt:nth-child(1) { --dreh: -10deg; --x: -10%; --y: 3%; }
-.planstapel__buehne:hover .planblatt:nth-child(2), .planstapel__buehne:focus-within .planblatt:nth-child(2) { --dreh: -3.5deg; --x: -3.5%; --y: 0%; }
-.planstapel__buehne:hover .planblatt:nth-child(3), .planstapel__buehne:focus-within .planblatt:nth-child(3) { --dreh: 3.5deg; --x: 3.5%; --y: -1%; }
-.planstapel__buehne:hover .planblatt:nth-child(4), .planstapel__buehne:focus-within .planblatt:nth-child(4) { --dreh: 9deg; --x: 10%; --y: 2%; }
+.planstapel__buehne:hover .planblatt:nth-last-child(n+5), .planstapel__buehne:focus-within .planblatt:nth-last-child(n+5) { --dreh: -12deg; --x: -11%; --y: 4%; }
+.planstapel__buehne:hover .planblatt:nth-last-child(4), .planstapel__buehne:focus-within .planblatt:nth-last-child(4) { --dreh: -10deg; --x: -10%; --y: 3%; }
+.planstapel__buehne:hover .planblatt:nth-last-child(3), .planstapel__buehne:focus-within .planblatt:nth-last-child(3) { --dreh: -3.5deg; --x: -3.5%; --y: 0%; }
+.planstapel__buehne:hover .planblatt:nth-last-child(2), .planstapel__buehne:focus-within .planblatt:nth-last-child(2) { --dreh: 3.5deg; --x: 3.5%; --y: -1%; }
+.planstapel__buehne:hover .planblatt:nth-last-child(1), .planstapel__buehne:focus-within .planblatt:nth-last-child(1) { --dreh: 9deg; --x: 10%; --y: 2%; }
 .planblatt:hover, .planblatt:focus-visible { translate: 0 -5%; box-shadow: 0 2px 4px rgba(19, 19, 19, .1), 0 34px 50px -26px rgba(19, 19, 19, .6); }
 .planblatt:focus-visible { outline: 2px solid var(--rot); outline-offset: 3px; }
 .planblatt__etikett {
@@ -1071,17 +1128,17 @@ address { font-style: normal; }
 
 /* Ohne Maus gibt es kein Überfahren: dort liegt der Stapel gleich leicht aufgefächert */
 @media (hover: none) {
-  .planblatt:nth-child(1) { --dreh: -9deg; --x: -9%; --y: 4%; }
-  .planblatt:nth-child(2) { --dreh: -3deg; --x: -3%; --y: 1%; }
-  .planblatt:nth-child(3) { --dreh: 3deg; --x: 3%; --y: -1%; }
-  .planblatt:nth-child(4) { --dreh: 8deg; --x: 9%; --y: 2%; }
+  .planblatt:nth-last-child(n+5) { --dreh: -11deg; --x: -10%; --y: 5%; }
+  .planblatt:nth-last-child(4) { --dreh: -9deg; --x: -9%; --y: 4%; }
+  .planblatt:nth-last-child(3) { --dreh: -3deg; --x: -3%; --y: 1%; }
+  .planblatt:nth-last-child(2) { --dreh: 3deg; --x: 3%; --y: -1%; }
+  .planblatt:nth-last-child(1) { --dreh: 8deg; --x: 9%; --y: 2%; }
 }
 @media (max-width: 900px) {
-  .arbeitsweise__raster { grid-template-columns: 1fr; }
+  .referenzen__raster { grid-template-columns: 1fr; }
   .planstapel { width: 100%; max-width: 560px; margin-inline: auto; }
 }
 @media (max-width: 520px) {
-  .arbeitsweise .grundsaetze { grid-template-columns: 1fr; }
   .planblatt { left: 14%; width: 72%; }
 }
 

@@ -328,10 +328,74 @@
      Pfeile (auch die Pfeiltasten), Escape schließt. Die Lupe gibt es nur im
      Fenster und nur mit Maus; sie lädt die 2800-px-Fassung erst beim ersten
      Überfahren. Auf dem Stapel selbst ist bewusst keine Lupe. */
-  // Im Stapel liegt P-01 oben und steht deshalb im HTML zuletzt — zum
-  // Blättern nach Plannummer sortieren.
-  var planKarten = Array.prototype.slice.call(document.querySelectorAll(".planblatt[data-voll]"))
-    .sort(function (a, b) { return a.getAttribute("data-nr").localeCompare(b.getAttribute("data-nr")); });
+  /* ---------- Referenzen: Projekte umschalten und filtern ----------
+     Jedes Projekt hat einen Eintrag in der Liste und einen eigenen Planstapel,
+     verbunden über data-projekt. Filterknöpfe für die Bereiche (data-bereich)
+     entstehen hier von selbst, sobald mindestens zwei Bereiche vorkommen. */
+  var projektKnoepfe = Array.prototype.slice.call(document.querySelectorAll(".projekt__knopf[data-projekt]"));
+  var projektStapel = Array.prototype.slice.call(document.querySelectorAll(".planstapel[data-projekt]"));
+
+  var zeigeProjekt = function (name) {
+    projektKnoepfe.forEach(function (k) {
+      k.setAttribute("aria-pressed", k.getAttribute("data-projekt") === name ? "true" : "false");
+    });
+    projektStapel.forEach(function (s) { s.hidden = s.getAttribute("data-projekt") !== name; });
+  };
+
+  projektKnoepfe.forEach(function (k) {
+    k.addEventListener("click", function () { zeigeProjekt(k.getAttribute("data-projekt")); });
+  });
+
+  var filterLeiste = document.querySelector("[data-projekte-filter]");
+  if (filterLeiste && projektKnoepfe.length) {
+    var bereiche = [];
+    projektKnoepfe.forEach(function (k) {
+      var b = k.closest(".projekt").getAttribute("data-bereich");
+      if (b && bereiche.indexOf(b) === -1) bereiche.push(b);
+    });
+    if (bereiche.length > 1) {
+      ["Alle"].concat(bereiche).forEach(function (bereich, i) {
+        var knopf = document.createElement("button");
+        knopf.type = "button";
+        knopf.textContent = bereich;
+        knopf.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+        knopf.addEventListener("click", function () {
+          filterLeiste.querySelectorAll("button").forEach(function (x) {
+            x.setAttribute("aria-pressed", x === knopf ? "true" : "false");
+          });
+          var erstes = null;
+          projektKnoepfe.forEach(function (k) {
+            var li = k.closest(".projekt");
+            var passt = bereich === "Alle" || li.getAttribute("data-bereich") === bereich;
+            li.hidden = !passt;
+            if (passt && !erstes) erstes = k;
+          });
+          // Ist das gewählte Projekt weggefiltert, das erste passende zeigen
+          var aktiv = projektKnoepfe.filter(function (k) {
+            return k.getAttribute("aria-pressed") === "true" && !k.closest(".projekt").hidden;
+          })[0];
+          if (!aktiv && erstes) zeigeProjekt(erstes.getAttribute("data-projekt"));
+        });
+        filterLeiste.appendChild(knopf);
+      });
+      filterLeiste.hidden = false;
+    }
+  }
+
+  if (projektKnoepfe.length) {
+    var startProjekt = projektKnoepfe.filter(function (k) { return k.getAttribute("aria-pressed") === "true"; })[0] || projektKnoepfe[0];
+    zeigeProjekt(startProjekt.getAttribute("data-projekt"));
+  }
+
+  // Alle Blätter aller Stapel. Im Fenster wird nur innerhalb des Stapels
+  // geblättert, zu dem das angeklickte Blatt gehört — sortiert nach Plannummer,
+  // weil das oberste Blatt im HTML zuletzt steht.
+  var planKarten = Array.prototype.slice.call(document.querySelectorAll(".planblatt[data-voll]"));
+  var blaetterVon = function (karte) {
+    var stapel = karte.closest(".planstapel") || document;
+    return Array.prototype.slice.call(stapel.querySelectorAll(".planblatt[data-voll]"))
+      .sort(function (a, b) { return a.getAttribute("data-nr").localeCompare(b.getAttribute("data-nr")); });
+  };
   var planfenster = document.getElementById("planfenster");
 
   if (planKarten.length && planfenster && typeof planfenster.showModal === "function") {
@@ -343,10 +407,11 @@
     var pfLupe = planfenster.querySelector(".lupe");
     var pfIndex = 0;
     var pfLupeBild = "";
+    var aktuelleBlaetter = planKarten;
 
     var zeigePlan = function (index) {
-      pfIndex = (index + planKarten.length) % planKarten.length;
-      var karte = planKarten[pfIndex];
+      pfIndex = (index + aktuelleBlaetter.length) % aktuelleBlaetter.length;
+      var karte = aktuelleBlaetter[pfIndex];
       var basis = karte.getAttribute("data-voll");
       pfBild.removeAttribute("srcset");
       pfBild.sizes = "(max-width: 560px) 900px, 94vw";
@@ -361,9 +426,10 @@
       if (pfRahmen) pfRahmen.classList.remove("is-lupe");
     };
 
-    planKarten.forEach(function (karte, i) {
+    planKarten.forEach(function (karte) {
       karte.addEventListener("click", function () {
-        zeigePlan(i);
+        aktuelleBlaetter = blaetterVon(karte);
+        zeigePlan(aktuelleBlaetter.indexOf(karte));
         planfenster.showModal();
         document.body.classList.add("fenster-offen");
       });
@@ -374,7 +440,7 @@
     var nachDemSchliessen = function () {
       if (!document.body.classList.contains("fenster-offen")) return;
       document.body.classList.remove("fenster-offen");
-      if (planKarten[pfIndex]) planKarten[pfIndex].focus();
+      if (aktuelleBlaetter[pfIndex]) aktuelleBlaetter[pfIndex].focus();
     };
     var schliesseFenster = function () {
       if (planfenster.open) planfenster.close();

@@ -38,7 +38,7 @@ schlaich bergermann partner und LERA (Zurückhaltung statt Werbesprache), TLC En
 | 02 | Leistungen | fünf Leistungen als aufklappbare Liste, daneben wechselnde Zeichnung |
 | 03 | Bauaufgaben | Wohnbau, Gewerbe & Industrie, Tiefbau, Bestand & Denkmal |
 | 04 | Ablauf – der Lastpfad | fünf Schritte; am großen Bildschirm baut sich die Zeichnung beim Scrollen auf |
-| 05 | Arbeitsweise | vier Grundsätze, daneben ein Stapel aus vier echten Ausführungsplänen (fächert beim Überfahren auf, Klick öffnet das Blatt im Fenster mit Lupe) |
+| 05 | Referenzen | Projektliste links (mit Bereichsfiltern, sobald es mehrere Bereiche gibt), rechts der Planstapel des gewählten Projekts (fächert beim Überfahren auf, Klick öffnet das Blatt im Fenster mit Lupe) |
 | 06 | Profil | Porträt, Nachweisberechtigungen, Werdegang als Maßkette |
 | 07 | Fragen | sechs häufige Fragen (auch für Google als FAQ ausgezeichnet) |
 | 08 | Kontakt | Anfrageformular (öffnet E-Mail), Telefon, Adresse |
@@ -47,8 +47,10 @@ Dazu **Impressum** und **Datenschutzerklärung** als eigene Seiten.
 
 ## Was bewusst nicht auf der Seite steht
 
-- **Referenzen.** Es gibt noch keine veröffentlichbaren Projekte des Büros. Projekte aus der
-  Zeit als Angestellter (z. B. bei Goldbeck) sind keine Referenzen von iBM.
+- **Fremde Projekte ohne Freigabe.** Unter „Referenzen“ kommen nur Pläne, die Herr Memic zeigen
+  darf. Bei älteren Projekten aus der Zeit als Angestellter (z. B. bei Goldbeck) liegen die Rechte
+  meist beim damaligen Arbeitgeber bzw. Bauherrn — vorher klären und kenntlich machen, dass es
+  Projekterfahrung vor der Gründung ist.
 - **Bewertungen.** Es gibt keine echten; erfundene sind abmahnfähig (§ 5b UWG).
 - **„Nachweisberechtigungen für ganz Deutschland“** (stand auf der alten Seite). Belegt sind nur
   Baden-Württemberg und Hessen.
@@ -112,3 +114,21 @@ hochzählen — ALL-INKL lässt CSS und JS einen Monat im Browser liegen.
 
 **Ohne JavaScript** und bei „Bewegung reduzieren“ ist alles vollständig sichtbar: Die
 Zeichnungen stehen fertig da, der Lastpfad ist ein normaler Abschnitt.
+
+### Ein Projekt ergänzen (Referenzen)
+
+Jedes Projekt besteht aus zwei Teilen in `index.html`, verbunden über denselben Namen
+(`data-projekt`, z. B. `halle-walldorf`). Für beides steht eine auskommentierte **VORLAGE** direkt
+im Abschnitt „Referenzen“.
+
+1. **Pläne vorbereiten:** PDFs rendern und Bauherr/Adresse im Schriftfeld überdecken wie in
+   `assets/img/MEDIEN.md` beschrieben. Das Schriftfeld sitzt bei jedem Büro woanders — die
+   Koordinaten fürs Überdecken jedes Mal neu bestimmen und das Ergebnis ansehen.
+2. **Bilder bauen:** je Blatt `plan-NAME-NN-720`, `-1400` und `-2800` in AVIF, WebP und JPEG
+   (2800 nur WebP und JPEG nötig).
+3. **Listeneintrag:** VORLAGE Projektliste kopieren. `data-bereich` bestimmt den Filter —
+   Schreibweise bei allen Projekten gleich halten (Massivbau, Holzbau, Stahlbau …).
+4. **Planstapel:** VORLAGE Planstapel kopieren, ein `<button class="planblatt">` pro Blatt, das
+   oberste Blatt zuletzt, `hidden` am `<figure>` stehen lassen.
+5. Ab zwei verschiedenen Bereichen erscheinen die Filterknöpfe von selbst. Die Blattzahl pro
+   Stapel ist frei; im Fenster wird nur innerhalb des gewählten Projekts geblättert.
