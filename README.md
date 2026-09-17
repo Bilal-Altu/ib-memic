@@ -64,20 +64,23 @@ Diese Punkte sind offen. Sie stehen zusätzlich als `TODO Bilal:` im Quelltext.
 | Was | Wo | Warum |
 |---|---|---|
 | **Zustimmung von Herrn Memic** | – | Die Seite nutzt seinen Namen, sein Porträt und seinen Lebenslauf. |
-| **Rechtsform** | `impressum.html` | Pflichtangabe nach § 5 DDG. Vermutlich Einzelunternehmen. |
-| **USt-IdNr.** | `impressum.html` | Nur falls vorhanden. |
-| **Staat der Verleihung „Dipl.-Ing.“** | `impressum.html` | Pflichtangabe bei reglementierten Berufen; Studium in Tuzla. |
-| **Kammermitgliedschaft** | `impressum.html` | Mitglied oder nur in der Liste der Nachweisberechtigten? |
+| **Staat der Verleihung „Dipl.-Ing.“** | `impressum.html` | Pflichtangabe bei reglementierten Berufen; Studium in Tuzla, also vermutlich Bosnien und Herzegowina — Herr Memic hat bisher nur die Berufsbezeichnung bestätigt. |
 | **Nachweisberechtigung Rheinland-Pfalz?** | `index.html` (Fragen, JSON-LD) | Ludwigshafen fehlt deshalb bewusst im Einsatzgebiet. |
 | **Größeres Porträt** | `assets/img/` | Das jetzige hat nur 632 px. |
 | **Eigene Projektfotos** | `assets/img/` | Ersetzen die drei Symbolbilder, siehe [MEDIEN.md](assets/img/MEDIEN.md). |
 | **Hoster** | `datenschutz.html` | Nach dem Umzug ALL-INKL eintragen und AV-Vertrag abschließen. |
 
+
+Am 17.09.2026 von Herrn Memic bestätigt und eingetragen: Rechtsform Einzelunternehmen,
+USt-IdNr. DE412567259, Mitgliedschaft in den Ingenieurkammern Baden-Württemberg und Hessen.
+
 ## Umzug auf ib-memic.de (ALL-INKL)
 
 Die Domain liegt derzeit bei Squarespace.
 
-1. Domain zu ALL-INKL umziehen (Auth-Code bei Squarespace anfordern).
+1. Domain zu ALL-INKL umziehen. Den Auth-Code hat Squarespace am 17.09.2026 an Herrn Memic
+   geschickt; er liegt bewusst NICHT in diesem Repo, sondern nur bei ihm. Vor dem Umzug den
+   Domain-Schutz („Transfer Lock“) bei Squarespace ausschalten.
 2. Alle Dateien per FTP hochladen, **inklusive `.htaccess`** (Umleitung auf https://www,
    Komprimierung, Cache-Zeiten).
 3. Let's-Encrypt-Zertifikat für `ib-memic.de` und `www.ib-memic.de` aktivieren.
