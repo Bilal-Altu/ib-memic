@@ -67,7 +67,7 @@ Diese Punkte sind offen. Sie stehen zusätzlich als `TODO Bilal:` im Quelltext.
 | **Nachweisberechtigung Rheinland-Pfalz?** | `index.html` (Fragen, JSON-LD) | Ludwigshafen fehlt deshalb bewusst im Einsatzgebiet. |
 | **Größeres Porträt** | `assets/img/` | Das jetzige hat nur 632 px. |
 | **Eigene Projektfotos** | `assets/img/` | Ersetzen die drei Symbolbilder, siehe [MEDIEN.md](assets/img/MEDIEN.md). |
-| **Hoster** | `datenschutz.html` | Nach dem Umzug ALL-INKL eintragen und AV-Vertrag abschließen. |
+| **AV-Vertrag mit ALL-INKL** | KAS | Muss abgeschlossen sein, bevor die Seite live geht — die Datenschutzerklärung sagt aus, dass es ihn gibt. |
 
 
 Am 17.09.2026 von Herrn Memic bestätigt und eingetragen: Rechtsform Einzelunternehmen,
@@ -87,7 +87,7 @@ Die Domain liegt derzeit bei Squarespace.
 4. Postfach `info@ib-memic.de` bei ALL-INKL anlegen (vorher Mails bei Squarespace sichern).
 5. `og:url`, `og:image` und die zwei Bildadressen im JSON-LD in `index.html` auf
    `https://www.ib-memic.de/` umstellen.
-6. Abschnitt „Server-Logdateien“ in `datenschutz.html` auf ALL-INKL umschreiben.
+6. Auftragsverarbeitungsvertrag mit ALL-INKL im KAS abschließen (die Datenschutzerklärung nennt ihn bereits).
 7. **Zuletzt** in allen Seiten (index, ueber-uns, impressum, datenschutz) `noindex, nofollow` auf `index, follow` stellen.
 8. Google Search Console: Domain bestätigen, `sitemap.xml` einreichen.
 
