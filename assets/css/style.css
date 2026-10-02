@@ -1753,7 +1753,18 @@ body.fenster-offen { overflow: hidden; }
   padding-top: clamp(2.4rem, 1.6rem + 2.5vw, 3.6rem);
   border-top: 1px solid var(--linie);
 }
-.partner__titel { margin: 0 0 1.8rem; color: var(--grau); font-weight: 400; }
+.partner__titel {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0 0 clamp(1.6rem, 1.2rem + 1vw, 2.4rem);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+  letter-spacing: -.04em;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--tusche);
+}
+.partner__titel::after { content: ""; flex: 1; height: 1px; background: var(--linie-2); }
 .partner__in {
   display: grid;
   grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
@@ -1763,10 +1774,10 @@ body.fenster-offen { overflow: hidden; }
 .partner__logo { display: block; }
 .partner__logo img { display: block; width: 100%; height: auto; }
 .partner__name {
-  margin: 0 0 1rem;
-  font-size: clamp(1.3rem, 1rem + 1vw, 1.85rem);
-  letter-spacing: -.035em;
-  line-height: 1.15;
+  margin: 0 0 .9rem;
+  font-size: clamp(1.05rem, 1rem + .45vw, 1.3rem);
+  letter-spacing: -.02em;
+  line-height: 1.2;
   font-weight: 600;
 }
 .partner__text p {
