@@ -1749,55 +1749,42 @@ body.fenster-offen { overflow: hidden; }
    Partnerbüro — ruhiger Block unter der Haltung
    --------------------------------------------------------- */
 .partner {
-  margin-top: clamp(3rem, 2rem + 4vw, 5.5rem);
-  padding-top: clamp(2.4rem, 1.6rem + 2.5vw, 3.6rem);
+  margin-top: clamp(2rem, 1.5rem + 2vw, 3.2rem);
+  padding-top: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem);
   border-top: 1px solid var(--linie);
 }
 .partner__titel {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  margin: 0 0 clamp(1.6rem, 1.2rem + 1vw, 2.4rem);
-  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
-  letter-spacing: -.04em;
-  line-height: 1.1;
+  margin: 0 0 1rem;
+  font-size: 1.08rem;
+  letter-spacing: -.02em;
+  line-height: 1.2;
   font-weight: 600;
   color: var(--tusche);
 }
-.partner__titel::after { content: ""; flex: 1; height: 1px; background: var(--linie-2); }
+.partner__titel .zweiton { font-weight: 400; }
 .partner__in {
   display: grid;
-  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
-  gap: clamp(2rem, 1.5rem + 4vw, 5rem);
+  grid-template-columns: minmax(0, 200px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 1rem + 2.5vw, 3rem);
   align-items: center;
 }
 .partner__logo { display: block; }
 .partner__logo img { display: block; width: 100%; height: auto; }
-.partner__name {
-  margin: 0 0 .9rem;
-  font-size: clamp(1.05rem, 1rem + .45vw, 1.3rem);
-  letter-spacing: -.02em;
-  line-height: 1.2;
-  font-weight: 600;
-}
 .partner__text p {
-  margin: 0 0 1rem;
-  max-width: 62ch;
+  margin: 0 0 .7rem;
   color: var(--tusche-2);
-  font-size: clamp(1rem, .94rem + .3vw, 1.14rem);
-  line-height: 1.6;
+  font-size: .97rem;
+  line-height: 1.5;
 }
-.partner__text p:last-of-type { color: var(--tusche); }
+.partner__text p:last-child { margin-bottom: 0; }
+.partner__web { color: var(--grau); }
 .partner__link {
-  display: inline-block;
-  margin-top: .5rem;
   color: var(--rot-text);
   text-decoration: none;
   border-bottom: 1px solid var(--linie-2);
-  font-size: 1.02rem;
 }
 .partner__link:hover { border-color: currentColor; }
 @media (max-width: 820px) {
-  .partner__in { grid-template-columns: 1fr; gap: 1.8rem; }
-  .partner__logo { max-width: 240px; }
+  .partner__in { grid-template-columns: 1fr; gap: 1.2rem; }
+  .partner__logo { max-width: 190px; }
 }
