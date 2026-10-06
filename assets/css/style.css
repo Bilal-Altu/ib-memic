@@ -1779,10 +1779,18 @@ body.fenster-offen { overflow: hidden; }
    Partnerbüro — ruhiger Block unter der Haltung
    --------------------------------------------------------- */
 .partner {
+  /* Zwei Spalten wie im Abschnitt darueber: links der Text, rechts die
+     Partner. Einspaltig blieb die rechte Haelfte leer. */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(2rem, 1rem + 4vw, 6rem);
+  align-items: start;
   margin-top: clamp(2rem, 1.5rem + 2vw, 3.2rem);
   padding-top: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem);
   border-top: 1px solid var(--linie);
 }
+.partner__titel, .partner__vorsatz, .partner__nachsatz { grid-column: 1; }
+.partner__raster { grid-column: 2; grid-row: 1 / span 3; }
 .partner__titel {
   margin: 0 0 1rem;
   font-size: 1.08rem;
@@ -1803,7 +1811,6 @@ body.fenster-offen { overflow: hidden; }
 .partner__raster {
   display: grid;
   gap: clamp(1.3rem, 1rem + 1.2vw, 2rem);
-  margin-top: clamp(1.4rem, 1rem + 1.5vw, 2rem);
 }
 /* Logo links, Angaben rechts daneben. Die Schrift bleibt so klein, dass der
    Textblock nicht hoeher wird als das Logo. */
@@ -1825,6 +1832,11 @@ body.fenster-offen { overflow: hidden; }
   border-bottom: 1px solid var(--linie-2);
 }
 .partner__link:hover { border-color: currentColor; }
+@media (max-width: 900px) {
+  .partner { grid-template-columns: 1fr; }
+  .partner__raster { grid-column: 1; grid-row: auto; margin: clamp(1.4rem, 1rem + 1.5vw, 2rem) 0; }
+  .partner__nachsatz { margin-top: 0; }
+}
 @media (max-width: 560px) {
   .partner__karte { grid-template-columns: 112px minmax(0, 1fr); gap: 1rem; }
 }
