@@ -1,5 +1,5 @@
 /* =========================================================
-   iBM – Ingenieurbüro Memic — Interaktionen
+   Ingenieurbüro Memic — Interaktionen
    Kein Framework, keine externen Abhängigkeiten.
    Alles hier ist Zugabe: Ohne diese Datei ist die Seite
    vollständig lesbar, die Zeichnungen stehen einfach fertig da.

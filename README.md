@@ -1,6 +1,6 @@
-# iBM – Ingenieurbüro Memic — Website
+# Ingenieurbüro Memic — Website
 
-Website für **iBM – Ingenieurbüro Memic**, Dipl.-Ing. Denis Memic, Dürkheimer Str. 105,
+Website für **Ingenieurbüro Memic**, Dipl.-Ing. Denis Memic, Dürkheimer Str. 105,
 68309 Mannheim. Tragwerksplanung · Bauphysik · Gutachten.
 
 Dies ist ein **Entwurf zur Ansicht**. Texte, Farben und Aufbau lassen sich jederzeit ändern.

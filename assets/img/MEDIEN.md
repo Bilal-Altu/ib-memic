@@ -11,9 +11,10 @@ wählt selbst das kleinste passende. Die Originale liegen **nicht** im Repo, son
 | `foto-halle-{800,1200,1800}` | Stahltragwerk mit PV-Modulen, fast entsättigt | Unsplash, **Hasnan Monir** (@monirhasnan), Foto-ID `7UqBA8aBf2E` | Unsplash-Lizenz | „Symbolbild“ bei den Bauaufgaben |
 | `foto-fachwerk-{1280,2560}` | Fachwerkträger, s/w | Unsplash, **Anton Maksimov** (@juvnsky), Foto-ID `ieFQLMfamIo` | Unsplash-Lizenz | „Hintergrund: Symbolbild“ im Kontakt |
 | `denis-memic-{320,632}` | Porträt des Inhabers | von Herrn Memic am 17.09.2026 geschickt (632 × 635 px), Quelle `Desktop\Memic\Stock\memic-portrait-whatsapp.png`; die alte Fassung von der Squarespace-Seite liegt daneben als `memic-portrait-original.png` | Herr Memic | Wird mit 316 px angezeigt, also genau halbe Dateigröße = scharf auf 2×-Bildschirmen |
-| `logo-ibm-marke.svg`, `favicon.svg` | Bildmarke iBM | neu gezeichnet nach dem bisherigen Logo | eigene Arbeit | – |
+| `logo-marke.svg`, `favicon.svg` | Bildmarke: offener Planrahmen mit M und Rotstiftmarke | eigener Entwurf, weil die alte Marke die drei Buchstaben iBM zeigte (Verwechslung mit IBM) | eigene Arbeit | – |
+| ~~`logo-ibm-marke.svg`~~ | alte Bildmarke iBM, am 06.10.2026 ersetzt | nach dem bisherigen Logo | eigene Arbeit | – |
 
-| `plan-p0{1..4}-{1400,2800}` | Ausführungspläne P-01 bis P-04 (Dachkonstruktion, Decken über DG/OG/EG), A2, M 1:50 | Pläne von **iBM – Ingenieurbüro Memic**, Projekt 31-DM/26 (Neubau eines Dreifamilienhauses, 2026), von Bilal als Bauherr zur Verfügung gestellt | Herr Memic (Planverfasser) – Freigabe bei der Vorstellung einholen | Abschnitt „Arbeitsweise“ |
+| `plan-p0{1..4}-{1400,2800}` | Ausführungspläne P-01 bis P-04 (Dachkonstruktion, Decken über DG/OG/EG), A2, M 1:50 | Pläne von **Ingenieurbüro Memic**, Projekt 31-DM/26 (Neubau eines Dreifamilienhauses, 2026), von Bilal als Bauherr zur Verfügung gestellt | Herr Memic (Planverfasser) – Freigabe bei der Vorstellung einholen | Abschnitt „Arbeitsweise“ |
 
 Alle übrigen technischen Zeichnungen stehen als SVG direkt in `index.html` und sind eigene Darstellungen.
 
