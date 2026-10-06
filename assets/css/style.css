@@ -1307,7 +1307,9 @@ body.fenster-offen { overflow: hidden; }
 .werdegang__titel { margin-bottom: 1.2rem; font-size: .75rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--grau); }
 .werdegang__liste {
   display: grid;
-  grid-template-columns: 4fr 4fr 3fr 3fr 7fr 3.2fr;
+  /* Sieben Stationen in einer Reihe. Die Werte sind nicht streng nach Jahren,
+     sondern nach dem Platz, den die Beschriftung braucht. */
+  grid-template-columns: 4.5fr 3fr 3fr 3fr 3.5fr 3.5fr 4fr;
   list-style: none;
 }
 .werdegang__liste li {
@@ -1355,6 +1357,7 @@ body.fenster-offen { overflow: hidden; }
 .werdegang__liste li:nth-child(4)::before { transition-delay: .75s; }
 .werdegang__liste li:nth-child(5)::before { transition-delay: 1s; }
 .werdegang__liste li:nth-child(6)::before { transition-delay: 1.35s; }
+.werdegang__liste li:nth-child(7)::before { transition-delay: 1.6s; }
 
 @media (max-width: 980px) {
   .werdegang__liste { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.8rem; }
