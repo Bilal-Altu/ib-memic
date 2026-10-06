@@ -523,27 +523,24 @@
       if (falsch) ok = false;
     });
     if (!ok) {
-      melde("Bitte Name, eine gültige E-Mail-Adresse und Ihr Vorhaben angeben und den Datenschutzhinweis bestätigen.", "error");
+      melde("Bitte Name, eine gültige E-Mail-Adresse und eine Nachricht angeben und den Datenschutzhinweis bestätigen.", "error");
       if (erstes) erstes.focus();
     }
     return ok;
-  }
-
-  function vorhabenArt() {
-    var gewaehlt = formular ? formular.querySelector('input[name="art"]:checked') : null;
-    return gewaehlt ? gewaehlt.value : "Allgemeine Anfrage";
   }
 
   if (formular) {
     formular.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!pruefe()) return;
-      var zeilen = ["Name: " + wert("f-name"), "E-Mail: " + wert("f-mail")];
+      var zeilen = ["Name / Unternehmen: " + wert("f-name"), "E-Mail: " + wert("f-mail")];
       if (wert("f-tel")) zeilen.push("Telefon: " + wert("f-tel"));
+      if (wert("f-projekt")) zeilen.push("Bauvorhaben: " + wert("f-projekt"));
       if (wert("f-ort")) zeilen.push("Ort des Bauvorhabens: " + wert("f-ort"));
-      zeilen.push("Art: " + vorhabenArt(), "", wert("f-text"));
+      zeilen.push("", wert("f-text"));
+      var betreff = wert("f-projekt") ? "Projektanfrage – " + wert("f-projekt") : "Projektanfrage über die Website";
       window.location.href = "mailto:" + MAIL +
-        "?subject=" + encodeURIComponent("Anfrage über die Website – " + vorhabenArt()) +
+        "?subject=" + encodeURIComponent(betreff) +
         "&body=" + encodeURIComponent(zeilen.join("\n"));
       melde("Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht. Bitte dort noch auf „Senden“ klicken.", "ok");
     });
