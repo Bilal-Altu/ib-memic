@@ -33,7 +33,7 @@
 <!-- ?v= nach JEDER Änderung an style.css oder main.js hochzählen — hier, in
      impressum.html und datenschutz.html. ALL-INKL hält CSS/JS laut .htaccess
      einen Monat im Browser vor. -->
-<link rel="stylesheet" href="assets/css/style.css?v=2026-10-06-1" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-06-2" />
 </head>
 <body>
 
@@ -71,15 +71,10 @@
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
       <div class="nav__fuss">
-        <a class="btn" href="#kontakt">Projekt anfragen <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-        <a class="btn btn--linie btn--ohne-pfeil" href="tel:+491749648772">0174 9648772</a>
+        <a class="btn" href="#kontakt">Kontakt <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
       </div>
     </nav>
 
-    <a class="kopf__tel" href="tel:+491749648772">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-      0174 9648772
-    </a>
     <a class="btn kopf__cta" href="#kontakt">Kontakt <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
 
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen">
@@ -796,55 +791,15 @@
     <div class="kontakt__kopf">
       <p class="marke">Kontakt</p>
       <h2 class="kontakt__titel" id="kontakt-titel">Kontakt &amp; <span class="zweiton">Projektanfragen.</span></h2>
+      <p class="kontakt__lead">
+        Für Fragen zu laufenden Projekten, neuen Bauvorhaben oder einer möglichen Zusammenarbeit
+        erreichen Sie uns telefonisch oder per E-Mail. Projektunterlagen und Pläne können Sie gerne
+        direkt mitsenden.
+      </p>
       <span class="symbolbild kontakt__symbol">Hintergrund: Symbolbild</span>
     </div>
 
     <div class="kontakt__raster">
-      <form class="formular" id="anfrage" novalidate>
-        <div class="formular__kopf">
-          <h3 class="formular__titel">Projektanfrage</h3>
-          <p class="formular__unter">Für Fragen zu laufenden Projekten, neuen Bauvorhaben oder einer möglichen Zusammenarbeit erreichen Sie uns telefonisch oder per E-Mail. Projektunterlagen und Pläne können Sie gerne direkt mitsenden.</p>
-        </div>
-
-        <div class="feld feld--halb">
-          <label for="f-name">Name / Unternehmen <span class="pflicht" aria-hidden="true">*</span></label>
-          <input id="f-name" name="name" type="text" autocomplete="organization" required />
-        </div>
-        <div class="feld feld--halb">
-          <label for="f-mail">E-Mail <span class="pflicht" aria-hidden="true">*</span></label>
-          <input id="f-mail" name="mail" type="email" autocomplete="email" inputmode="email" required />
-        </div>
-        <div class="feld feld--halb">
-          <label for="f-tel">Telefon</label>
-          <input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" />
-        </div>
-        <div class="feld feld--halb">
-          <label for="f-projekt">Bauvorhaben / Projektbezeichnung</label>
-          <input id="f-projekt" name="projekt" type="text" />
-        </div>
-        <div class="feld">
-          <label for="f-ort">Ort des Bauvorhabens</label>
-          <input id="f-ort" name="ort" type="text" autocomplete="address-level2" />
-        </div>
-        <div class="feld">
-          <label for="f-text">Nachricht <span class="pflicht" aria-hidden="true">*</span></label>
-          <textarea id="f-text" name="text" rows="5" required></textarea>
-        </div>
-        <div class="feld feld--falle" aria-hidden="true">
-          <label for="f-web">Bitte leer lassen</label>
-          <input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off" />
-        </div>
-        <div class="feld feld--haken">
-          <input id="f-dsgvo" name="dsgvo" type="checkbox" required />
-          <label for="f-dsgvo">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen. <span class="pflicht" aria-hidden="true">*</span></label>
-        </div>
-        <div class="formular__fuss">
-          <button class="btn btn--rot btn--breit" type="submit">Nachricht senden <span class="btn__pfeil"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></button>
-          <p class="formular__hinweis">Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht – Pläne und Unterlagen können Sie dort direkt anhängen.</p>
-        </div>
-        <p class="formular__meldung" id="formNote" role="status" aria-live="polite"></p>
-      </form>
-
       <address class="kontakt__daten">
         <div class="kontakt__block">
           <span class="etikett">Telefon</span>
@@ -911,7 +866,7 @@
   <div class="fuss__wort" aria-hidden="true">Memic</div>
 </footer>
 
-<script src="assets/js/main.js?v=2026-10-06-1"></script>
+<script src="assets/js/main.js?v=2026-10-06-2"></script>
 
 <script type="application/ld+json">
 {

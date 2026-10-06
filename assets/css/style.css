@@ -1418,11 +1418,14 @@ body.fenster-offen { overflow: hidden; }
 }
 .kontakt__symbol { display: inline-block; margin-top: 1.2rem; color: var(--auf-beton-grau); }
 .kontakt__raster {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr);
-  gap: clamp(2.5rem, 1rem + 5vw, 7rem);
-  margin-top: clamp(3rem, 2rem + 3vw, 5rem);
-  align-items: start;
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.kontakt__lead {
+  margin: 1.4rem 0 0;
+  max-width: 62ch;
+  color: var(--auf-beton-grau);
+  font-size: clamp(1rem, .95rem + .3vw, 1.15rem);
+  line-height: 1.55;
 }
 
 /* Das Formular ist eine helle Karte auf dem dunklen Block: Es soll das
@@ -1505,9 +1508,10 @@ body.fenster-offen { overflow: hidden; }
 
 .kontakt__daten {
   display: grid;
-  gap: 2rem;
-  padding-left: clamp(1.5rem, 1rem + 2vw, 3rem);
-  border-left: 1px solid var(--linie-dunkel);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 1.5rem + 2vw, 4rem);
+  padding-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+  border-top: 1px solid var(--linie-dunkel);
 }
 .kontakt__block { display: grid; gap: .35rem; justify-items: start; }
 .kontakt__block .etikett { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--auf-beton-grau); }
@@ -1518,8 +1522,7 @@ body.fenster-offen { overflow: hidden; }
 .kontakt__block a.kontakt__karte { color: var(--rot-hell); font-size: .92rem; }
 
 @media (max-width: 900px) {
-  .kontakt__raster { grid-template-columns: 1fr; }
-  .kontakt__daten { padding: 2rem 0 0; border-left: 0; border-top: 1px solid var(--linie-dunkel); }
+  .kontakt__daten { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .formular { grid-template-columns: 1fr; }
