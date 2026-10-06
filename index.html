@@ -33,7 +33,7 @@
 <!-- ?v= nach JEDER Änderung an style.css oder main.js hochzählen — hier, in
      impressum.html und datenschutz.html. ALL-INKL hält CSS/JS laut .htaccess
      einen Monat im Browser vor. -->
-<link rel="stylesheet" href="assets/css/style.css?v=2026-10-06-2" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-06-3" />
 </head>
 <body>
 
@@ -347,6 +347,31 @@
               <path class="f s rs" d="M238 150L276 188"/>
               <text class="f rt" x="282" y="204">w = 0,4 mm</text>
             </svg>
+            <!-- 06 Bauphysik: Wandaufbau mit Temperaturverlauf -->
+            <svg class="zeichnung" data-leistung-bild="6" data-zeichnung viewBox="0 0 420 260">
+              <rect class="s d1 schnitt" x="120" y="30" width="16" height="200"/>
+              <rect class="s d3 schnitt" x="136" y="30" width="96" height="200"/>
+              <rect class="s d1" x="232" y="30" width="110" height="200"/>
+              <rect class="s d1 schnitt" x="342" y="30" width="10" height="200"/>
+              <path class="f s d0" d="M244 30q12 20 0 40t0 40 0 40 0 40 0 40M268 30q12 20 0 40t0 40 0 40 0 40 0 40M292 30q12 20 0 40t0 40 0 40 0 40 0 40M316 30q12 20 0 40t0 40 0 40 0 40 0 40"/>
+              <path class="f s rs d2" d="M40 70H120L232 92 342 206H400"/>
+              <text class="f rt" x="40" y="60">+20 °C</text>
+              <text class="f rt" x="352" y="224">−10 °C</text>
+              <text class="f" x="184" y="250" text-anchor="middle">innen</text>
+              <text class="f" x="300" y="250" text-anchor="middle">außen</text>
+            </svg>
+            <!-- 07 Brandschutz: Stahlbetonbalken im Schnitt, dreiseitig beflammt -->
+            <svg class="zeichnung" data-leistung-bild="7" data-zeichnung viewBox="0 0 420 260">
+              <rect class="s d3 schnitt" x="150" y="40" width="120" height="170"/>
+              <path class="s d1" d="M60 40H150M270 40H360"/>
+              <circle class="s voll" cx="172" cy="188" r="6"/><circle class="s voll" cx="210" cy="188" r="6"/><circle class="s voll" cx="248" cy="188" r="6"/>
+              <circle class="s voll" cx="172" cy="62" r="4"/><circle class="s voll" cx="248" cy="62" r="4"/>
+              <rect class="f s d0" x="164" y="54" width="92" height="142"/>
+              <path class="f s rs" d="M110 90q10 12 0 24t0 24q10 12 0 24M310 90q10 12 0 24t0 24q10 12 0 24M170 232q12-10 24 0t24 0q12-10 24 0"/>
+              <path class="f s rs" style="stroke-width:.8" d="M284 188H320M284 210H320M312 188V210"/>
+              <text class="f rt" x="328" y="203">c ≥ u</text>
+              <text class="f" x="210" y="30" text-anchor="middle">R 90</text>
+            </svg>
             <!-- 05 Bauüberwachung: Bewehrungsplan in Draufsicht mit Prüfhaken -->
             <svg class="zeichnung" data-leistung-bild="5" data-zeichnung viewBox="0 0 420 260">
               <rect class="s d2" x="50" y="40" width="320" height="180"/>
@@ -423,6 +448,27 @@
               <li>Bewehrungsabnahmen vor dem Betonieren</li>
               <li>Kontrolle konstruktiver Details und Anschlüsse</li>
               <li>Technische Klärung bei Abweichungen während der Ausführung</li>
+            </ul>
+          </div>
+        </details>
+        <details class="liste__punkt" name="leistung" data-nr="6" data-titel="Wandaufbau · Temperaturverlauf">
+          <summary><span class="liste__nr etikett">(06)</span><span class="liste__name">Bauphysik<sup>3</sup></span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt">
+            <p>Die Nachweise, die für Bauantrag, Förderung und Verkauf gebraucht werden – aus demselben Büro wie die Statik.</p>
+            <ul>
+              <li>Wärmeschutznachweise nach GEG und für KfW-Förderung</li>
+              <li>Energieausweise (dena-registriert)</li>
+              <li>Schallschutznachweise nach DIN 4109</li>
+            </ul>
+          </div>
+        </details>
+        <details class="liste__punkt" name="leistung" data-nr="7" data-titel="Balkenquerschnitt · Beflammung">
+          <summary><span class="liste__nr etikett">(07)</span><span class="liste__name">Konstruktiver Brandschutz<sup>2</sup></span><span class="liste__plus" aria-hidden="true"></span></summary>
+          <div class="liste__inhalt">
+            <p>Wie lange ein tragendes Bauteil im Brandfall hält, wird nachgewiesen – nicht geschätzt.</p>
+            <ul>
+              <li>Nachweise des konstruktiven Brandschutzes nach Eurocode</li>
+              <li>Feuerwiderstand tragender Bauteile</li>
             </ul>
           </div>
         </details>
@@ -572,6 +618,8 @@
 
           <!-- VORLAGE Projektliste — kopieren, Kommentarzeichen entfernen, anpassen.
                data-bereich bestimmt den Filter (Schreibweise bei allen Projekten gleich halten).
+               Geplant laut Herrn Memic (06.10.2026): 02 Stahlbau, 03 Industriebau,
+               04 Bauen im Bestand. Dafür fehlen noch Titel, Ort, Jahr und Pläne.
           <li class="projekt" data-bereich="Stahlbau">
             <button type="button" class="projekt__knopf" data-projekt="NAME" aria-pressed="false" aria-controls="stapel-NAME">
               <span class="projekt__kopf"><span class="projekt__nr etikett">02</span><span class="projekt__bereich">Stahlbau</span></span>
@@ -866,7 +914,7 @@
   <div class="fuss__wort" aria-hidden="true">Memic</div>
 </footer>
 
-<script src="assets/js/main.js?v=2026-10-06-2"></script>
+<script src="assets/js/main.js?v=2026-10-06-3"></script>
 
 <script type="application/ld+json">
 {
@@ -900,7 +948,7 @@
     "honorificPrefix": "Dipl.-Ing.",
     "jobTitle": "Tragwerksplaner"
   },
-  "knowsAbout": ["Tragwerksplanung", "Statik", "Ausführungsplanung", "Schalplan", "Bewehrungsplan", "Stahlbau", "Bauen im Bestand", "Standsicherheitsgutachten"],
+  "knowsAbout": ["Tragwerksplanung", "Statik", "Ausführungsplanung", "Schalplan", "Bewehrungsplan", "Stahlbau", "Bauen im Bestand", "Standsicherheitsgutachten", "Bauphysik", "Energieausweis", "Konstruktiver Brandschutz"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Leistungen",
@@ -909,7 +957,9 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ausführungsplanung", "description": "Schalpläne, Bewehrungspläne und Stahllisten, Konstruktionspläne, Stahlbau- und Anschlussdetails." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bauen im Bestand", "description": "Umbauten, Aufstockungen, Wanddurchbrüche, Nutzungsänderungen und Verstärkungsmaßnahmen." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gutachten und technische Stellungnahmen", "description": "Standsicherheit, Tragfähigkeitsbewertungen, Schadensbeurteilungen, Sanierungs- und Verstärkungskonzepte." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baubegleitung und Abnahmen", "description": "Kontrolle tragwerksrelevanter Ausführungen und Bewehrungsabnahmen vor dem Betonieren." } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baubegleitung und Abnahmen", "description": "Kontrolle tragwerksrelevanter Ausführungen und Bewehrungsabnahmen vor dem Betonieren." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bauphysik", "description": "Wärmeschutznachweise nach GEG und für KfW, Energieausweise, Schallschutznachweise nach DIN 4109." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Konstruktiver Brandschutz", "description": "Nachweise des konstruktiven Brandschutzes nach Eurocode." } }
     ]
   }
 }
