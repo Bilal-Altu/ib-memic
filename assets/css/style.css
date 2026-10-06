@@ -266,10 +266,27 @@ address { font-style: normal; }
   text-decoration: none;
   flex-shrink: 0;
 }
-.marke-logo svg { width: 42px; height: auto; }
+.marke-logo svg { width: 36px; height: auto; }
 .marke-logo__text { display: grid; line-height: 1.15; }
-.marke-logo__name { font-weight: 600; font-size: 1rem; letter-spacing: -.02em; }
-.marke-logo__zusatz { font-size: .8rem; color: var(--grau); letter-spacing: -.005em; }
+/* Schriftzug wie auf dem Logo: Versalien, MEMIC fett, rote Linie, gesperrte Unterzeile. */
+.marke-logo__name { font-weight: 500; font-size: .92rem; letter-spacing: .015em; text-transform: uppercase; }
+.marke-logo__name b { font-weight: 700; }
+.marke-logo__zusatz {
+  position: relative;
+  margin-top: .28rem;
+  padding-top: .3rem;
+  font-size: .575rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--grau);
+}
+.marke-logo__zusatz::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--rot);
+}
 
 .nav { margin-left: auto; }
 .nav__liste {
@@ -1539,7 +1556,7 @@ body.fenster-offen { overflow: hidden; }
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 2.5rem;
 }
-.fuss__marke svg { width: 58px; height: auto; color: var(--auf-beton); }
+.fuss__marke svg { width: 52px; height: auto; color: var(--auf-beton); }
 .fuss__marke p { max-width: 30ch; margin: 1.2rem 0 0; color: var(--auf-beton-grau); }
 .fuss__spalte { display: grid; align-content: start; gap: .55rem; }
 .fuss__spalte .etikett { margin-bottom: .3rem; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--auf-beton-grau); }

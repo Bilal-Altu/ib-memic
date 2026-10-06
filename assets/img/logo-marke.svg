@@ -1,14 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 112" role="img" aria-label="Ingenieurbüro Memic">
-  <!-- Bildmarke: offener Rahmen wie eine Plan-Ecke, darin das M von Memic.
-       Die Rotstiftmarke sitzt auf dem offenen Ende der Rahmenkante.
-       Die frühere Fassung zeigte die Buchstaben i B M – zu nah an IBM,
-       deshalb am 06.10.2026 ersetzt. Reine Pfade, keine Schrift nötig. -->
-  <g fill="none" stroke="#131313" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="2">
-    <path d="M4 32V4H100V20"/>
-    <path d="M4 96V108H128V90"/>
-  </g>
-  <g fill="none" stroke="#131313" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="2">
-    <path d="M30 90V36L64 74 98 36V90"/>
-  </g>
-  <rect x="-0.5" y="27.5" width="9" height="9" fill="#c7361f"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181 180" role="img" aria-label="Ingenieurbüro Memic">
+  <!-- Bildmarke nach der Vorlage von Herrn Memic (06.10.2026), Pixel ausgemessen
+       und als Pfade nachgezeichnet: offener Planrahmen, rote Ecke oben links,
+       das M von Memic haengt am rechten Schenkel. -->
+  <path fill="#131313" d="M54 0H181V12H54ZM0 48H12V168H118V180H0ZM169 0H181V101H169ZM107 109H118L143.5 165.5 169 109H181V179H169V130L147 179H140L118 130V179H107Z"/>
+  <path fill="#c7361f" d="M0 0H46V12H12V40H0Z"/>
 </svg>
