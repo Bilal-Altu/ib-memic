@@ -1344,7 +1344,9 @@ body.fenster-offen { overflow: hidden; }
   background: linear-gradient(135deg, transparent 45%, var(--tusche) 45%, var(--tusche) 58%, transparent 58%);
   transform: rotate(-90deg);
 }
-.werdegang__liste li:last-child::before { background: var(--rot); height: 2px; }
+/* Ab 2021 rot: seit der Gruendung arbeitet er auf eigene Rechnung,
+   zuerst neben der Anstellung, seit 2025 hauptberuflich. */
+.werdegang__liste li.werdegang__eigen::before { background: var(--rot); height: 2px; }
 .werdegang__jahr { position: absolute; top: 0; left: 0; font-size: .78rem; color: var(--grau); }
 .werdegang__liste strong { font-weight: 500; letter-spacing: -.01em; }
 .werdegang__liste span:not(.werdegang__jahr) { color: var(--grau); }
