@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Kleinform der Marke: bei 16 px sind der offene Rahmen und seine 1-px-Striche
+       nicht mehr lesbar, deshalb hier nur die beiden tragenden Teile — das M von
+       Memic und die rote Ecke. Das vollstaendige Zeichen steht in logo-marke.svg. -->
   <rect width="64" height="64" rx="12" fill="#131313"/>
-  <g transform="translate(12 12) scale(.221)">
-    <path fill="#f2f1ed" d="M54 0H181V12H54ZM0 48H12V168H118V180H0ZM169 0H181V101H169ZM107 109H118L143.5 165.5 169 109H181V179H169V130L147 179H140L118 130V179H107Z"/>
-    <path fill="#e04a30" d="M0 0H46V12H12V40H0Z"/>
-  </g>
+  <path fill="none" stroke="#f2f1ed" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="2" d="M19 53V23L36 47 53 23V53"/>
+  <path fill="#e04a30" d="M6 6H24V13H13V27H6Z"/>
 </svg>
